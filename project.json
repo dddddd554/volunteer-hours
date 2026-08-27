@@ -1,0 +1,17 @@
+{
+  "overview": "A mobile volunteer-hours dashboard screen with a minimalist off-white and deep red design, showing a welcome header, total hours status card, quick action grid, and bottom navigation.",
+  "features": [
+    "Welcome header with status bar and user profile",
+    "Deep red total hours status card",
+    "2x3 quick action grid",
+    "Bottom navigation bar"
+  ],
+  "category": "dashboard",
+  "tags": [
+    "dashboard",
+    "volunteer",
+    "mobile",
+    "showcase"
+  ],
+  "last_updated": "2026-08-27T02:44:17.684Z"
+}
