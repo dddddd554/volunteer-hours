@@ -7,12 +7,50 @@ export interface None {
     __kind__: "None";
 }
 export type Option<T> = Some<T> | None;
+import type { ExternalBlob } from "@caffeineai/object-storage";
+export type { ExternalBlob } from "@caffeineai/object-storage";
+export interface Activity {
+    id: bigint;
+    title: string;
+    hours: bigint;
+    date: string;
+    createdAt: bigint;
+    filename: string;
+    image: ExternalBlob;
+}
+export interface Result {
+    hasMore: boolean;
+    rows: Array<Array<Cell>>;
+}
+export interface Cell {
+    value: Value;
+    name: string;
+}
 export type Result__1 = {
     __kind__: "ok";
     ok: null;
 } | {
     __kind__: "err";
     err: Error_;
+};
+export type Value = {
+    __kind__: "int";
+    int: bigint;
+} | {
+    __kind__: "nat";
+    nat: bigint;
+} | {
+    __kind__: "float";
+    float: number;
+} | {
+    __kind__: "bool";
+    bool: boolean;
+} | {
+    __kind__: "null";
+    null: null;
+} | {
+    __kind__: "text";
+    text: string;
 };
 export type Error_ = {
     __kind__: "FrontendOriginsNotConfigured";
@@ -58,42 +96,17 @@ export type Error_ = {
         expected: Array<string>;
     };
 };
-export interface Result {
-    hasMore: boolean;
-    rows: Array<Array<Cell>>;
-}
-export type Value = {
-    __kind__: "int";
-    int: bigint;
-} | {
-    __kind__: "nat";
-    nat: bigint;
-} | {
-    __kind__: "float";
-    float: number;
-} | {
-    __kind__: "bool";
-    bool: boolean;
-} | {
-    __kind__: "null";
-    null: null;
-} | {
-    __kind__: "text";
-    text: string;
-};
-export interface Cell {
-    value: Value;
-    name: string;
-}
 export enum UserRole {
     admin = "admin",
     user = "user",
     guest = "guest"
 }
 export interface backendInterface {
+    addActivity(title: string, hours: bigint, date: string, image: ExternalBlob, filename: string): Promise<Activity>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     execute(qJson: string): Promise<Result>;
     getCallerUserRole(): Promise<UserRole>;
     isCallerAdmin(): Promise<boolean>;
+    listActivities(): Promise<Array<Activity>>;
     schema(): Promise<string>;
 }

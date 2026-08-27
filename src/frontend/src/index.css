@@ -39,10 +39,10 @@
     --accent: 0.44 0.19 25;
     --accent-foreground: 0.97 0.01 25;
 
-    --destructive: 0.5 0.2 25;
+    --destructive: 0.55 0.22 25;
     --destructive-foreground: 0.97 0.01 25;
 
-    --success: 0.55 0.15 150;
+    --success: 0.52 0.14 150;
     --warning: 0.7 0.15 85;
 
     --border: 0.88 0.02 75;
@@ -51,7 +51,7 @@
 
     --chart-1: 0.44 0.19 25;
     --chart-2: 0.6 0.12 45;
-    --chart-3: 0.55 0.12 155;
+    --chart-3: 0.52 0.14 150;
     --chart-4: 0.7 0.1 75;
     --chart-5: 0.5 0.12 265;
 
@@ -63,6 +63,34 @@
     --sidebar-accent-foreground: 0.3 0.02 40;
     --sidebar-border: 0.88 0.02 75;
     --sidebar-ring: 0.44 0.19 25;
+
+    /* Photo / evidence system tokens */
+    --photo-frame: 0.985 0.015 75; /* photo preview surface */
+    --photo-border: 0.82 0.03 75; /* photo frame hairline */
+    --viewfinder: 0.12 0.02 40; /* camera viewfinder backdrop */
+    --viewfinder-grid: 0.9 0.03 75; /* scan grid lines */
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.48 0.2 25),
+      oklch(0.38 0.16 25)
+    );
+    --gradient-subtle: linear-gradient(
+      135deg,
+      oklch(0.99 0.012 78 / 0.9),
+      oklch(0.94 0.02 72 / 0.6)
+    );
+
+    /* Responsive layout tokens — mobile-first, expand on tablet/desktop */
+    --shell-max: 420px; /* phone-frame max width on mobile */
+    --shell-desktop-max: 1400px; /* full-screen content max width */
+    --shell-pad: 1.25rem; /* mobile page padding (p-5) */
+    --shell-pad-md: 2rem; /* tablet page padding */
+    --shell-pad-lg: 3rem; /* desktop page padding */
+    --nav-h: 3.75rem; /* top nav height on desktop */
+    --sidebar-w: 16rem; /* side nav width on desktop */
+    --grid-gap: 1rem; /* base gap between sections */
+    --grid-gap-md: 1.5rem; /* expanded gap on tablet/desktop */
   }
 
   .dark {
@@ -108,6 +136,23 @@
     --sidebar-accent-foreground: 0.85 0.01 55;
     --sidebar-border: 0.3 0.02 40;
     --sidebar-ring: 0.62 0.17 25;
+
+    /* Photo / evidence system tokens */
+    --photo-frame: 0.2 0.018 40;
+    --photo-border: 0.34 0.03 40;
+    --viewfinder: 0.08 0.015 40;
+    --viewfinder-grid: 0.75 0.02 50;
+
+    /* Responsive layout tokens (layout values shared across themes) */
+    --shell-max: 420px;
+    --shell-desktop-max: 1400px;
+    --shell-pad: 1.25rem;
+    --shell-pad-md: 2rem;
+    --shell-pad-lg: 3rem;
+    --nav-h: 3.75rem;
+    --sidebar-w: 16rem;
+    --grid-gap: 1rem;
+    --grid-gap-md: 1.5rem;
   }
 
   * {
@@ -121,6 +166,14 @@
 @layer utilities {
   .transition-smooth {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+
+  .bg-gradient-subtle {
+    background-image: var(--gradient-subtle);
   }
 
   .texture-beige {
@@ -142,5 +195,169 @@
       oklch(0.99 0.01 78 / 0.8),
       transparent 55%
     );
+  }
+
+  /* ===== Photo evidence system ===== */
+  /* Photo preview frame (uploaded/captured evidence) */
+  .photo-frame {
+    position: relative;
+    border-radius: calc(var(--radius) * 0.75);
+    border: 1px solid oklch(var(--photo-border));
+    background-color: oklch(var(--photo-frame));
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Dashed empty-state drop target for photo evidence */
+  .photo-drop {
+    border: 1.5px dashed oklch(var(--photo-border));
+    border-radius: calc(var(--radius) * 0.75);
+    background-color: oklch(var(--muted) / 0.5);
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+  }
+
+  .photo-drop:hover {
+    border-color: oklch(var(--primary));
+    background-color: oklch(var(--muted));
+  }
+
+  /* Camera viewfinder backdrop for the Scan tab */
+  .viewfinder {
+    position: relative;
+    border-radius: calc(var(--radius) * 0.75);
+    background-color: oklch(var(--viewfinder));
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  /* Scan corner brackets overlay */
+  .scan-grid {
+    background-image: linear-gradient(
+        oklch(var(--viewfinder-grid) / 0.18) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        oklch(var(--viewfinder-grid) / 0.18) 1px,
+        transparent 1px
+      );
+    background-size: 24px 24px;
+  }
+
+  /* ===== Responsive shell utilities ===== */
+  /* Mobile: centered phone-frame dashboard */
+  .app-shell {
+    width: 100%;
+    max-width: var(--shell-max);
+    margin-inline: auto;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Tablet/desktop: expand to full-screen layout */
+  @media (min-width: 768px) {
+    .app-shell {
+      max-width: none;
+      margin-inline: 0;
+    }
+  }
+
+  /* Desktop: cap content width inside the expanded shell */
+  .app-content {
+    width: 100%;
+    max-width: var(--shell-desktop-max);
+    margin-inline: auto;
+    padding-inline: var(--shell-pad);
+  }
+
+  @media (min-width: 768px) {
+    .app-content {
+      padding-inline: var(--shell-pad-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .app-content {
+      padding-inline: var(--shell-pad-lg);
+    }
+  }
+
+  /* Hide the fake phone status bar on tablet/desktop */
+  .status-bar {
+    display: flex;
+  }
+
+  @media (min-width: 768px) {
+    .status-bar {
+      display: none;
+    }
+  }
+
+  /* Mobile bottom nav: visible only on phones */
+  .bottom-nav {
+    display: flex;
+  }
+
+  @media (min-width: 768px) {
+    .bottom-nav {
+      display: none;
+    }
+  }
+
+  /* Desktop top/side nav: hidden on mobile, shown on tablet/desktop */
+  .desktop-nav {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-nav {
+      display: flex;
+    }
+  }
+
+  /* Action grid: 3 cols on mobile, expand to fill space on tablet/desktop */
+  .action-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--grid-gap);
+  }
+
+  @media (min-width: 768px) {
+    .action-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--grid-gap-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .action-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  /* Stat cards: single column on mobile, expand on tablet/desktop */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap);
+  }
+
+  @media (min-width: 768px) {
+    .stat-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--grid-gap-md);
+    }
   }
 }

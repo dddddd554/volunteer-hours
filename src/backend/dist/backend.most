@@ -1,14 +1,66 @@
 // Version: 4.0.0
+type Activity__1027287507 =
+  {
+    createdAt : Int;
+    date : Text;
+    filename : Text;
+    hours : Nat;
+    id : Nat;
+    image : ExternalBlob__220559234;
+    title : Text
+  };
+type Activity__773224824 =
+  {createdAt : Int; date : Text; hours : Nat; id : Nat; title : Text};
 type Data__265875254<K, V> = {var count : Nat__58649523; kvs : [var ?(K, V)]};
+type ExternalBlob__220559234 = Blob;
 type Internal__161573640<K, V> =
   {children : [var ?Node__430031793<K, V>]; data : Data__265875254<K, V>};
 type Leaf__1045638083<K, V> = {data : Data__265875254<K, V>};
+type List__1004628775<T> =
+  {
+    var blockIndex : Nat__58649523;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__58649523
+  };
+type List__89170296<T> = List__1004628775<T>;
 type Map__13625999<K, V> =
   {var root : Node__430031793<K, V>; var size : Nat__58649523};
 type Map__386906547<K, V> = Map__670138087<K, V>;
 type Map__670138087<K, V> = Map__13625999<K, V>;
 type Nat__58649523 = Nat__920180692;
 type Nat__920180692 = Nat;
+type NewActivity__534418665 =
+  {
+    createdAt : Int;
+    date : Text;
+    filename : Text;
+    hours : Nat;
+    id : Nat;
+    image : Blob;
+    title : Text
+  };
+type NewActor__228804214 =
+  {
+    accessControlState :
+      {
+        var adminAssigned : Bool;
+        userRoles : Map__386906547<Principal, UserRole__225726603>
+      };
+    activities :
+      Map__386906547<Principal, List__89170296<Activity__773224824>>;
+    state : {var nextId : Nat}
+  };
+type NewActor__394838867 =
+  {
+    accessControlState :
+      {
+        var adminAssigned : Bool;
+        userRoles : Map__386906547<Principal, UserRole__977898085>
+      };
+    activities :
+      Map__386906547<Principal, List__89170296<NewActivity__534418665>>;
+    state : {var nextId : Nat}
+  };
 type NewActor__695517033 =
   {
     accessControlState :
@@ -19,16 +71,48 @@ type NewActor__695517033 =
   };
 type Node__430031793<K, V> =
   {#internal : Internal__161573640<K, V>; #leaf : Leaf__1045638083<K, V>};
+type OldActivity__652777453 =
+  {createdAt : Int; date : Text; hours : Nat; id : Nat; title : Text};
+type OldActor__48442141 =
+  {
+    accessControlState :
+      {
+        var adminAssigned : Bool;
+        userRoles : Map__386906547<Principal, UserRole__225726603>
+      }
+  };
 type OldActor__741741474 = {};
+type OldActor__977362577 =
+  {
+    accessControlState :
+      {
+        var adminAssigned : Bool;
+        userRoles : Map__386906547<Principal, UserRole__977898085>
+      };
+    activities :
+      Map__386906547<Principal, List__89170296<OldActivity__652777453>>;
+    state : {var nextId : Nat}
+  };
+type UserRole__225726603 = {#admin; #guest; #user};
 type UserRole__481701060 = {#admin; #guest; #user};
 type UserRole__91647283 = {#admin; #guest; #user};
+type UserRole__977898085 = {#admin; #guest; #user};
 {
-  "20260827_000000" : (_old : OldActor__741741474) -> NewActor__695517033
+  "20260827_000000" : (_old : OldActor__741741474) -> NewActor__695517033;
+  "20260827_120000" : (old : OldActor__48442141) -> NewActor__228804214;
+  "20260827_130000" : (old : OldActor__977362577) -> NewActor__394838867
 }
 actor  {
   stable accessControlState :
     {
       var adminAssigned : Bool;
       userRoles : Map__386906547<Principal, UserRole__91647283>
-    }
+    };
+  stable activities :
+    {
+      var root :
+        Node__430031793<Principal, List__89170296<Activity__1027287507>>;
+      var size : Nat__58649523
+    };
+  stable state : {var nextId : Nat}
 };

@@ -66,6 +66,10 @@ export default {
           border: "oklch(var(--sidebar-border))",
           ring: "oklch(var(--sidebar-ring))",
         },
+        "photo-frame": "oklch(var(--photo-frame))",
+        "photo-border": "oklch(var(--photo-border))",
+        viewfinder: "oklch(var(--viewfinder))",
+        "viewfinder-grid": "oklch(var(--viewfinder-grid))",
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],
@@ -81,6 +85,7 @@ export default {
         xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
         subtle: "0 1px 2px 0 oklch(0.3 0.03 40 / 0.05), 0 4px 12px 0 oklch(0.3 0.03 40 / 0.06)",
         elevated: "0 2px 4px 0 oklch(0.3 0.03 40 / 0.06), 0 12px 28px 0 oklch(0.3 0.03 40 / 0.1)",
+        nav: "0 1px 0 0 oklch(0.3 0.03 40 / 0.06), 0 8px 24px 0 oklch(0.3 0.03 40 / 0.08)",
       },
       keyframes: {
         "accordion-down": {
@@ -95,11 +100,27 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-6px)" },
         },
+        "slide-down": {
+          from: { opacity: "0", transform: "translateY(-8px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "scan-sweep": {
+          "0%": { top: "0%", opacity: "0.6" },
+          "50%": { opacity: "1" },
+          "100%": { top: "100%", opacity: "0.6" },
+        },
+        "shutter": {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "float-soft": "float-soft 6s ease-in-out infinite",
+        "slide-down": "slide-down 0.3s ease-out",
+        "scan-sweep": "scan-sweep 2.4s ease-in-out infinite",
+        "shutter": "shutter 0.18s ease-out forwards",
       },
     },
   },

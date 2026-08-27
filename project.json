@@ -1,17 +1,17 @@
 {
-  "overview": "A mobile volunteer-hours dashboard screen with a minimalist off-white and deep red design, showing a welcome header, total hours status card, quick action grid, and bottom navigation.",
+  "overview": "Volunteer Hours lets volunteers log their volunteer activities with hours and photo evidence, storing images securely on their account.",
   "features": [
-    "Welcome header with status bar and user profile",
-    "Deep red total hours status card",
-    "2x3 quick action grid",
-    "Bottom navigation bar"
+    "Log volunteer activities with hours and a required photo",
+    "Capture or upload photo evidence from the camera or device gallery",
+    "Store activity photos securely on the user's account cloud",
+    "Scan tab to capture and save photo evidence",
+    "View saved activity photos in history"
   ],
-  "category": "dashboard",
+  "category": "productivity",
   "tags": [
-    "dashboard",
     "volunteer",
-    "mobile",
-    "showcase"
+    "hours-tracking",
+    "photo-evidence"
   ],
-  "last_updated": "2026-08-27T02:44:17.684Z"
+  "last_updated": "2026-08-27T06:49:10.062Z"
 }

@@ -2,7 +2,7 @@ import { BatteryFull, Signal, Wifi } from "lucide-react";
 
 export function StatusBar() {
   return (
-    <div className="flex items-center justify-between px-1 py-1 text-foreground">
+    <div className="status-bar items-center justify-between px-1 py-1 text-foreground">
       <span className="font-display text-[15px] font-semibold tracking-tight">
         8.31
       </span>

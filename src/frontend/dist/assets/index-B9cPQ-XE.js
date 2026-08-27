@@ -17,7 +17,7 @@ var __privateWrapper = (obj, member, setter, getter) => ({
     return __privateGet(obj, member, getter);
   }
 });
-var _disableTimeVerification, _agent, _dbName, _storeName, _dbPromise, _IndexedDBExpirableStore_instances, getDb_fn, openDb_fn, openRequest_fn, prune_fn, _entries, _InMemoryExpirableStore_instances, prune_fn2, _rawKey, _derKey, _a, _currentInterval, _randomizationFactor, _multiplier, _maxInterval, _startTime, _maxElapsedTime, _maxIterations, _date, _count, _rootKeyPromise, _shouldFetchRootKey, _timeDiffMsecs, _hasSyncedTime, _syncTimePromise, _shouldSyncTime, _identity, _fetch, _fetchOptions, _callOptions, _credentials, _retryTimes, _backoffStrategy, _maxIngressExpiryInMinutes, _subnetNodeKeyExpirableStore, _HttpAgent_instances, maxIngressExpiryInMs_get, _queryPipeline, _updatePipeline, _subnetKeysFetching, _verifyQuerySignatures, handleV4SyncResponse_fn, handleV2Rejection_fn, requestAndRetryQuery_fn, requestAndRetry_fn, _verifyQueryResponse, readStateInner_fn, setTimeDiffMsecs_fn, asyncGuard_fn, rootKeyGuard_fn, syncTimeGuard_fn, doFetchSubnetKeys_fn, _focused, _cleanup, _setup, _b, _provider, _providerCalled, _c, _online, _cleanup2, _setup2, _d, _gcTimeout, _e, _initialState, _revertState, _cache, _client, _retryer, _defaultOptions, _abortSignalConsumed, _Query_instances, isInitialPausedFetch_fn, dispatch_fn, _f, _client2, _observers, _mutationCache, _retryer2, _Mutation_instances, dispatch_fn2, _g, _mutations, _scopes, _mutationId, _h, _queries, _i, _queryCache, _mutationCache2, _defaultOptions2, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _j, _rawKey2, _derKey2, _publicKey, _privateKey, _inner, _delegation, _inner2, _attributes, _signer, _options, _channel, _establishingChannel, _scheduledChannelClosure, _pendingRequestCount, _Signer_instances, rpc_fn, applyTransforms_fn, _options2, _status, _HeartbeatClient_instances, establish_fn, maintain_fn, receiveStatusResponse_fn, sendStatusRequest_fn, _options3, _closeListeners, _options4, _closed, _pendingQueue, _instance, _callbacks, _idleTimeout, _timeoutID, _resetTimer, _options5, _identity2, _chain, _storage, _signer2, _options6, _initPromise, _AuthClient_instances, resolveNonce_fn, init_fn, hydrate_fn, registerDefaultIdleCallback_fn;
+var _disableTimeVerification, _agent, _dbName, _storeName, _dbPromise, _IndexedDBExpirableStore_instances, getDb_fn, openDb_fn, openRequest_fn, prune_fn, _entries, _InMemoryExpirableStore_instances, prune_fn2, _rawKey, _derKey, _a, _currentInterval, _randomizationFactor, _multiplier, _maxInterval, _startTime, _maxElapsedTime, _maxIterations, _date, _count, _rootKeyPromise, _shouldFetchRootKey, _timeDiffMsecs, _hasSyncedTime, _syncTimePromise, _shouldSyncTime, _identity, _fetch, _fetchOptions, _callOptions, _credentials, _retryTimes, _backoffStrategy, _maxIngressExpiryInMinutes, _subnetNodeKeyExpirableStore, _HttpAgent_instances, maxIngressExpiryInMs_get, _queryPipeline, _updatePipeline, _subnetKeysFetching, _verifyQuerySignatures, handleV4SyncResponse_fn, handleV2Rejection_fn, requestAndRetryQuery_fn, requestAndRetry_fn, _verifyQueryResponse, readStateInner_fn, setTimeDiffMsecs_fn, asyncGuard_fn, rootKeyGuard_fn, syncTimeGuard_fn, doFetchSubnetKeys_fn, _focused, _cleanup, _setup, _b, _provider, _providerCalled, _c, _online, _cleanup2, _setup2, _d, _gcTimeout, _e, _initialState, _revertState, _cache, _client, _retryer, _defaultOptions, _abortSignalConsumed, _Query_instances, isInitialPausedFetch_fn, dispatch_fn, _f, _client2, _currentQuery, _currentQueryInitialState, _currentResult, _currentResultState, _currentResultOptions, _currentThenable, _selectError, _selectFn, _selectResult, _lastQueryWithDefinedData, _staleTimeoutId, _refetchIntervalId, _currentRefetchInterval, _trackedProps, _QueryObserver_instances, executeFetch_fn, updateStaleTimeout_fn, computeRefetchInterval_fn, updateRefetchInterval_fn, updateTimers_fn, clearStaleTimeout_fn, clearRefetchInterval_fn, updateQuery_fn, notify_fn, _g, _client3, _observers, _mutationCache, _retryer2, _Mutation_instances, dispatch_fn2, _h, _mutations, _scopes, _mutationId, _i, _client4, _currentResult2, _currentMutation, _mutateOptions, _MutationObserver_instances, updateResult_fn, notify_fn2, _j, _queries, _k, _queryCache, _mutationCache2, _defaultOptions2, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _l, _rawKey2, _derKey2, _publicKey, _privateKey, _inner, _delegation, _inner2, _attributes, _signer, _options, _channel, _establishingChannel, _scheduledChannelClosure, _pendingRequestCount, _Signer_instances, rpc_fn, applyTransforms_fn, _options2, _status, _HeartbeatClient_instances, establish_fn, maintain_fn, receiveStatusResponse_fn, sendStatusRequest_fn, _options3, _closeListeners, _options4, _closed, _pendingQueue, _instance, _callbacks, _idleTimeout, _timeoutID, _resetTimer, _options5, _identity2, _chain, _storage, _signer2, _options6, _initPromise, _AuthClient_instances, resolveNonce_fn, init_fn, hydrate_fn, registerDefaultIdleCallback_fn;
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -95,6 +95,51 @@ reactJsxRuntime_production.jsxs = jsxProd;
   jsxRuntime.exports = reactJsxRuntime_production;
 }
 var jsxRuntimeExports = jsxRuntime.exports;
+let ExternalBlob$1 = class ExternalBlob {
+  constructor(directURL, blob) {
+    __publicField(this, "_blob");
+    __publicField(this, "directURL");
+    __publicField(this, "contentType");
+    __publicField(this, "filename");
+    __publicField(this, "onProgress");
+    if (blob) {
+      this._blob = blob;
+    }
+    this.directURL = directURL;
+  }
+  static fromURL(url) {
+    return new ExternalBlob(url, null);
+  }
+  static fromBytes(blob, contentType, filename) {
+    const url = URL.createObjectURL(new Blob([new Uint8Array(blob)], {
+      type: (contentType == null ? void 0 : contentType.trim()) || "application/octet-stream"
+    }));
+    const externalBlob = new ExternalBlob(url, blob);
+    if (contentType == null ? void 0 : contentType.trim()) {
+      externalBlob.contentType = contentType.trim();
+    }
+    if (filename == null ? void 0 : filename.trim()) {
+      externalBlob.filename = filename.trim();
+    }
+    return externalBlob;
+  }
+  async getBytes() {
+    if (this._blob) {
+      return this._blob;
+    }
+    const response = await fetch(this.directURL);
+    const blob = await response.blob();
+    this._blob = new Uint8Array(await blob.arrayBuffer());
+    return this._blob;
+  }
+  getDirectURL() {
+    return this.directURL;
+  }
+  withUploadProgress(onProgress) {
+    this.onProgress = onProgress;
+    return this;
+  }
+};
 var ReplicaRejectCode;
 (function(ReplicaRejectCode2) {
   ReplicaRejectCode2[ReplicaRejectCode2["SysFatal"] = 1] = "SysFatal";
@@ -734,7 +779,7 @@ function split(lst, le = false) {
   }
   return [Ah, Al];
 }
-const shrSH = (h2, _l, s) => h2 >>> s;
+const shrSH = (h2, _l2, s) => h2 >>> s;
 const shrSL = (h2, l2, s) => h2 << 32 - s | l2 >>> s;
 const rotrSH = (h2, l2, s) => h2 >>> s | l2 << 32 - s;
 const rotrSL = (h2, l2, s) => h2 << 32 - s | l2 >>> s;
@@ -1804,7 +1849,7 @@ class UnexpectedV4StatusErrorCode extends ErrorCode {
     Object.setPrototypeOf(this, UnexpectedV4StatusErrorCode.prototype);
   }
   toErrorMessage() {
-    const replacer = (_k, v2) => v2 instanceof Uint8Array ? `hex(${v2.length}):${bytesToHex(v2)}` : v2;
+    const replacer = (_k2, v2) => v2 instanceof Uint8Array ? `hex(${v2.length}):${bytesToHex(v2)}` : v2;
     return `Unexpected request status in v4 sync response: "${this.status}"
   Request ID (hex): ${bytesToHex(this.requestId)}
   Response: ${JSON.stringify(this.response, replacer, 2)}`;
@@ -4639,14 +4684,14 @@ function ct(t) {
 function T(t, e) {
   E(t, e.length), r > a.length - e.length && k(r + e.length), a.set(e, r), r += e.length;
 }
-function X(t, e) {
+function X$1(t, e) {
   E(t, e);
 }
 function it(t) {
-  X(c.UnsignedInteger, t);
+  X$1(c.UnsignedInteger, t);
 }
 function st(t) {
-  X(
+  X$1(
     c.NegativeInteger,
     typeof t == "bigint" ? -1n - t : -1 - t
   );
@@ -4768,6 +4813,10 @@ function decode(input) {
     throw InputError.fromCode(new CborDecodeErrorCode(error, input));
   }
 }
+const Cbor = {
+  encode,
+  decode
+};
 const randomNumber = () => {
   if (typeof window !== "undefined" && !!window.crypto && !!window.crypto.getRandomValues) {
     const array = new Uint32Array(1);
@@ -6630,7 +6679,7 @@ function bls(CURVE) {
     calcPairingPrecomputes
   };
   const { ShortSignature } = CURVE.G1;
-  const { Signature } = CURVE.G2;
+  const { Signature: Signature2 } = CURVE.G2;
   function normP1Hash(point, htfOpts) {
     return point instanceof G1.Point ? point : shortSignatures.hash(ensureBytes("point", point), htfOpts == null ? void 0 : htfOpts.DST);
   }
@@ -6646,7 +6695,7 @@ function bls(CURVE) {
   function sign(message, privateKey, htfOpts) {
     const Hm = normP2Hash(message, htfOpts);
     const S2 = longSignatures.sign(Hm, privateKey);
-    return message instanceof G2.Point ? S2 : Signature.toBytes(S2);
+    return message instanceof G2.Point ? S2 : Signature2.toBytes(S2);
   }
   function signShortSignature(message, privateKey, htfOpts) {
     const Hm = normP1Hash(message, htfOpts);
@@ -6667,7 +6716,7 @@ function bls(CURVE) {
   }
   function aggregateSignatures(signatures) {
     const agg = longSignatures.aggregateSignatures(signatures);
-    return signatures[0] instanceof G2.Point ? agg : Signature.toBytes(agg);
+    return signatures[0] instanceof G2.Point ? agg : Signature2.toBytes(agg);
   }
   function aggregateShortSignatures(signatures) {
     const agg = shortSignatures.aggregateSignatures(signatures);
@@ -6713,7 +6762,7 @@ function bls(CURVE) {
     aggregateShortSignatures,
     G1,
     G2,
-    Signature,
+    Signature: Signature2,
     ShortSignature
   };
 }
@@ -11242,9 +11291,4667 @@ function _createActorMethod(actor, methodName, func, blsVerify2) {
   handler.withOptions = (options) => (...args) => caller(options, ...args);
   return handler;
 }
-new TextEncoder().encode("icfs-chunk/");
-new TextEncoder().encode("icfs-metadata/");
-new TextEncoder().encode("ynode/");
+function formatBlobContentDisposition(filename) {
+  const trimmed = filename == null ? void 0 : filename.trim();
+  if (!trimmed) {
+    return void 0;
+  }
+  if (/^[A-Za-z0-9._-]+$/.test(trimmed)) {
+    return `attachment; filename=${trimmed}`;
+  }
+  if (/[^\x20-\x7E]/.test(trimmed)) {
+    return `attachment; filename*=UTF-8''${encodeURIComponent(trimmed)}`;
+  }
+  const escaped = trimmed.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+  return `attachment; filename="${escaped}"`;
+}
+const CERTIFICATE_METHOD = "_immutableObjectStorageCreateCertificate";
+function formatCertificateRejectionError(options) {
+  const { rejectCode, rejectMessage, errorCode } = options;
+  const isMissingUpdateMethod = rejectCode === ReplicaRejectCode.DestinationInvalid && typeof rejectMessage === "string" && /has no update method/i.test(rejectMessage);
+  if (isMissingUpdateMethod) {
+    return new Error(`method not found on backend canister; install the caffeineai-object-storage mops package`);
+  }
+  const details = [
+    rejectCode !== void 0 ? `reject_code=${rejectCode}` : void 0,
+    rejectMessage ? `reject_message=${rejectMessage}` : void 0,
+    errorCode ? `error_code=${errorCode}` : void 0
+  ].filter((part) => part !== void 0).join(", ");
+  return new Error(details.length > 0 ? `backend canister rejected ${CERTIFICATE_METHOD} (${details})` : `backend canister rejected ${CERTIFICATE_METHOD}`);
+}
+const WINDOWS_1252_EXTRA = {
+  128: "€",
+  130: "‚",
+  131: "ƒ",
+  132: "„",
+  133: "…",
+  134: "†",
+  135: "‡",
+  136: "ˆ",
+  137: "‰",
+  138: "Š",
+  139: "‹",
+  140: "Œ",
+  142: "Ž",
+  145: "‘",
+  146: "’",
+  147: "“",
+  148: "”",
+  149: "•",
+  150: "–",
+  151: "—",
+  152: "˜",
+  153: "™",
+  154: "š",
+  155: "›",
+  156: "œ",
+  158: "ž",
+  159: "Ÿ"
+};
+for (const [code, char] of Object.entries(WINDOWS_1252_EXTRA)) {
+}
+let _utf8Decoder;
+function utf8Decoder() {
+  if (typeof globalThis.TextDecoder === "undefined")
+    return void 0;
+  return _utf8Decoder !== null && _utf8Decoder !== void 0 ? _utf8Decoder : _utf8Decoder = new globalThis.TextDecoder("utf-8");
+}
+const CHUNK = 32 * 1024;
+const REPLACEMENT = 65533;
+function textDecode(bytes, encoding = "utf-8") {
+  switch (encoding.toLowerCase()) {
+    case "utf-8":
+    case "utf8": {
+      const dec = utf8Decoder();
+      return dec ? dec.decode(bytes) : decodeUTF8(bytes);
+    }
+    case "utf-16le":
+      return decodeUTF16LE(bytes);
+    case "us-ascii":
+    case "ascii":
+      return decodeASCII(bytes);
+    case "latin1":
+    case "iso-8859-1":
+      return decodeLatin1(bytes);
+    case "windows-1252":
+      return decodeWindows1252(bytes);
+    default:
+      throw new RangeError(`Encoding '${encoding}' not supported`);
+  }
+}
+function flushChunk(parts, chunk) {
+  if (chunk.length === 0)
+    return;
+  parts.push(String.fromCharCode.apply(null, chunk));
+  chunk.length = 0;
+}
+function pushCodeUnit(parts, chunk, codeUnit) {
+  chunk.push(codeUnit);
+  if (chunk.length >= CHUNK)
+    flushChunk(parts, chunk);
+}
+function pushCodePoint(parts, chunk, cp) {
+  if (cp <= 65535) {
+    pushCodeUnit(parts, chunk, cp);
+    return;
+  }
+  cp -= 65536;
+  pushCodeUnit(parts, chunk, 55296 + (cp >> 10));
+  pushCodeUnit(parts, chunk, 56320 + (cp & 1023));
+}
+function decodeUTF8(bytes) {
+  const parts = [];
+  const chunk = [];
+  let i = 0;
+  if (bytes.length >= 3 && bytes[0] === 239 && bytes[1] === 187 && bytes[2] === 191) {
+    i = 3;
+  }
+  while (i < bytes.length) {
+    const b1 = bytes[i];
+    if (b1 <= 127) {
+      pushCodeUnit(parts, chunk, b1);
+      i++;
+      continue;
+    }
+    if (b1 < 194 || b1 > 244) {
+      pushCodeUnit(parts, chunk, REPLACEMENT);
+      i++;
+      continue;
+    }
+    if (b1 <= 223) {
+      if (i + 1 >= bytes.length) {
+        pushCodeUnit(parts, chunk, REPLACEMENT);
+        i++;
+        continue;
+      }
+      const b22 = bytes[i + 1];
+      if ((b22 & 192) !== 128) {
+        pushCodeUnit(parts, chunk, REPLACEMENT);
+        i++;
+        continue;
+      }
+      const cp2 = (b1 & 31) << 6 | b22 & 63;
+      pushCodeUnit(parts, chunk, cp2);
+      i += 2;
+      continue;
+    }
+    if (b1 <= 239) {
+      if (i + 2 >= bytes.length) {
+        pushCodeUnit(parts, chunk, REPLACEMENT);
+        i++;
+        continue;
+      }
+      const b22 = bytes[i + 1];
+      const b32 = bytes[i + 2];
+      const valid2 = (b22 & 192) === 128 && (b32 & 192) === 128 && !(b1 === 224 && b22 < 160) && // overlong
+      !(b1 === 237 && b22 >= 160);
+      if (!valid2) {
+        pushCodeUnit(parts, chunk, REPLACEMENT);
+        i++;
+        continue;
+      }
+      const cp2 = (b1 & 15) << 12 | (b22 & 63) << 6 | b32 & 63;
+      pushCodeUnit(parts, chunk, cp2);
+      i += 3;
+      continue;
+    }
+    if (i + 3 >= bytes.length) {
+      pushCodeUnit(parts, chunk, REPLACEMENT);
+      i++;
+      continue;
+    }
+    const b2 = bytes[i + 1];
+    const b3 = bytes[i + 2];
+    const b4 = bytes[i + 3];
+    const valid = (b2 & 192) === 128 && (b3 & 192) === 128 && (b4 & 192) === 128 && !(b1 === 240 && b2 < 144) && // overlong
+    !(b1 === 244 && b2 > 143);
+    if (!valid) {
+      pushCodeUnit(parts, chunk, REPLACEMENT);
+      i++;
+      continue;
+    }
+    const cp = (b1 & 7) << 18 | (b2 & 63) << 12 | (b3 & 63) << 6 | b4 & 63;
+    pushCodePoint(parts, chunk, cp);
+    i += 4;
+  }
+  flushChunk(parts, chunk);
+  return parts.join("");
+}
+function decodeUTF16LE(bytes) {
+  const parts = [];
+  const chunk = [];
+  const len = bytes.length;
+  let i = 0;
+  while (i + 1 < len) {
+    const u1 = bytes[i] | bytes[i + 1] << 8;
+    i += 2;
+    if (u1 >= 55296 && u1 <= 56319) {
+      if (i + 1 < len) {
+        const u2 = bytes[i] | bytes[i + 1] << 8;
+        if (u2 >= 56320 && u2 <= 57343) {
+          pushCodeUnit(parts, chunk, u1);
+          pushCodeUnit(parts, chunk, u2);
+          i += 2;
+        } else {
+          pushCodeUnit(parts, chunk, REPLACEMENT);
+        }
+      } else {
+        pushCodeUnit(parts, chunk, REPLACEMENT);
+      }
+      continue;
+    }
+    if (u1 >= 56320 && u1 <= 57343) {
+      pushCodeUnit(parts, chunk, REPLACEMENT);
+      continue;
+    }
+    pushCodeUnit(parts, chunk, u1);
+  }
+  if (i < len) {
+    pushCodeUnit(parts, chunk, REPLACEMENT);
+  }
+  flushChunk(parts, chunk);
+  return parts.join("");
+}
+function decodeASCII(bytes) {
+  const parts = [];
+  for (let i = 0; i < bytes.length; i += CHUNK) {
+    const end = Math.min(bytes.length, i + CHUNK);
+    const codes = new Array(end - i);
+    for (let j2 = i, k2 = 0; j2 < end; j2++, k2++) {
+      codes[k2] = bytes[j2] & 127;
+    }
+    parts.push(String.fromCharCode.apply(null, codes));
+  }
+  return parts.join("");
+}
+function decodeLatin1(bytes) {
+  const parts = [];
+  for (let i = 0; i < bytes.length; i += CHUNK) {
+    const end = Math.min(bytes.length, i + CHUNK);
+    const codes = new Array(end - i);
+    for (let j2 = i, k2 = 0; j2 < end; j2++, k2++) {
+      codes[k2] = bytes[j2];
+    }
+    parts.push(String.fromCharCode.apply(null, codes));
+  }
+  return parts.join("");
+}
+function decodeWindows1252(bytes) {
+  const parts = [];
+  let out = "";
+  for (let i = 0; i < bytes.length; i++) {
+    const b2 = bytes[i];
+    const extra = b2 >= 128 && b2 <= 159 ? WINDOWS_1252_EXTRA[b2] : void 0;
+    out += extra !== null && extra !== void 0 ? extra : String.fromCharCode(b2);
+    if (out.length >= CHUNK) {
+      parts.push(out);
+      out = "";
+    }
+  }
+  if (out)
+    parts.push(out);
+  return parts.join("");
+}
+function dv(array) {
+  return new DataView(array.buffer, array.byteOffset);
+}
+const UINT8 = {
+  len: 1,
+  get(array, offset) {
+    return dv(array).getUint8(offset);
+  },
+  put(array, offset, value) {
+    dv(array).setUint8(offset, value);
+    return offset + 1;
+  }
+};
+const UINT16_LE = {
+  len: 2,
+  get(array, offset) {
+    return dv(array).getUint16(offset, true);
+  },
+  put(array, offset, value) {
+    dv(array).setUint16(offset, value, true);
+    return offset + 2;
+  }
+};
+const UINT16_BE = {
+  len: 2,
+  get(array, offset) {
+    return dv(array).getUint16(offset);
+  },
+  put(array, offset, value) {
+    dv(array).setUint16(offset, value);
+    return offset + 2;
+  }
+};
+const UINT32_LE = {
+  len: 4,
+  get(array, offset) {
+    return dv(array).getUint32(offset, true);
+  },
+  put(array, offset, value) {
+    dv(array).setUint32(offset, value, true);
+    return offset + 4;
+  }
+};
+const UINT32_BE = {
+  len: 4,
+  get(array, offset) {
+    return dv(array).getUint32(offset);
+  },
+  put(array, offset, value) {
+    dv(array).setUint32(offset, value);
+    return offset + 4;
+  }
+};
+const INT32_BE = {
+  len: 4,
+  get(array, offset) {
+    return dv(array).getInt32(offset);
+  },
+  put(array, offset, value) {
+    dv(array).setInt32(offset, value);
+    return offset + 4;
+  }
+};
+const UINT64_LE = {
+  len: 8,
+  get(array, offset) {
+    return dv(array).getBigUint64(offset, true);
+  },
+  put(array, offset, value) {
+    dv(array).setBigUint64(offset, value, true);
+    return offset + 8;
+  }
+};
+class StringType {
+  constructor(len, encoding) {
+    this.len = len;
+    this.encoding = encoding;
+  }
+  get(data, offset = 0) {
+    const bytes = data.subarray(offset, offset + this.len);
+    return textDecode(bytes, this.encoding);
+  }
+}
+const defaultMessages = "End-Of-Stream";
+class EndOfStreamError extends Error {
+  constructor() {
+    super(defaultMessages);
+    this.name = "EndOfStreamError";
+  }
+}
+class AbortError extends Error {
+  constructor(message = "The operation was aborted") {
+    super(message);
+    this.name = "AbortError";
+  }
+}
+class AbstractStreamReader {
+  constructor() {
+    this.endOfStream = false;
+    this.interrupted = false;
+    this.peekQueue = [];
+  }
+  async peek(uint8Array, mayBeLess = false) {
+    const bytesRead = await this.read(uint8Array, mayBeLess);
+    this.peekQueue.push(uint8Array.subarray(0, bytesRead));
+    return bytesRead;
+  }
+  async read(buffer, mayBeLess = false) {
+    if (buffer.length === 0) {
+      return 0;
+    }
+    let bytesRead = this.readFromPeekBuffer(buffer);
+    if (!this.endOfStream) {
+      bytesRead += await this.readRemainderFromStream(buffer.subarray(bytesRead), mayBeLess);
+    }
+    if (bytesRead === 0 && !mayBeLess) {
+      throw new EndOfStreamError();
+    }
+    return bytesRead;
+  }
+  /**
+   * Read chunk from stream
+   * @param buffer - Target Uint8Array (or Buffer) to store data read from stream in
+   * @returns Number of bytes read
+   */
+  readFromPeekBuffer(buffer) {
+    let remaining = buffer.length;
+    let bytesRead = 0;
+    while (this.peekQueue.length > 0 && remaining > 0) {
+      const peekData = this.peekQueue.pop();
+      if (!peekData)
+        throw new Error("peekData should be defined");
+      const lenCopy = Math.min(peekData.length, remaining);
+      buffer.set(peekData.subarray(0, lenCopy), bytesRead);
+      bytesRead += lenCopy;
+      remaining -= lenCopy;
+      if (lenCopy < peekData.length) {
+        this.peekQueue.push(peekData.subarray(lenCopy));
+      }
+    }
+    return bytesRead;
+  }
+  async readRemainderFromStream(buffer, mayBeLess) {
+    let bytesRead = 0;
+    while (bytesRead < buffer.length && !this.endOfStream) {
+      if (this.interrupted) {
+        throw new AbortError();
+      }
+      const chunkLen = await this.readFromStream(buffer.subarray(bytesRead), mayBeLess);
+      if (chunkLen === 0)
+        break;
+      bytesRead += chunkLen;
+    }
+    if (!mayBeLess && bytesRead < buffer.length) {
+      throw new EndOfStreamError();
+    }
+    return bytesRead;
+  }
+}
+class WebStreamReader extends AbstractStreamReader {
+  constructor(reader) {
+    super();
+    this.reader = reader;
+  }
+  async abort() {
+    return this.close();
+  }
+  async close() {
+    this.reader.releaseLock();
+  }
+}
+class WebStreamByobReader extends WebStreamReader {
+  /**
+   * Read from stream
+   * @param buffer - Target Uint8Array (or Buffer) to store data read from stream in
+   * @param mayBeLess - If true, may fill the buffer partially
+   * @protected Bytes read
+   */
+  async readFromStream(buffer, mayBeLess) {
+    if (buffer.length === 0)
+      return 0;
+    const result = await this.reader.read(new Uint8Array(buffer.length), { min: mayBeLess ? void 0 : buffer.length });
+    if (result.done) {
+      this.endOfStream = result.done;
+    }
+    if (result.value) {
+      buffer.set(result.value);
+      return result.value.length;
+    }
+    return 0;
+  }
+}
+class WebStreamDefaultReader extends AbstractStreamReader {
+  constructor(reader) {
+    super();
+    this.reader = reader;
+    this.buffer = null;
+  }
+  /**
+   * Copy chunk to target, and store the remainder in this.buffer
+   */
+  writeChunk(target, chunk) {
+    const written = Math.min(chunk.length, target.length);
+    target.set(chunk.subarray(0, written));
+    if (written < chunk.length) {
+      this.buffer = chunk.subarray(written);
+    } else {
+      this.buffer = null;
+    }
+    return written;
+  }
+  /**
+   * Read from stream
+   * @param buffer - Target Uint8Array (or Buffer) to store data read from stream in
+   * @param mayBeLess - If true, may fill the buffer partially
+   * @protected Bytes read
+   */
+  async readFromStream(buffer, mayBeLess) {
+    if (buffer.length === 0)
+      return 0;
+    let totalBytesRead = 0;
+    if (this.buffer) {
+      totalBytesRead += this.writeChunk(buffer, this.buffer);
+    }
+    while (totalBytesRead < buffer.length && !this.endOfStream) {
+      const result = await this.reader.read();
+      if (result.done) {
+        this.endOfStream = true;
+        break;
+      }
+      if (result.value) {
+        totalBytesRead += this.writeChunk(buffer.subarray(totalBytesRead), result.value);
+      }
+    }
+    if (!mayBeLess && totalBytesRead === 0 && this.endOfStream) {
+      throw new EndOfStreamError();
+    }
+    return totalBytesRead;
+  }
+  abort() {
+    this.interrupted = true;
+    return this.reader.cancel();
+  }
+  async close() {
+    await this.abort();
+    this.reader.releaseLock();
+  }
+}
+function makeWebStreamReader(stream) {
+  try {
+    const reader = stream.getReader({ mode: "byob" });
+    if (reader instanceof ReadableStreamDefaultReader) {
+      return new WebStreamDefaultReader(reader);
+    }
+    return new WebStreamByobReader(reader);
+  } catch (error) {
+    if (error instanceof TypeError) {
+      return new WebStreamDefaultReader(stream.getReader());
+    }
+    throw error;
+  }
+}
+class AbstractTokenizer {
+  /**
+   * Constructor
+   * @param options Tokenizer options
+   * @protected
+   */
+  constructor(options) {
+    this.numBuffer = new Uint8Array(8);
+    this.position = 0;
+    this.onClose = options == null ? void 0 : options.onClose;
+    if (options == null ? void 0 : options.abortSignal) {
+      options.abortSignal.addEventListener("abort", () => {
+        this.abort();
+      });
+    }
+  }
+  /**
+   * Read a token from the tokenizer-stream
+   * @param token - The token to read
+   * @param position - If provided, the desired position in the tokenizer-stream
+   * @returns Promise with token data
+   */
+  async readToken(token, position = this.position) {
+    const uint8Array = new Uint8Array(token.len);
+    const len = await this.readBuffer(uint8Array, { position });
+    if (len < token.len)
+      throw new EndOfStreamError();
+    return token.get(uint8Array, 0);
+  }
+  /**
+   * Peek a token from the tokenizer-stream.
+   * @param token - Token to peek from the tokenizer-stream.
+   * @param position - Offset where to begin reading within the file. If position is null, data will be read from the current file position.
+   * @returns Promise with token data
+   */
+  async peekToken(token, position = this.position) {
+    const uint8Array = new Uint8Array(token.len);
+    const len = await this.peekBuffer(uint8Array, { position });
+    if (len < token.len)
+      throw new EndOfStreamError();
+    return token.get(uint8Array, 0);
+  }
+  /**
+   * Read a numeric token from the stream
+   * @param token - Numeric token
+   * @returns Promise with number
+   */
+  async readNumber(token) {
+    const len = await this.readBuffer(this.numBuffer, { length: token.len });
+    if (len < token.len)
+      throw new EndOfStreamError();
+    return token.get(this.numBuffer, 0);
+  }
+  /**
+   * Read a numeric token from the stream
+   * @param token - Numeric token
+   * @returns Promise with number
+   */
+  async peekNumber(token) {
+    const len = await this.peekBuffer(this.numBuffer, { length: token.len });
+    if (len < token.len)
+      throw new EndOfStreamError();
+    return token.get(this.numBuffer, 0);
+  }
+  /**
+   * Ignore number of bytes, advances the pointer in under tokenizer-stream.
+   * @param length - Number of bytes to ignore.  Must be ≥ 0.
+   * @return resolves the number of bytes ignored, equals length if this available, otherwise the number of bytes available
+   */
+  async ignore(length) {
+    if (length < 0) {
+      throw new RangeError("ignore length must be ≥ 0 bytes");
+    }
+    if (this.fileInfo.size !== void 0) {
+      const bytesLeft = this.fileInfo.size - this.position;
+      if (length > bytesLeft) {
+        this.position += bytesLeft;
+        return bytesLeft;
+      }
+    }
+    this.position += length;
+    return length;
+  }
+  async close() {
+    var _a2;
+    await this.abort();
+    await ((_a2 = this.onClose) == null ? void 0 : _a2.call(this));
+  }
+  normalizeOptions(uint8Array, options) {
+    if (!this.supportsRandomAccess() && options && options.position !== void 0 && options.position < this.position) {
+      throw new Error("`options.position` must be equal or greater than `tokenizer.position`");
+    }
+    return {
+      ...{
+        mayBeLess: false,
+        offset: 0,
+        length: uint8Array.length,
+        position: this.position
+      },
+      ...options
+    };
+  }
+  abort() {
+    return Promise.resolve();
+  }
+}
+const maxBufferSize = 256e3;
+class ReadStreamTokenizer extends AbstractTokenizer {
+  /**
+   * Constructor
+   * @param streamReader stream-reader to read from
+   * @param options Tokenizer options
+   */
+  constructor(streamReader, options) {
+    super(options);
+    this.streamReader = streamReader;
+    this.fileInfo = (options == null ? void 0 : options.fileInfo) ?? {};
+  }
+  /**
+   * Read buffer from tokenizer
+   * @param uint8Array - Target Uint8Array to fill with data read from the tokenizer-stream
+   * @param options - Read behaviour options
+   * @returns Promise with number of bytes read
+   */
+  async readBuffer(uint8Array, options) {
+    const normOptions = this.normalizeOptions(uint8Array, options);
+    const skipBytes = normOptions.position - this.position;
+    if (skipBytes > 0) {
+      await this.ignore(skipBytes);
+      return this.readBuffer(uint8Array, options);
+    }
+    if (skipBytes < 0) {
+      throw new Error("`options.position` must be equal or greater than `tokenizer.position`");
+    }
+    if (normOptions.length === 0) {
+      return 0;
+    }
+    const bytesRead = await this.streamReader.read(uint8Array.subarray(0, normOptions.length), normOptions.mayBeLess);
+    this.position += bytesRead;
+    if ((!options || !options.mayBeLess) && bytesRead < normOptions.length) {
+      throw new EndOfStreamError();
+    }
+    return bytesRead;
+  }
+  /**
+   * Peek (read ahead) buffer from tokenizer
+   * @param uint8Array - Uint8Array (or Buffer) to write data to
+   * @param options - Read behaviour options
+   * @returns Promise with number of bytes peeked
+   */
+  async peekBuffer(uint8Array, options) {
+    const normOptions = this.normalizeOptions(uint8Array, options);
+    let bytesRead = 0;
+    if (normOptions.position) {
+      const skipBytes = normOptions.position - this.position;
+      if (skipBytes > 0) {
+        const skipBuffer = new Uint8Array(normOptions.length + skipBytes);
+        bytesRead = await this.peekBuffer(skipBuffer, { mayBeLess: normOptions.mayBeLess });
+        uint8Array.set(skipBuffer.subarray(skipBytes));
+        return bytesRead - skipBytes;
+      }
+      if (skipBytes < 0) {
+        throw new Error("Cannot peek from a negative offset in a stream");
+      }
+    }
+    if (normOptions.length > 0) {
+      try {
+        bytesRead = await this.streamReader.peek(uint8Array.subarray(0, normOptions.length), normOptions.mayBeLess);
+      } catch (err) {
+        if ((options == null ? void 0 : options.mayBeLess) && err instanceof EndOfStreamError) {
+          return 0;
+        }
+        throw err;
+      }
+      if (!normOptions.mayBeLess && bytesRead < normOptions.length) {
+        throw new EndOfStreamError();
+      }
+    }
+    return bytesRead;
+  }
+  /**
+   * @param length Number of bytes to ignore. Must be ≥ 0.
+   */
+  async ignore(length) {
+    if (length < 0) {
+      throw new RangeError("ignore length must be ≥ 0 bytes");
+    }
+    const bufSize = Math.min(maxBufferSize, length);
+    const buf = new Uint8Array(bufSize);
+    let totBytesRead = 0;
+    while (totBytesRead < length) {
+      const remaining = length - totBytesRead;
+      const bytesRead = await this.readBuffer(buf, { length: Math.min(bufSize, remaining) });
+      if (bytesRead < 0) {
+        return bytesRead;
+      }
+      totBytesRead += bytesRead;
+    }
+    return totBytesRead;
+  }
+  abort() {
+    return this.streamReader.abort();
+  }
+  async close() {
+    return this.streamReader.close();
+  }
+  supportsRandomAccess() {
+    return false;
+  }
+}
+class BufferTokenizer extends AbstractTokenizer {
+  /**
+   * Construct BufferTokenizer
+   * @param uint8Array - Uint8Array to tokenize
+   * @param options Tokenizer options
+   */
+  constructor(uint8Array, options) {
+    super(options);
+    this.uint8Array = uint8Array;
+    this.fileInfo = { ...(options == null ? void 0 : options.fileInfo) ?? {}, ...{ size: uint8Array.length } };
+  }
+  /**
+   * Read buffer from tokenizer
+   * @param uint8Array - Uint8Array to tokenize
+   * @param options - Read behaviour options
+   * @returns {Promise<number>}
+   */
+  async readBuffer(uint8Array, options) {
+    if (options == null ? void 0 : options.position) {
+      this.position = options.position;
+    }
+    const bytesRead = await this.peekBuffer(uint8Array, options);
+    this.position += bytesRead;
+    return bytesRead;
+  }
+  /**
+   * Peek (read ahead) buffer from tokenizer
+   * @param uint8Array
+   * @param options - Read behaviour options
+   * @returns {Promise<number>}
+   */
+  async peekBuffer(uint8Array, options) {
+    const normOptions = this.normalizeOptions(uint8Array, options);
+    const bytes2read = Math.min(this.uint8Array.length - normOptions.position, normOptions.length);
+    if (!normOptions.mayBeLess && bytes2read < normOptions.length) {
+      throw new EndOfStreamError();
+    }
+    uint8Array.set(this.uint8Array.subarray(normOptions.position, normOptions.position + bytes2read));
+    return bytes2read;
+  }
+  close() {
+    return super.close();
+  }
+  supportsRandomAccess() {
+    return true;
+  }
+  setPosition(position) {
+    this.position = position;
+  }
+}
+class BlobTokenizer extends AbstractTokenizer {
+  /**
+   * Construct BufferTokenizer
+   * @param blob - Uint8Array to tokenize
+   * @param options Tokenizer options
+   */
+  constructor(blob, options) {
+    super(options);
+    this.blob = blob;
+    this.fileInfo = { ...(options == null ? void 0 : options.fileInfo) ?? {}, ...{ size: blob.size, mimeType: blob.type } };
+  }
+  /**
+   * Read buffer from tokenizer
+   * @param uint8Array - Uint8Array to tokenize
+   * @param options - Read behaviour options
+   * @returns {Promise<number>}
+   */
+  async readBuffer(uint8Array, options) {
+    if (options == null ? void 0 : options.position) {
+      this.position = options.position;
+    }
+    const bytesRead = await this.peekBuffer(uint8Array, options);
+    this.position += bytesRead;
+    return bytesRead;
+  }
+  /**
+   * Peek (read ahead) buffer from tokenizer
+   * @param buffer
+   * @param options - Read behaviour options
+   * @returns {Promise<number>}
+   */
+  async peekBuffer(buffer, options) {
+    const normOptions = this.normalizeOptions(buffer, options);
+    const bytes2read = Math.min(this.blob.size - normOptions.position, normOptions.length);
+    if (!normOptions.mayBeLess && bytes2read < normOptions.length) {
+      throw new EndOfStreamError();
+    }
+    const arrayBuffer = await this.blob.slice(normOptions.position, normOptions.position + bytes2read).arrayBuffer();
+    buffer.set(new Uint8Array(arrayBuffer));
+    return bytes2read;
+  }
+  close() {
+    return super.close();
+  }
+  supportsRandomAccess() {
+    return true;
+  }
+  setPosition(position) {
+    this.position = position;
+  }
+}
+function fromWebStream(webStream, options) {
+  const webStreamReader = makeWebStreamReader(webStream);
+  const _options7 = options ?? {};
+  const chainedClose = _options7.onClose;
+  _options7.onClose = async () => {
+    await webStreamReader.close();
+    if (chainedClose) {
+      return chainedClose();
+    }
+  };
+  return new ReadStreamTokenizer(webStreamReader, _options7);
+}
+function fromBuffer(uint8Array, options) {
+  return new BufferTokenizer(uint8Array, options);
+}
+function fromBlob(blob, options) {
+  return new BlobTokenizer(blob, options);
+}
+var browser = { exports: {} };
+var ms;
+var hasRequiredMs;
+function requireMs() {
+  if (hasRequiredMs) return ms;
+  hasRequiredMs = 1;
+  var s = 1e3;
+  var m2 = s * 60;
+  var h2 = m2 * 60;
+  var d2 = h2 * 24;
+  var w2 = d2 * 7;
+  var y2 = d2 * 365.25;
+  ms = function(val, options) {
+    options = options || {};
+    var type = typeof val;
+    if (type === "string" && val.length > 0) {
+      return parse(val);
+    } else if (type === "number" && isFinite(val)) {
+      return options.long ? fmtLong(val) : fmtShort(val);
+    }
+    throw new Error(
+      "val is not a non-empty string or a valid number. val=" + JSON.stringify(val)
+    );
+  };
+  function parse(str) {
+    str = String(str);
+    if (str.length > 100) {
+      return;
+    }
+    var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+      str
+    );
+    if (!match) {
+      return;
+    }
+    var n = parseFloat(match[1]);
+    var type = (match[2] || "ms").toLowerCase();
+    switch (type) {
+      case "years":
+      case "year":
+      case "yrs":
+      case "yr":
+      case "y":
+        return n * y2;
+      case "weeks":
+      case "week":
+      case "w":
+        return n * w2;
+      case "days":
+      case "day":
+      case "d":
+        return n * d2;
+      case "hours":
+      case "hour":
+      case "hrs":
+      case "hr":
+      case "h":
+        return n * h2;
+      case "minutes":
+      case "minute":
+      case "mins":
+      case "min":
+      case "m":
+        return n * m2;
+      case "seconds":
+      case "second":
+      case "secs":
+      case "sec":
+      case "s":
+        return n * s;
+      case "milliseconds":
+      case "millisecond":
+      case "msecs":
+      case "msec":
+      case "ms":
+        return n;
+      default:
+        return void 0;
+    }
+  }
+  function fmtShort(ms2) {
+    var msAbs = Math.abs(ms2);
+    if (msAbs >= d2) {
+      return Math.round(ms2 / d2) + "d";
+    }
+    if (msAbs >= h2) {
+      return Math.round(ms2 / h2) + "h";
+    }
+    if (msAbs >= m2) {
+      return Math.round(ms2 / m2) + "m";
+    }
+    if (msAbs >= s) {
+      return Math.round(ms2 / s) + "s";
+    }
+    return ms2 + "ms";
+  }
+  function fmtLong(ms2) {
+    var msAbs = Math.abs(ms2);
+    if (msAbs >= d2) {
+      return plural(ms2, msAbs, d2, "day");
+    }
+    if (msAbs >= h2) {
+      return plural(ms2, msAbs, h2, "hour");
+    }
+    if (msAbs >= m2) {
+      return plural(ms2, msAbs, m2, "minute");
+    }
+    if (msAbs >= s) {
+      return plural(ms2, msAbs, s, "second");
+    }
+    return ms2 + " ms";
+  }
+  function plural(ms2, msAbs, n, name) {
+    var isPlural = msAbs >= n * 1.5;
+    return Math.round(ms2 / n) + " " + name + (isPlural ? "s" : "");
+  }
+  return ms;
+}
+function setup(env) {
+  createDebug.debug = createDebug;
+  createDebug.default = createDebug;
+  createDebug.coerce = coerce;
+  createDebug.disable = disable;
+  createDebug.enable = enable;
+  createDebug.enabled = enabled;
+  createDebug.humanize = requireMs();
+  createDebug.destroy = destroy;
+  Object.keys(env).forEach((key) => {
+    createDebug[key] = env[key];
+  });
+  createDebug.names = [];
+  createDebug.skips = [];
+  createDebug.formatters = {};
+  function selectColor(namespace) {
+    let hash = 0;
+    for (let i = 0; i < namespace.length; i++) {
+      hash = (hash << 5) - hash + namespace.charCodeAt(i);
+      hash |= 0;
+    }
+    return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+  }
+  createDebug.selectColor = selectColor;
+  function createDebug(namespace) {
+    let prevTime;
+    let enableOverride = null;
+    let namespacesCache;
+    let enabledCache;
+    function debug2(...args) {
+      if (!debug2.enabled) {
+        return;
+      }
+      const self = debug2;
+      const curr = Number(/* @__PURE__ */ new Date());
+      const ms2 = curr - (prevTime || curr);
+      self.diff = ms2;
+      self.prev = prevTime;
+      self.curr = curr;
+      prevTime = curr;
+      args[0] = createDebug.coerce(args[0]);
+      if (typeof args[0] !== "string") {
+        args.unshift("%O");
+      }
+      let index2 = 0;
+      args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+        if (match === "%%") {
+          return "%";
+        }
+        index2++;
+        const formatter = createDebug.formatters[format];
+        if (typeof formatter === "function") {
+          const val = args[index2];
+          match = formatter.call(self, val);
+          args.splice(index2, 1);
+          index2--;
+        }
+        return match;
+      });
+      createDebug.formatArgs.call(self, args);
+      const logFn = self.log || createDebug.log;
+      logFn.apply(self, args);
+    }
+    debug2.namespace = namespace;
+    debug2.useColors = createDebug.useColors();
+    debug2.color = createDebug.selectColor(namespace);
+    debug2.extend = extend;
+    debug2.destroy = createDebug.destroy;
+    Object.defineProperty(debug2, "enabled", {
+      enumerable: true,
+      configurable: false,
+      get: () => {
+        if (enableOverride !== null) {
+          return enableOverride;
+        }
+        if (namespacesCache !== createDebug.namespaces) {
+          namespacesCache = createDebug.namespaces;
+          enabledCache = createDebug.enabled(namespace);
+        }
+        return enabledCache;
+      },
+      set: (v2) => {
+        enableOverride = v2;
+      }
+    });
+    if (typeof createDebug.init === "function") {
+      createDebug.init(debug2);
+    }
+    return debug2;
+  }
+  function extend(namespace, delimiter) {
+    const newDebug = createDebug(this.namespace + (typeof delimiter === "undefined" ? ":" : delimiter) + namespace);
+    newDebug.log = this.log;
+    return newDebug;
+  }
+  function enable(namespaces) {
+    createDebug.save(namespaces);
+    createDebug.namespaces = namespaces;
+    createDebug.names = [];
+    createDebug.skips = [];
+    const split2 = (typeof namespaces === "string" ? namespaces : "").trim().replace(/\s+/g, ",").split(",").filter(Boolean);
+    for (const ns of split2) {
+      if (ns[0] === "-") {
+        createDebug.skips.push(ns.slice(1));
+      } else {
+        createDebug.names.push(ns);
+      }
+    }
+  }
+  function matchesTemplate(search, template) {
+    let searchIndex = 0;
+    let templateIndex = 0;
+    let starIndex = -1;
+    let matchIndex = 0;
+    while (searchIndex < search.length) {
+      if (templateIndex < template.length && (template[templateIndex] === search[searchIndex] || template[templateIndex] === "*")) {
+        if (template[templateIndex] === "*") {
+          starIndex = templateIndex;
+          matchIndex = searchIndex;
+          templateIndex++;
+        } else {
+          searchIndex++;
+          templateIndex++;
+        }
+      } else if (starIndex !== -1) {
+        templateIndex = starIndex + 1;
+        matchIndex++;
+        searchIndex = matchIndex;
+      } else {
+        return false;
+      }
+    }
+    while (templateIndex < template.length && template[templateIndex] === "*") {
+      templateIndex++;
+    }
+    return templateIndex === template.length;
+  }
+  function disable() {
+    const namespaces = [
+      ...createDebug.names,
+      ...createDebug.skips.map((namespace) => "-" + namespace)
+    ].join(",");
+    createDebug.enable("");
+    return namespaces;
+  }
+  function enabled(name) {
+    for (const skip of createDebug.skips) {
+      if (matchesTemplate(name, skip)) {
+        return false;
+      }
+    }
+    for (const ns of createDebug.names) {
+      if (matchesTemplate(name, ns)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  function coerce(val) {
+    if (val instanceof Error) {
+      return val.stack || val.message;
+    }
+    return val;
+  }
+  function destroy() {
+    console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+  }
+  createDebug.enable(createDebug.load());
+  return createDebug;
+}
+var common = setup;
+(function(module, exports$1) {
+  var define_process_env_default2 = {};
+  exports$1.formatArgs = formatArgs;
+  exports$1.save = save;
+  exports$1.load = load;
+  exports$1.useColors = useColors;
+  exports$1.storage = localstorage();
+  exports$1.destroy = /* @__PURE__ */ (() => {
+    let warned = false;
+    return () => {
+      if (!warned) {
+        warned = true;
+        console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+      }
+    };
+  })();
+  exports$1.colors = [
+    "#0000CC",
+    "#0000FF",
+    "#0033CC",
+    "#0033FF",
+    "#0066CC",
+    "#0066FF",
+    "#0099CC",
+    "#0099FF",
+    "#00CC00",
+    "#00CC33",
+    "#00CC66",
+    "#00CC99",
+    "#00CCCC",
+    "#00CCFF",
+    "#3300CC",
+    "#3300FF",
+    "#3333CC",
+    "#3333FF",
+    "#3366CC",
+    "#3366FF",
+    "#3399CC",
+    "#3399FF",
+    "#33CC00",
+    "#33CC33",
+    "#33CC66",
+    "#33CC99",
+    "#33CCCC",
+    "#33CCFF",
+    "#6600CC",
+    "#6600FF",
+    "#6633CC",
+    "#6633FF",
+    "#66CC00",
+    "#66CC33",
+    "#9900CC",
+    "#9900FF",
+    "#9933CC",
+    "#9933FF",
+    "#99CC00",
+    "#99CC33",
+    "#CC0000",
+    "#CC0033",
+    "#CC0066",
+    "#CC0099",
+    "#CC00CC",
+    "#CC00FF",
+    "#CC3300",
+    "#CC3333",
+    "#CC3366",
+    "#CC3399",
+    "#CC33CC",
+    "#CC33FF",
+    "#CC6600",
+    "#CC6633",
+    "#CC9900",
+    "#CC9933",
+    "#CCCC00",
+    "#CCCC33",
+    "#FF0000",
+    "#FF0033",
+    "#FF0066",
+    "#FF0099",
+    "#FF00CC",
+    "#FF00FF",
+    "#FF3300",
+    "#FF3333",
+    "#FF3366",
+    "#FF3399",
+    "#FF33CC",
+    "#FF33FF",
+    "#FF6600",
+    "#FF6633",
+    "#FF9900",
+    "#FF9933",
+    "#FFCC00",
+    "#FFCC33"
+  ];
+  function useColors() {
+    if (typeof window !== "undefined" && window.process && (window.process.type === "renderer" || window.process.__nwjs)) {
+      return true;
+    }
+    if (typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+      return false;
+    }
+    let m2;
+    return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || // Is firebug? http://stackoverflow.com/a/398120/376773
+    typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || // Is firefox >= v31?
+    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+    typeof navigator !== "undefined" && navigator.userAgent && (m2 = navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)) && parseInt(m2[1], 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
+    typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+  }
+  function formatArgs(args) {
+    args[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + args[0] + (this.useColors ? "%c " : " ") + "+" + module.exports.humanize(this.diff);
+    if (!this.useColors) {
+      return;
+    }
+    const c2 = "color: " + this.color;
+    args.splice(1, 0, c2, "color: inherit");
+    let index2 = 0;
+    let lastC = 0;
+    args[0].replace(/%[a-zA-Z%]/g, (match) => {
+      if (match === "%%") {
+        return;
+      }
+      index2++;
+      if (match === "%c") {
+        lastC = index2;
+      }
+    });
+    args.splice(lastC, 0, c2);
+  }
+  exports$1.log = console.debug || console.log || (() => {
+  });
+  function save(namespaces) {
+    try {
+      if (namespaces) {
+        exports$1.storage.setItem("debug", namespaces);
+      } else {
+        exports$1.storage.removeItem("debug");
+      }
+    } catch (error) {
+    }
+  }
+  function load() {
+    let r2;
+    try {
+      r2 = exports$1.storage.getItem("debug") || exports$1.storage.getItem("DEBUG");
+    } catch (error) {
+    }
+    if (!r2 && typeof process !== "undefined" && "env" in process) {
+      r2 = define_process_env_default2.DEBUG;
+    }
+    return r2;
+  }
+  function localstorage() {
+    try {
+      return localStorage;
+    } catch (error) {
+    }
+  }
+  module.exports = common(exports$1);
+  const { formatters } = module.exports;
+  formatters.j = function(v2) {
+    try {
+      return JSON.stringify(v2);
+    } catch (error) {
+      return "[UnexpectedJSONParseError]: " + error.message;
+    }
+  };
+})(browser, browser.exports);
+var browserExports = browser.exports;
+const initDebug = /* @__PURE__ */ getDefaultExportFromCjs(browserExports);
+const Signature = {
+  LocalFileHeader: 67324752,
+  DataDescriptor: 134695760,
+  CentralFileHeader: 33639248,
+  EndOfCentralDirectory: 101010256
+};
+const DataDescriptor = {
+  get(array) {
+    return {
+      signature: UINT32_LE.get(array, 0),
+      compressedSize: UINT32_LE.get(array, 8),
+      uncompressedSize: UINT32_LE.get(array, 12)
+    };
+  },
+  len: 16
+};
+const LocalFileHeaderToken = {
+  get(array) {
+    const flags = UINT16_LE.get(array, 6);
+    return {
+      signature: UINT32_LE.get(array, 0),
+      minVersion: UINT16_LE.get(array, 4),
+      dataDescriptor: !!(flags & 8),
+      compressedMethod: UINT16_LE.get(array, 8),
+      compressedSize: UINT32_LE.get(array, 18),
+      uncompressedSize: UINT32_LE.get(array, 22),
+      filenameLength: UINT16_LE.get(array, 26),
+      extraFieldLength: UINT16_LE.get(array, 28),
+      filename: null
+    };
+  },
+  len: 30
+};
+const EndOfCentralDirectoryRecordToken = {
+  get(array) {
+    return {
+      signature: UINT32_LE.get(array, 0),
+      nrOfThisDisk: UINT16_LE.get(array, 4),
+      nrOfThisDiskWithTheStart: UINT16_LE.get(array, 6),
+      nrOfEntriesOnThisDisk: UINT16_LE.get(array, 8),
+      nrOfEntriesOfSize: UINT16_LE.get(array, 10),
+      sizeOfCd: UINT32_LE.get(array, 12),
+      offsetOfStartOfCd: UINT32_LE.get(array, 16),
+      zipFileCommentLength: UINT16_LE.get(array, 20)
+    };
+  },
+  len: 22
+};
+const FileHeader = {
+  get(array) {
+    const flags = UINT16_LE.get(array, 8);
+    return {
+      signature: UINT32_LE.get(array, 0),
+      minVersion: UINT16_LE.get(array, 6),
+      dataDescriptor: !!(flags & 8),
+      compressedMethod: UINT16_LE.get(array, 10),
+      compressedSize: UINT32_LE.get(array, 20),
+      uncompressedSize: UINT32_LE.get(array, 24),
+      filenameLength: UINT16_LE.get(array, 28),
+      extraFieldLength: UINT16_LE.get(array, 30),
+      fileCommentLength: UINT16_LE.get(array, 32),
+      relativeOffsetOfLocalHeader: UINT32_LE.get(array, 42),
+      filename: null
+    };
+  },
+  len: 46
+};
+function signatureToArray(signature) {
+  const signatureBytes = new Uint8Array(UINT32_LE.len);
+  UINT32_LE.put(signatureBytes, 0, signature);
+  return signatureBytes;
+}
+const debug = initDebug("tokenizer:inflate");
+const syncBufferSize = 256 * 1024;
+const ddSignatureArray = signatureToArray(Signature.DataDescriptor);
+const eocdSignatureBytes = signatureToArray(Signature.EndOfCentralDirectory);
+class ZipHandler {
+  constructor(tokenizer) {
+    this.tokenizer = tokenizer;
+    this.syncBuffer = new Uint8Array(syncBufferSize);
+  }
+  async isZip() {
+    return await this.peekSignature() === Signature.LocalFileHeader;
+  }
+  peekSignature() {
+    return this.tokenizer.peekToken(UINT32_LE);
+  }
+  async findEndOfCentralDirectoryLocator() {
+    const randomReadTokenizer = this.tokenizer;
+    const chunkLength = Math.min(16 * 1024, randomReadTokenizer.fileInfo.size);
+    const buffer = this.syncBuffer.subarray(0, chunkLength);
+    await this.tokenizer.readBuffer(buffer, { position: randomReadTokenizer.fileInfo.size - chunkLength });
+    for (let i = buffer.length - 4; i >= 0; i--) {
+      if (buffer[i] === eocdSignatureBytes[0] && buffer[i + 1] === eocdSignatureBytes[1] && buffer[i + 2] === eocdSignatureBytes[2] && buffer[i + 3] === eocdSignatureBytes[3]) {
+        return randomReadTokenizer.fileInfo.size - chunkLength + i;
+      }
+    }
+    return -1;
+  }
+  async readCentralDirectory() {
+    if (!this.tokenizer.supportsRandomAccess()) {
+      debug("Cannot reading central-directory without random-read support");
+      return;
+    }
+    debug("Reading central-directory...");
+    const pos = this.tokenizer.position;
+    const offset = await this.findEndOfCentralDirectoryLocator();
+    if (offset > 0) {
+      debug("Central-directory 32-bit signature found");
+      const eocdHeader = await this.tokenizer.readToken(EndOfCentralDirectoryRecordToken, offset);
+      const files = [];
+      this.tokenizer.setPosition(eocdHeader.offsetOfStartOfCd);
+      for (let n = 0; n < eocdHeader.nrOfEntriesOfSize; ++n) {
+        const entry = await this.tokenizer.readToken(FileHeader);
+        if (entry.signature !== Signature.CentralFileHeader) {
+          throw new Error("Expected Central-File-Header signature");
+        }
+        entry.filename = await this.tokenizer.readToken(new StringType(entry.filenameLength, "utf-8"));
+        await this.tokenizer.ignore(entry.extraFieldLength);
+        await this.tokenizer.ignore(entry.fileCommentLength);
+        files.push(entry);
+        debug(`Add central-directory file-entry: n=${n + 1}/${files.length}: filename=${files[n].filename}`);
+      }
+      this.tokenizer.setPosition(pos);
+      return files;
+    }
+    this.tokenizer.setPosition(pos);
+  }
+  async unzip(fileCb) {
+    const entries = await this.readCentralDirectory();
+    if (entries) {
+      return this.iterateOverCentralDirectory(entries, fileCb);
+    }
+    let stop = false;
+    do {
+      const zipHeader = await this.readLocalFileHeader();
+      if (!zipHeader)
+        break;
+      const next = fileCb(zipHeader);
+      stop = !!next.stop;
+      let fileData;
+      await this.tokenizer.ignore(zipHeader.extraFieldLength);
+      if (zipHeader.dataDescriptor && zipHeader.compressedSize === 0) {
+        const chunks = [];
+        let len = syncBufferSize;
+        debug("Compressed-file-size unknown, scanning for next data-descriptor-signature....");
+        let nextHeaderIndex = -1;
+        while (nextHeaderIndex < 0 && len === syncBufferSize) {
+          len = await this.tokenizer.peekBuffer(this.syncBuffer, { mayBeLess: true });
+          nextHeaderIndex = indexOf(this.syncBuffer.subarray(0, len), ddSignatureArray);
+          const size = nextHeaderIndex >= 0 ? nextHeaderIndex : len;
+          if (next.handler) {
+            const data = new Uint8Array(size);
+            await this.tokenizer.readBuffer(data);
+            chunks.push(data);
+          } else {
+            await this.tokenizer.ignore(size);
+          }
+        }
+        debug(`Found data-descriptor-signature at pos=${this.tokenizer.position}`);
+        if (next.handler) {
+          await this.inflate(zipHeader, mergeArrays(chunks), next.handler);
+        }
+      } else {
+        if (next.handler) {
+          debug(`Reading compressed-file-data: ${zipHeader.compressedSize} bytes`);
+          fileData = new Uint8Array(zipHeader.compressedSize);
+          await this.tokenizer.readBuffer(fileData);
+          await this.inflate(zipHeader, fileData, next.handler);
+        } else {
+          debug(`Ignoring compressed-file-data: ${zipHeader.compressedSize} bytes`);
+          await this.tokenizer.ignore(zipHeader.compressedSize);
+        }
+      }
+      debug(`Reading data-descriptor at pos=${this.tokenizer.position}`);
+      if (zipHeader.dataDescriptor) {
+        const dataDescriptor = await this.tokenizer.readToken(DataDescriptor);
+        if (dataDescriptor.signature !== 134695760) {
+          throw new Error(`Expected data-descriptor-signature at position ${this.tokenizer.position - DataDescriptor.len}`);
+        }
+      }
+    } while (!stop);
+  }
+  async iterateOverCentralDirectory(entries, fileCb) {
+    for (const fileHeader of entries) {
+      const next = fileCb(fileHeader);
+      if (next.handler) {
+        this.tokenizer.setPosition(fileHeader.relativeOffsetOfLocalHeader);
+        const zipHeader = await this.readLocalFileHeader();
+        if (zipHeader) {
+          await this.tokenizer.ignore(zipHeader.extraFieldLength);
+          const fileData = new Uint8Array(fileHeader.compressedSize);
+          await this.tokenizer.readBuffer(fileData);
+          await this.inflate(zipHeader, fileData, next.handler);
+        }
+      }
+      if (next.stop)
+        break;
+    }
+  }
+  async inflate(zipHeader, fileData, cb) {
+    if (zipHeader.compressedMethod === 0) {
+      return cb(fileData);
+    }
+    if (zipHeader.compressedMethod !== 8) {
+      throw new Error(`Unsupported ZIP compression method: ${zipHeader.compressedMethod}`);
+    }
+    debug(`Decompress filename=${zipHeader.filename}, compressed-size=${fileData.length}`);
+    const uncompressedData = await ZipHandler.decompressDeflateRaw(fileData);
+    return cb(uncompressedData);
+  }
+  static async decompressDeflateRaw(data) {
+    const input = new ReadableStream({
+      start(controller) {
+        controller.enqueue(data);
+        controller.close();
+      }
+    });
+    const ds = new DecompressionStream("deflate-raw");
+    const output = input.pipeThrough(ds);
+    try {
+      const response = new Response(output);
+      const buffer = await response.arrayBuffer();
+      return new Uint8Array(buffer);
+    } catch (err) {
+      const message = err instanceof Error ? `Failed to deflate ZIP entry: ${err.message}` : "Unknown decompression error in ZIP entry";
+      throw new TypeError(message);
+    }
+  }
+  async readLocalFileHeader() {
+    const signature = await this.tokenizer.peekToken(UINT32_LE);
+    if (signature === Signature.LocalFileHeader) {
+      const header = await this.tokenizer.readToken(LocalFileHeaderToken);
+      header.filename = await this.tokenizer.readToken(new StringType(header.filenameLength, "utf-8"));
+      return header;
+    }
+    if (signature === Signature.CentralFileHeader) {
+      return false;
+    }
+    if (signature === 3759263696) {
+      throw new Error("Encrypted ZIP");
+    }
+    throw new Error("Unexpected signature");
+  }
+}
+function indexOf(buffer, portion) {
+  const bufferLength = buffer.length;
+  const portionLength = portion.length;
+  if (portionLength > bufferLength)
+    return -1;
+  for (let i = 0; i <= bufferLength - portionLength; i++) {
+    let found = true;
+    for (let j2 = 0; j2 < portionLength; j2++) {
+      if (buffer[i + j2] !== portion[j2]) {
+        found = false;
+        break;
+      }
+    }
+    if (found) {
+      return i;
+    }
+  }
+  return -1;
+}
+function mergeArrays(chunks) {
+  const totalLength = chunks.reduce((acc, curr) => acc + curr.length, 0);
+  const mergedArray = new Uint8Array(totalLength);
+  let offset = 0;
+  for (const chunk of chunks) {
+    mergedArray.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return mergedArray;
+}
+class GzipHandler {
+  constructor(tokenizer) {
+    this.tokenizer = tokenizer;
+  }
+  inflate() {
+    const tokenizer = this.tokenizer;
+    return new ReadableStream({
+      async pull(controller) {
+        const buffer = new Uint8Array(1024);
+        const size = await tokenizer.readBuffer(buffer, { mayBeLess: true });
+        if (size === 0) {
+          controller.close();
+          return;
+        }
+        controller.enqueue(buffer.subarray(0, size));
+      }
+    }).pipeThrough(new DecompressionStream("gzip"));
+  }
+}
+({
+  utf8: new globalThis.TextDecoder("utf8")
+});
+new globalThis.TextEncoder();
+Array.from({ length: 256 }, (_2, index2) => index2.toString(16).padStart(2, "0"));
+function getUintBE(view) {
+  const { byteLength } = view;
+  if (byteLength === 6) {
+    return view.getUint16(0) * 2 ** 32 + view.getUint32(2);
+  }
+  if (byteLength === 5) {
+    return view.getUint8(0) * 2 ** 32 + view.getUint32(1);
+  }
+  if (byteLength === 4) {
+    return view.getUint32(0);
+  }
+  if (byteLength === 3) {
+    return view.getUint8(0) * 2 ** 16 + view.getUint16(1);
+  }
+  if (byteLength === 2) {
+    return view.getUint16(0);
+  }
+  if (byteLength === 1) {
+    return view.getUint8(0);
+  }
+}
+function stringToBytes(string, encoding) {
+  if (encoding === "utf-16le") {
+    const bytes = [];
+    for (let index2 = 0; index2 < string.length; index2++) {
+      const code = string.charCodeAt(index2);
+      bytes.push(code & 255, code >> 8 & 255);
+    }
+    return bytes;
+  }
+  if (encoding === "utf-16be") {
+    const bytes = [];
+    for (let index2 = 0; index2 < string.length; index2++) {
+      const code = string.charCodeAt(index2);
+      bytes.push(code >> 8 & 255, code & 255);
+    }
+    return bytes;
+  }
+  return [...string].map((character) => character.charCodeAt(0));
+}
+function tarHeaderChecksumMatches(arrayBuffer, offset = 0) {
+  const readSum = Number.parseInt(new StringType(6).get(arrayBuffer, 148).replace(/\0.*$/, "").trim(), 8);
+  if (Number.isNaN(readSum)) {
+    return false;
+  }
+  let sum = 8 * 32;
+  for (let index2 = offset; index2 < offset + 148; index2++) {
+    sum += arrayBuffer[index2];
+  }
+  for (let index2 = offset + 156; index2 < offset + 512; index2++) {
+    sum += arrayBuffer[index2];
+  }
+  return readSum === sum;
+}
+const uint32SyncSafeToken = {
+  get: (buffer, offset) => buffer[offset + 3] & 127 | buffer[offset + 2] << 7 | buffer[offset + 1] << 14 | buffer[offset] << 21,
+  len: 4
+};
+const extensions = [
+  "jpg",
+  "png",
+  "apng",
+  "gif",
+  "webp",
+  "flif",
+  "xcf",
+  "cr2",
+  "cr3",
+  "orf",
+  "arw",
+  "dng",
+  "nef",
+  "rw2",
+  "raf",
+  "tif",
+  "bmp",
+  "icns",
+  "jxr",
+  "psd",
+  "indd",
+  "zip",
+  "tar",
+  "rar",
+  "gz",
+  "bz2",
+  "7z",
+  "dmg",
+  "mp4",
+  "mid",
+  "mkv",
+  "webm",
+  "mov",
+  "avi",
+  "mpg",
+  "mp2",
+  "mp3",
+  "m4a",
+  "oga",
+  "ogg",
+  "ogv",
+  "opus",
+  "flac",
+  "wav",
+  "spx",
+  "amr",
+  "pdf",
+  "epub",
+  "elf",
+  "macho",
+  "exe",
+  "swf",
+  "rtf",
+  "wasm",
+  "woff",
+  "woff2",
+  "eot",
+  "ttf",
+  "otf",
+  "ttc",
+  "ico",
+  "flv",
+  "ps",
+  "xz",
+  "sqlite",
+  "nes",
+  "crx",
+  "xpi",
+  "cab",
+  "deb",
+  "ar",
+  "rpm",
+  "Z",
+  "lz",
+  "cfb",
+  "mxf",
+  "mts",
+  "blend",
+  "bpg",
+  "docx",
+  "pptx",
+  "xlsx",
+  "3gp",
+  "3g2",
+  "j2c",
+  "jp2",
+  "jpm",
+  "jpx",
+  "mj2",
+  "aif",
+  "qcp",
+  "odt",
+  "ods",
+  "odp",
+  "xml",
+  "mobi",
+  "heic",
+  "cur",
+  "ktx",
+  "ape",
+  "wv",
+  "dcm",
+  "ics",
+  "glb",
+  "pcap",
+  "dsf",
+  "lnk",
+  "alias",
+  "voc",
+  "ac3",
+  "m4v",
+  "m4p",
+  "m4b",
+  "f4v",
+  "f4p",
+  "f4b",
+  "f4a",
+  "mie",
+  "asf",
+  "ogm",
+  "ogx",
+  "mpc",
+  "arrow",
+  "shp",
+  "aac",
+  "mp1",
+  "it",
+  "s3m",
+  "xm",
+  "skp",
+  "avif",
+  "eps",
+  "lzh",
+  "pgp",
+  "asar",
+  "stl",
+  "chm",
+  "3mf",
+  "zst",
+  "jxl",
+  "vcf",
+  "jls",
+  "pst",
+  "dwg",
+  "parquet",
+  "class",
+  "arj",
+  "cpio",
+  "ace",
+  "avro",
+  "icc",
+  "fbx",
+  "vsdx",
+  "vtt",
+  "apk",
+  "drc",
+  "lz4",
+  "potx",
+  "xltx",
+  "dotx",
+  "xltm",
+  "ott",
+  "ots",
+  "otp",
+  "odg",
+  "otg",
+  "xlsm",
+  "docm",
+  "dotm",
+  "potm",
+  "pptm",
+  "jar",
+  "jmp",
+  "rm",
+  "sav",
+  "ppsm",
+  "ppsx",
+  "tar.gz",
+  "reg",
+  "dat"
+];
+const mimeTypes = [
+  "image/jpeg",
+  "image/png",
+  "image/gif",
+  "image/webp",
+  "image/flif",
+  "image/x-xcf",
+  "image/x-canon-cr2",
+  "image/x-canon-cr3",
+  "image/tiff",
+  "image/bmp",
+  "image/vnd.ms-photo",
+  "image/vnd.adobe.photoshop",
+  "application/x-indesign",
+  "application/epub+zip",
+  "application/x-xpinstall",
+  "application/vnd.ms-powerpoint.slideshow.macroenabled.12",
+  "application/vnd.oasis.opendocument.text",
+  "application/vnd.oasis.opendocument.spreadsheet",
+  "application/vnd.oasis.opendocument.presentation",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "application/vnd.openxmlformats-officedocument.presentationml.slideshow",
+  "application/zip",
+  "application/x-tar",
+  "application/x-rar-compressed",
+  "application/gzip",
+  "application/x-bzip2",
+  "application/x-7z-compressed",
+  "application/x-apple-diskimage",
+  "application/vnd.apache.arrow.file",
+  "video/mp4",
+  "audio/midi",
+  "video/matroska",
+  "video/webm",
+  "video/quicktime",
+  "video/vnd.avi",
+  "audio/wav",
+  "audio/qcelp",
+  "audio/x-ms-asf",
+  "video/x-ms-asf",
+  "application/vnd.ms-asf",
+  "video/mpeg",
+  "video/3gpp",
+  "audio/mpeg",
+  "audio/mp4",
+  // RFC 4337
+  "video/ogg",
+  "audio/ogg",
+  "audio/ogg; codecs=opus",
+  "application/ogg",
+  "audio/flac",
+  "audio/ape",
+  "audio/wavpack",
+  "audio/amr",
+  "application/pdf",
+  "application/x-elf",
+  "application/x-mach-binary",
+  "application/x-msdownload",
+  "application/x-shockwave-flash",
+  "application/rtf",
+  "application/wasm",
+  "font/woff",
+  "font/woff2",
+  "application/vnd.ms-fontobject",
+  "font/ttf",
+  "font/otf",
+  "font/collection",
+  "image/x-icon",
+  "video/x-flv",
+  "application/postscript",
+  "application/eps",
+  "application/x-xz",
+  "application/x-sqlite3",
+  "application/x-nintendo-nes-rom",
+  "application/x-google-chrome-extension",
+  "application/vnd.ms-cab-compressed",
+  "application/x-deb",
+  "application/x-unix-archive",
+  "application/x-rpm",
+  "application/x-compress",
+  "application/x-lzip",
+  "application/x-cfb",
+  "application/x-mie",
+  "application/mxf",
+  "video/mp2t",
+  "application/x-blender",
+  "image/bpg",
+  "image/j2c",
+  "image/jp2",
+  "image/jpx",
+  "image/jpm",
+  "image/mj2",
+  "audio/aiff",
+  "application/xml",
+  "application/x-mobipocket-ebook",
+  "image/heif",
+  "image/heif-sequence",
+  "image/heic",
+  "image/heic-sequence",
+  "image/icns",
+  "image/ktx",
+  "application/dicom",
+  "audio/x-musepack",
+  "text/calendar",
+  "text/vcard",
+  "text/vtt",
+  "model/gltf-binary",
+  "application/vnd.tcpdump.pcap",
+  "audio/x-dsf",
+  // Non-standard
+  "application/x.ms.shortcut",
+  // Invented by us
+  "application/x.apple.alias",
+  // Invented by us
+  "audio/x-voc",
+  "audio/vnd.dolby.dd-raw",
+  "audio/x-m4a",
+  "image/apng",
+  "image/x-olympus-orf",
+  "image/x-sony-arw",
+  "image/x-adobe-dng",
+  "image/x-nikon-nef",
+  "image/x-panasonic-rw2",
+  "image/x-fujifilm-raf",
+  "video/x-m4v",
+  "video/3gpp2",
+  "application/x-esri-shape",
+  "audio/aac",
+  "audio/x-it",
+  "audio/x-s3m",
+  "audio/x-xm",
+  "video/MP1S",
+  "video/MP2P",
+  "application/vnd.sketchup.skp",
+  "image/avif",
+  "application/x-lzh-compressed",
+  "application/pgp-encrypted",
+  "application/x-asar",
+  "model/stl",
+  "application/vnd.ms-htmlhelp",
+  "model/3mf",
+  "image/jxl",
+  "application/zstd",
+  "image/jls",
+  "application/vnd.ms-outlook",
+  "image/vnd.dwg",
+  "application/vnd.apache.parquet",
+  "application/java-vm",
+  "application/x-arj",
+  "application/x-cpio",
+  "application/x-ace-compressed",
+  "application/avro",
+  "application/vnd.iccprofile",
+  "application/x.autodesk.fbx",
+  // Invented by us
+  "application/vnd.visio",
+  "application/vnd.android.package-archive",
+  "application/vnd.google.draco",
+  // Invented by us
+  "application/x-lz4",
+  // Invented by us
+  "application/vnd.openxmlformats-officedocument.presentationml.template",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.template",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.template",
+  "application/vnd.ms-excel.template.macroenabled.12",
+  "application/vnd.oasis.opendocument.text-template",
+  "application/vnd.oasis.opendocument.spreadsheet-template",
+  "application/vnd.oasis.opendocument.presentation-template",
+  "application/vnd.oasis.opendocument.graphics",
+  "application/vnd.oasis.opendocument.graphics-template",
+  "application/vnd.ms-excel.sheet.macroenabled.12",
+  "application/vnd.ms-word.document.macroenabled.12",
+  "application/vnd.ms-word.template.macroenabled.12",
+  "application/vnd.ms-powerpoint.template.macroenabled.12",
+  "application/vnd.ms-powerpoint.presentation.macroenabled.12",
+  "application/java-archive",
+  "application/vnd.rn-realmedia",
+  "application/x-spss-sav",
+  "application/x-ms-regedit",
+  "application/x-ft-windows-registry-hive",
+  "application/x-jmp-data"
+];
+const reasonableDetectionSizeInBytes = 4100;
+const maximumMpegOffsetTolerance = reasonableDetectionSizeInBytes - 2;
+const maximumZipEntrySizeInBytes = 1024 * 1024;
+const maximumZipEntryCount = 1024;
+const maximumZipBufferedReadSizeInBytes = 2 ** 31 - 1;
+const maximumUntrustedSkipSizeInBytes = 16 * 1024 * 1024;
+const maximumUnknownSizePayloadProbeSizeInBytes = maximumZipEntrySizeInBytes;
+const maximumZipTextEntrySizeInBytes = maximumZipEntrySizeInBytes;
+const maximumNestedGzipDetectionSizeInBytes = maximumUntrustedSkipSizeInBytes;
+const maximumNestedGzipProbeDepth = 1;
+const unknownSizeGzipProbeTimeoutInMilliseconds = 100;
+const maximumId3HeaderSizeInBytes = maximumUntrustedSkipSizeInBytes;
+const maximumEbmlDocumentTypeSizeInBytes = 64;
+const maximumEbmlElementPayloadSizeInBytes = maximumUnknownSizePayloadProbeSizeInBytes;
+const maximumEbmlElementCount = 256;
+const maximumPngChunkCount = 512;
+const maximumPngStreamScanBudgetInBytes = maximumUntrustedSkipSizeInBytes;
+const maximumAsfHeaderObjectCount = 512;
+const maximumTiffTagCount = 512;
+const maximumDetectionReentryCount = 256;
+const maximumPngChunkSizeInBytes = maximumUnknownSizePayloadProbeSizeInBytes;
+const maximumAsfHeaderPayloadSizeInBytes = maximumUnknownSizePayloadProbeSizeInBytes;
+const maximumTiffStreamIfdOffsetInBytes = maximumUnknownSizePayloadProbeSizeInBytes;
+const maximumTiffIfdOffsetInBytes = maximumUntrustedSkipSizeInBytes;
+const recoverableZipErrorMessages = /* @__PURE__ */ new Set([
+  "Unexpected signature",
+  "Encrypted ZIP",
+  "Expected Central-File-Header signature"
+]);
+const recoverableZipErrorMessagePrefixes = [
+  "ZIP entry count exceeds ",
+  "Unsupported ZIP compression method:",
+  "ZIP entry compressed data exceeds ",
+  "ZIP entry decompressed data exceeds ",
+  "Expected data-descriptor-signature at position "
+];
+const recoverableZipErrorCodes = /* @__PURE__ */ new Set([
+  "Z_BUF_ERROR",
+  "Z_DATA_ERROR",
+  "ERR_INVALID_STATE"
+]);
+class ParserHardLimitError extends Error {
+}
+function patchWebByobTokenizerClose(tokenizer) {
+  var _a2;
+  const streamReader = tokenizer == null ? void 0 : tokenizer.streamReader;
+  if (((_a2 = streamReader == null ? void 0 : streamReader.constructor) == null ? void 0 : _a2.name) !== "WebStreamByobReader") {
+    return tokenizer;
+  }
+  const { reader } = streamReader;
+  const cancelAndRelease = async () => {
+    await reader.cancel();
+    reader.releaseLock();
+  };
+  streamReader.close = cancelAndRelease;
+  streamReader.abort = async () => {
+    streamReader.interrupted = true;
+    await cancelAndRelease();
+  };
+  return tokenizer;
+}
+function getSafeBound(value, maximum, reason) {
+  if (!Number.isFinite(value) || value < 0 || value > maximum) {
+    throw new ParserHardLimitError(`${reason} has invalid size ${value} (maximum ${maximum} bytes)`);
+  }
+  return value;
+}
+async function safeIgnore(tokenizer, length, { maximumLength = maximumUntrustedSkipSizeInBytes, reason = "skip" } = {}) {
+  const safeLength = getSafeBound(length, maximumLength, reason);
+  await tokenizer.ignore(safeLength);
+}
+async function safeReadBuffer(tokenizer, buffer, options, { maximumLength = buffer.length, reason = "read" } = {}) {
+  const length = buffer.length;
+  const safeLength = getSafeBound(length, maximumLength, reason);
+  return tokenizer.readBuffer(buffer, {
+    ...options,
+    length: safeLength
+  });
+}
+async function decompressDeflateRawWithLimit(data, { maximumLength = maximumZipEntrySizeInBytes } = {}) {
+  const input = new ReadableStream({
+    start(controller) {
+      controller.enqueue(data);
+      controller.close();
+    }
+  });
+  const output = input.pipeThrough(new DecompressionStream("deflate-raw"));
+  const reader = output.getReader();
+  const chunks = [];
+  let totalLength = 0;
+  try {
+    for (; ; ) {
+      const { done, value } = await reader.read();
+      if (done) {
+        break;
+      }
+      totalLength += value.length;
+      if (totalLength > maximumLength) {
+        await reader.cancel();
+        throw new Error(`ZIP entry decompressed data exceeds ${maximumLength} bytes`);
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  const uncompressedData = new Uint8Array(totalLength);
+  let offset = 0;
+  for (const chunk of chunks) {
+    uncompressedData.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return uncompressedData;
+}
+const zipDataDescriptorSignature = 134695760;
+const zipDataDescriptorLengthInBytes = 16;
+const zipDataDescriptorOverlapLengthInBytes = zipDataDescriptorLengthInBytes - 1;
+function findZipDataDescriptorOffset(buffer, bytesConsumed) {
+  if (buffer.length < zipDataDescriptorLengthInBytes) {
+    return -1;
+  }
+  const lastPossibleDescriptorOffset = buffer.length - zipDataDescriptorLengthInBytes;
+  for (let index2 = 0; index2 <= lastPossibleDescriptorOffset; index2++) {
+    if (UINT32_LE.get(buffer, index2) === zipDataDescriptorSignature && UINT32_LE.get(buffer, index2 + 8) === bytesConsumed + index2) {
+      return index2;
+    }
+  }
+  return -1;
+}
+function isPngAncillaryChunk(type) {
+  return (type.codePointAt(0) & 32) !== 0;
+}
+function mergeByteChunks(chunks, totalLength) {
+  const merged = new Uint8Array(totalLength);
+  let offset = 0;
+  for (const chunk of chunks) {
+    merged.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return merged;
+}
+async function readZipDataDescriptorEntryWithLimit(zipHandler, { shouldBuffer, maximumLength = maximumZipEntrySizeInBytes } = {}) {
+  const { syncBuffer } = zipHandler;
+  const { length: syncBufferLength } = syncBuffer;
+  const chunks = [];
+  let bytesConsumed = 0;
+  for (; ; ) {
+    const length = await zipHandler.tokenizer.peekBuffer(syncBuffer, { mayBeLess: true });
+    const dataDescriptorOffset = findZipDataDescriptorOffset(syncBuffer.subarray(0, length), bytesConsumed);
+    const retainedLength = dataDescriptorOffset >= 0 ? 0 : length === syncBufferLength ? Math.min(zipDataDescriptorOverlapLengthInBytes, length - 1) : 0;
+    const chunkLength = dataDescriptorOffset >= 0 ? dataDescriptorOffset : length - retainedLength;
+    if (chunkLength === 0) {
+      break;
+    }
+    bytesConsumed += chunkLength;
+    if (bytesConsumed > maximumLength) {
+      throw new Error(`ZIP entry compressed data exceeds ${maximumLength} bytes`);
+    }
+    if (shouldBuffer) {
+      const data = new Uint8Array(chunkLength);
+      await zipHandler.tokenizer.readBuffer(data);
+      chunks.push(data);
+    } else {
+      await zipHandler.tokenizer.ignore(chunkLength);
+    }
+    if (dataDescriptorOffset >= 0) {
+      break;
+    }
+  }
+  if (!hasUnknownFileSize(zipHandler.tokenizer)) {
+    zipHandler.knownSizeDescriptorScannedBytes += bytesConsumed;
+  }
+  if (!shouldBuffer) {
+    return;
+  }
+  return mergeByteChunks(chunks, bytesConsumed);
+}
+function getRemainingZipScanBudget(zipHandler, startOffset) {
+  if (hasUnknownFileSize(zipHandler.tokenizer)) {
+    return Math.max(0, maximumUntrustedSkipSizeInBytes - (zipHandler.tokenizer.position - startOffset));
+  }
+  return Math.max(0, maximumZipEntrySizeInBytes - zipHandler.knownSizeDescriptorScannedBytes);
+}
+async function readZipEntryData(zipHandler, zipHeader, { shouldBuffer, maximumDescriptorLength = maximumZipEntrySizeInBytes } = {}) {
+  if (zipHeader.dataDescriptor && zipHeader.compressedSize === 0) {
+    return readZipDataDescriptorEntryWithLimit(zipHandler, {
+      shouldBuffer,
+      maximumLength: maximumDescriptorLength
+    });
+  }
+  if (!shouldBuffer) {
+    await safeIgnore(zipHandler.tokenizer, zipHeader.compressedSize, {
+      maximumLength: hasUnknownFileSize(zipHandler.tokenizer) ? maximumZipEntrySizeInBytes : zipHandler.tokenizer.fileInfo.size,
+      reason: "ZIP entry compressed data"
+    });
+    return;
+  }
+  const maximumLength = getMaximumZipBufferedReadLength(zipHandler.tokenizer);
+  if (!Number.isFinite(zipHeader.compressedSize) || zipHeader.compressedSize < 0 || zipHeader.compressedSize > maximumLength) {
+    throw new Error(`ZIP entry compressed data exceeds ${maximumLength} bytes`);
+  }
+  const fileData = new Uint8Array(zipHeader.compressedSize);
+  await zipHandler.tokenizer.readBuffer(fileData);
+  return fileData;
+}
+ZipHandler.prototype.inflate = async function(zipHeader, fileData, callback) {
+  if (zipHeader.compressedMethod === 0) {
+    return callback(fileData);
+  }
+  if (zipHeader.compressedMethod !== 8) {
+    throw new Error(`Unsupported ZIP compression method: ${zipHeader.compressedMethod}`);
+  }
+  const uncompressedData = await decompressDeflateRawWithLimit(fileData, { maximumLength: maximumZipEntrySizeInBytes });
+  return callback(uncompressedData);
+};
+ZipHandler.prototype.unzip = async function(fileCallback) {
+  let stop = false;
+  let zipEntryCount = 0;
+  const zipScanStart = this.tokenizer.position;
+  this.knownSizeDescriptorScannedBytes = 0;
+  do {
+    if (hasExceededUnknownSizeScanBudget(this.tokenizer, zipScanStart, maximumUntrustedSkipSizeInBytes)) {
+      throw new ParserHardLimitError(`ZIP stream probing exceeds ${maximumUntrustedSkipSizeInBytes} bytes`);
+    }
+    const zipHeader = await this.readLocalFileHeader();
+    if (!zipHeader) {
+      break;
+    }
+    zipEntryCount++;
+    if (zipEntryCount > maximumZipEntryCount) {
+      throw new Error(`ZIP entry count exceeds ${maximumZipEntryCount}`);
+    }
+    const next = fileCallback(zipHeader);
+    stop = Boolean(next.stop);
+    await this.tokenizer.ignore(zipHeader.extraFieldLength);
+    const fileData = await readZipEntryData(this, zipHeader, {
+      shouldBuffer: Boolean(next.handler),
+      maximumDescriptorLength: Math.min(maximumZipEntrySizeInBytes, getRemainingZipScanBudget(this, zipScanStart))
+    });
+    if (next.handler) {
+      await this.inflate(zipHeader, fileData, next.handler);
+    }
+    if (zipHeader.dataDescriptor) {
+      const dataDescriptor = new Uint8Array(zipDataDescriptorLengthInBytes);
+      await this.tokenizer.readBuffer(dataDescriptor);
+      if (UINT32_LE.get(dataDescriptor, 0) !== zipDataDescriptorSignature) {
+        throw new Error(`Expected data-descriptor-signature at position ${this.tokenizer.position - dataDescriptor.length}`);
+      }
+    }
+    if (hasExceededUnknownSizeScanBudget(this.tokenizer, zipScanStart, maximumUntrustedSkipSizeInBytes)) {
+      throw new ParserHardLimitError(`ZIP stream probing exceeds ${maximumUntrustedSkipSizeInBytes} bytes`);
+    }
+  } while (!stop);
+};
+function createByteLimitedReadableStream(stream, maximumBytes) {
+  const reader = stream.getReader();
+  let emittedBytes = 0;
+  let sourceDone = false;
+  let sourceCanceled = false;
+  const cancelSource = async (reason) => {
+    if (sourceDone || sourceCanceled) {
+      return;
+    }
+    sourceCanceled = true;
+    await reader.cancel(reason);
+  };
+  return new ReadableStream({
+    async pull(controller) {
+      if (emittedBytes >= maximumBytes) {
+        controller.close();
+        await cancelSource();
+        return;
+      }
+      const { done, value } = await reader.read();
+      if (done || !value) {
+        sourceDone = true;
+        controller.close();
+        return;
+      }
+      const remainingBytes = maximumBytes - emittedBytes;
+      if (value.length > remainingBytes) {
+        controller.enqueue(value.subarray(0, remainingBytes));
+        emittedBytes += remainingBytes;
+        controller.close();
+        await cancelSource();
+        return;
+      }
+      controller.enqueue(value);
+      emittedBytes += value.length;
+    },
+    async cancel(reason) {
+      await cancelSource(reason);
+    }
+  });
+}
+async function fileTypeFromBuffer(input, options) {
+  return new FileTypeParser(options).fromBuffer(input);
+}
+function getFileTypeFromMimeType(mimeType) {
+  mimeType = mimeType.toLowerCase();
+  switch (mimeType) {
+    case "application/epub+zip":
+      return {
+        ext: "epub",
+        mime: mimeType
+      };
+    case "application/vnd.oasis.opendocument.text":
+      return {
+        ext: "odt",
+        mime: mimeType
+      };
+    case "application/vnd.oasis.opendocument.text-template":
+      return {
+        ext: "ott",
+        mime: mimeType
+      };
+    case "application/vnd.oasis.opendocument.spreadsheet":
+      return {
+        ext: "ods",
+        mime: mimeType
+      };
+    case "application/vnd.oasis.opendocument.spreadsheet-template":
+      return {
+        ext: "ots",
+        mime: mimeType
+      };
+    case "application/vnd.oasis.opendocument.presentation":
+      return {
+        ext: "odp",
+        mime: mimeType
+      };
+    case "application/vnd.oasis.opendocument.presentation-template":
+      return {
+        ext: "otp",
+        mime: mimeType
+      };
+    case "application/vnd.oasis.opendocument.graphics":
+      return {
+        ext: "odg",
+        mime: mimeType
+      };
+    case "application/vnd.oasis.opendocument.graphics-template":
+      return {
+        ext: "otg",
+        mime: mimeType
+      };
+    case "application/vnd.openxmlformats-officedocument.presentationml.slideshow":
+      return {
+        ext: "ppsx",
+        mime: mimeType
+      };
+    case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+      return {
+        ext: "xlsx",
+        mime: mimeType
+      };
+    case "application/vnd.ms-excel.sheet.macroenabled":
+      return {
+        ext: "xlsm",
+        mime: "application/vnd.ms-excel.sheet.macroenabled.12"
+      };
+    case "application/vnd.openxmlformats-officedocument.spreadsheetml.template":
+      return {
+        ext: "xltx",
+        mime: mimeType
+      };
+    case "application/vnd.ms-excel.template.macroenabled":
+      return {
+        ext: "xltm",
+        mime: "application/vnd.ms-excel.template.macroenabled.12"
+      };
+    case "application/vnd.ms-powerpoint.slideshow.macroenabled":
+      return {
+        ext: "ppsm",
+        mime: "application/vnd.ms-powerpoint.slideshow.macroenabled.12"
+      };
+    case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+      return {
+        ext: "docx",
+        mime: mimeType
+      };
+    case "application/vnd.ms-word.document.macroenabled":
+      return {
+        ext: "docm",
+        mime: "application/vnd.ms-word.document.macroenabled.12"
+      };
+    case "application/vnd.openxmlformats-officedocument.wordprocessingml.template":
+      return {
+        ext: "dotx",
+        mime: mimeType
+      };
+    case "application/vnd.ms-word.template.macroenabledtemplate":
+      return {
+        ext: "dotm",
+        mime: "application/vnd.ms-word.template.macroenabled.12"
+      };
+    case "application/vnd.openxmlformats-officedocument.presentationml.template":
+      return {
+        ext: "potx",
+        mime: mimeType
+      };
+    case "application/vnd.ms-powerpoint.template.macroenabled":
+      return {
+        ext: "potm",
+        mime: "application/vnd.ms-powerpoint.template.macroenabled.12"
+      };
+    case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+      return {
+        ext: "pptx",
+        mime: mimeType
+      };
+    case "application/vnd.ms-powerpoint.presentation.macroenabled":
+      return {
+        ext: "pptm",
+        mime: "application/vnd.ms-powerpoint.presentation.macroenabled.12"
+      };
+    case "application/vnd.ms-visio.drawing":
+      return {
+        ext: "vsdx",
+        mime: "application/vnd.visio"
+      };
+    case "application/vnd.ms-package.3dmanufacturing-3dmodel+xml":
+      return {
+        ext: "3mf",
+        mime: "model/3mf"
+      };
+  }
+}
+function _check(buffer, headers, options) {
+  options = {
+    offset: 0,
+    ...options
+  };
+  for (const [index2, header] of headers.entries()) {
+    if (options.mask) {
+      if (header !== (options.mask[index2] & buffer[index2 + options.offset])) {
+        return false;
+      }
+    } else if (header !== buffer[index2 + options.offset]) {
+      return false;
+    }
+  }
+  return true;
+}
+function normalizeSampleSize(sampleSize) {
+  if (!Number.isFinite(sampleSize)) {
+    return reasonableDetectionSizeInBytes;
+  }
+  return Math.max(1, Math.trunc(sampleSize));
+}
+function readByobReaderWithSignal(reader, buffer, signal) {
+  if (signal === void 0) {
+    return reader.read(buffer);
+  }
+  signal.throwIfAborted();
+  return new Promise((resolve, reject) => {
+    const cleanup = () => {
+      signal.removeEventListener("abort", onAbort);
+    };
+    const onAbort = () => {
+      const abortReason = signal.reason;
+      cleanup();
+      (async () => {
+        try {
+          await reader.cancel(abortReason);
+        } catch {
+        }
+      })();
+      reject(abortReason);
+    };
+    signal.addEventListener("abort", onAbort, { once: true });
+    (async () => {
+      try {
+        const result = await reader.read(buffer);
+        cleanup();
+        resolve(result);
+      } catch (error) {
+        cleanup();
+        reject(error);
+      }
+    })();
+  });
+}
+function normalizeMpegOffsetTolerance(mpegOffsetTolerance) {
+  if (!Number.isFinite(mpegOffsetTolerance)) {
+    return 0;
+  }
+  return Math.max(0, Math.min(maximumMpegOffsetTolerance, Math.trunc(mpegOffsetTolerance)));
+}
+function getKnownFileSizeOrMaximum(fileSize) {
+  if (!Number.isFinite(fileSize)) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+  return Math.max(0, fileSize);
+}
+function hasUnknownFileSize(tokenizer) {
+  const fileSize = tokenizer.fileInfo.size;
+  return !Number.isFinite(fileSize) || fileSize === Number.MAX_SAFE_INTEGER;
+}
+function hasExceededUnknownSizeScanBudget(tokenizer, startOffset, maximumBytes) {
+  return hasUnknownFileSize(tokenizer) && tokenizer.position - startOffset > maximumBytes;
+}
+function getMaximumZipBufferedReadLength(tokenizer) {
+  const fileSize = tokenizer.fileInfo.size;
+  const remainingBytes = Number.isFinite(fileSize) ? Math.max(0, fileSize - tokenizer.position) : Number.MAX_SAFE_INTEGER;
+  return Math.min(remainingBytes, maximumZipBufferedReadSizeInBytes);
+}
+function isRecoverableZipError(error) {
+  if (error instanceof EndOfStreamError) {
+    return true;
+  }
+  if (error instanceof ParserHardLimitError) {
+    return true;
+  }
+  if (!(error instanceof Error)) {
+    return false;
+  }
+  if (recoverableZipErrorMessages.has(error.message)) {
+    return true;
+  }
+  if (recoverableZipErrorCodes.has(error.code)) {
+    return true;
+  }
+  for (const prefix2 of recoverableZipErrorMessagePrefixes) {
+    if (error.message.startsWith(prefix2)) {
+      return true;
+    }
+  }
+  return false;
+}
+function canReadZipEntryForDetection(zipHeader, maximumSize = maximumZipEntrySizeInBytes) {
+  const sizes = [zipHeader.compressedSize, zipHeader.uncompressedSize];
+  for (const size of sizes) {
+    if (!Number.isFinite(size) || size < 0 || size > maximumSize) {
+      return false;
+    }
+  }
+  return true;
+}
+function createOpenXmlZipDetectionState() {
+  return {
+    hasContentTypesEntry: false,
+    hasParsedContentTypesEntry: false,
+    isParsingContentTypes: false,
+    hasUnparseableContentTypes: false,
+    hasWordDirectory: false,
+    hasPresentationDirectory: false,
+    hasSpreadsheetDirectory: false,
+    hasThreeDimensionalModelEntry: false
+  };
+}
+function updateOpenXmlZipDetectionStateFromFilename(openXmlState, filename) {
+  if (filename.startsWith("word/")) {
+    openXmlState.hasWordDirectory = true;
+  }
+  if (filename.startsWith("ppt/")) {
+    openXmlState.hasPresentationDirectory = true;
+  }
+  if (filename.startsWith("xl/")) {
+    openXmlState.hasSpreadsheetDirectory = true;
+  }
+  if (filename.startsWith("3D/") && filename.endsWith(".model")) {
+    openXmlState.hasThreeDimensionalModelEntry = true;
+  }
+}
+function getOpenXmlFileTypeFromZipEntries(openXmlState) {
+  if (!openXmlState.hasContentTypesEntry || openXmlState.hasUnparseableContentTypes || openXmlState.isParsingContentTypes || openXmlState.hasParsedContentTypesEntry) {
+    return;
+  }
+  if (openXmlState.hasWordDirectory) {
+    return {
+      ext: "docx",
+      mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    };
+  }
+  if (openXmlState.hasPresentationDirectory) {
+    return {
+      ext: "pptx",
+      mime: "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    };
+  }
+  if (openXmlState.hasSpreadsheetDirectory) {
+    return {
+      ext: "xlsx",
+      mime: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    };
+  }
+  if (openXmlState.hasThreeDimensionalModelEntry) {
+    return {
+      ext: "3mf",
+      mime: "model/3mf"
+    };
+  }
+}
+function getOpenXmlMimeTypeFromContentTypesXml(xmlContent) {
+  const endPosition = xmlContent.indexOf('.main+xml"');
+  if (endPosition === -1) {
+    const mimeType = "application/vnd.ms-package.3dmanufacturing-3dmodel+xml";
+    if (xmlContent.includes(`ContentType="${mimeType}"`)) {
+      return mimeType;
+    }
+    return;
+  }
+  const truncatedContent = xmlContent.slice(0, endPosition);
+  const firstQuotePosition = truncatedContent.lastIndexOf('"');
+  return truncatedContent.slice(firstQuotePosition + 1);
+}
+class FileTypeParser {
+  constructor(options) {
+    // Detections with a high degree of certainty in identifying the correct file type
+    __publicField(this, "detectConfident", async (tokenizer) => {
+      this.buffer = new Uint8Array(reasonableDetectionSizeInBytes);
+      if (tokenizer.fileInfo.size === void 0) {
+        tokenizer.fileInfo.size = Number.MAX_SAFE_INTEGER;
+      }
+      this.tokenizer = tokenizer;
+      if (hasUnknownFileSize(tokenizer)) {
+        await tokenizer.peekBuffer(this.buffer, { length: 3, mayBeLess: true });
+        if (this.check([31, 139, 8])) {
+          return this.detectGzip(tokenizer);
+        }
+      }
+      await tokenizer.peekBuffer(this.buffer, { length: 32, mayBeLess: true });
+      if (this.check([66, 77])) {
+        return {
+          ext: "bmp",
+          mime: "image/bmp"
+        };
+      }
+      if (this.check([11, 119])) {
+        return {
+          ext: "ac3",
+          mime: "audio/vnd.dolby.dd-raw"
+        };
+      }
+      if (this.check([120, 1])) {
+        return {
+          ext: "dmg",
+          mime: "application/x-apple-diskimage"
+        };
+      }
+      if (this.check([77, 90])) {
+        return {
+          ext: "exe",
+          mime: "application/x-msdownload"
+        };
+      }
+      if (this.check([37, 33])) {
+        await tokenizer.peekBuffer(this.buffer, { length: 24, mayBeLess: true });
+        if (this.checkString("PS-Adobe-", { offset: 2 }) && this.checkString(" EPSF-", { offset: 14 })) {
+          return {
+            ext: "eps",
+            mime: "application/eps"
+          };
+        }
+        return {
+          ext: "ps",
+          mime: "application/postscript"
+        };
+      }
+      if (this.check([31, 160]) || this.check([31, 157])) {
+        return {
+          ext: "Z",
+          mime: "application/x-compress"
+        };
+      }
+      if (this.check([199, 113])) {
+        return {
+          ext: "cpio",
+          mime: "application/x-cpio"
+        };
+      }
+      if (this.check([96, 234])) {
+        return {
+          ext: "arj",
+          mime: "application/x-arj"
+        };
+      }
+      if (this.check([239, 187, 191])) {
+        if (this.detectionReentryCount >= maximumDetectionReentryCount) {
+          return;
+        }
+        this.detectionReentryCount++;
+        await this.tokenizer.ignore(3);
+        return this.detectConfident(tokenizer);
+      }
+      if (this.check([71, 73, 70])) {
+        return {
+          ext: "gif",
+          mime: "image/gif"
+        };
+      }
+      if (this.check([73, 73, 188])) {
+        return {
+          ext: "jxr",
+          mime: "image/vnd.ms-photo"
+        };
+      }
+      if (this.check([31, 139, 8])) {
+        return this.detectGzip(tokenizer);
+      }
+      if (this.check([66, 90, 104])) {
+        return {
+          ext: "bz2",
+          mime: "application/x-bzip2"
+        };
+      }
+      if (this.checkString("ID3")) {
+        await safeIgnore(tokenizer, 6, {
+          maximumLength: 6,
+          reason: "ID3 header prefix"
+        });
+        const id3HeaderLength = await tokenizer.readToken(uint32SyncSafeToken);
+        const isUnknownFileSize = hasUnknownFileSize(tokenizer);
+        if (!Number.isFinite(id3HeaderLength) || id3HeaderLength < 0 || isUnknownFileSize && (id3HeaderLength > maximumId3HeaderSizeInBytes || tokenizer.position + id3HeaderLength > maximumId3HeaderSizeInBytes)) {
+          return;
+        }
+        if (tokenizer.position + id3HeaderLength > tokenizer.fileInfo.size) {
+          if (isUnknownFileSize) {
+            return;
+          }
+          return {
+            ext: "mp3",
+            mime: "audio/mpeg"
+          };
+        }
+        try {
+          await safeIgnore(tokenizer, id3HeaderLength, {
+            maximumLength: isUnknownFileSize ? maximumId3HeaderSizeInBytes : tokenizer.fileInfo.size,
+            reason: "ID3 payload"
+          });
+        } catch (error) {
+          if (error instanceof EndOfStreamError) {
+            return;
+          }
+          throw error;
+        }
+        if (this.detectionReentryCount >= maximumDetectionReentryCount) {
+          return;
+        }
+        this.detectionReentryCount++;
+        return this.parseTokenizer(tokenizer, this.detectionReentryCount);
+      }
+      if (this.checkString("MP+")) {
+        return {
+          ext: "mpc",
+          mime: "audio/x-musepack"
+        };
+      }
+      if ((this.buffer[0] === 67 || this.buffer[0] === 70) && this.check([87, 83], { offset: 1 })) {
+        return {
+          ext: "swf",
+          mime: "application/x-shockwave-flash"
+        };
+      }
+      if (this.check([255, 216, 255])) {
+        if (this.check([247], { offset: 3 })) {
+          return {
+            ext: "jls",
+            mime: "image/jls"
+          };
+        }
+        return {
+          ext: "jpg",
+          mime: "image/jpeg"
+        };
+      }
+      if (this.check([79, 98, 106, 1])) {
+        return {
+          ext: "avro",
+          mime: "application/avro"
+        };
+      }
+      if (this.checkString("FLIF")) {
+        return {
+          ext: "flif",
+          mime: "image/flif"
+        };
+      }
+      if (this.checkString("8BPS")) {
+        return {
+          ext: "psd",
+          mime: "image/vnd.adobe.photoshop"
+        };
+      }
+      if (this.checkString("MPCK")) {
+        return {
+          ext: "mpc",
+          mime: "audio/x-musepack"
+        };
+      }
+      if (this.checkString("FORM")) {
+        return {
+          ext: "aif",
+          mime: "audio/aiff"
+        };
+      }
+      if (this.checkString("icns", { offset: 0 })) {
+        return {
+          ext: "icns",
+          mime: "image/icns"
+        };
+      }
+      if (this.check([80, 75, 3, 4])) {
+        let fileType;
+        const openXmlState = createOpenXmlZipDetectionState();
+        try {
+          await new ZipHandler(tokenizer).unzip((zipHeader) => {
+            updateOpenXmlZipDetectionStateFromFilename(openXmlState, zipHeader.filename);
+            const isOpenXmlContentTypesEntry = zipHeader.filename === "[Content_Types].xml";
+            const openXmlFileTypeFromEntries = getOpenXmlFileTypeFromZipEntries(openXmlState);
+            if (!isOpenXmlContentTypesEntry && openXmlFileTypeFromEntries) {
+              fileType = openXmlFileTypeFromEntries;
+              return {
+                stop: true
+              };
+            }
+            switch (zipHeader.filename) {
+              case "META-INF/mozilla.rsa":
+                fileType = {
+                  ext: "xpi",
+                  mime: "application/x-xpinstall"
+                };
+                return {
+                  stop: true
+                };
+              case "META-INF/MANIFEST.MF":
+                fileType = {
+                  ext: "jar",
+                  mime: "application/java-archive"
+                };
+                return {
+                  stop: true
+                };
+              case "mimetype":
+                if (!canReadZipEntryForDetection(zipHeader, maximumZipTextEntrySizeInBytes)) {
+                  return {};
+                }
+                return {
+                  async handler(fileData) {
+                    const mimeType = new TextDecoder("utf-8").decode(fileData).trim();
+                    fileType = getFileTypeFromMimeType(mimeType);
+                  },
+                  stop: true
+                };
+              case "[Content_Types].xml": {
+                openXmlState.hasContentTypesEntry = true;
+                if (!canReadZipEntryForDetection(zipHeader, maximumZipTextEntrySizeInBytes)) {
+                  openXmlState.hasUnparseableContentTypes = true;
+                  return {};
+                }
+                openXmlState.isParsingContentTypes = true;
+                return {
+                  async handler(fileData) {
+                    const xmlContent = new TextDecoder("utf-8").decode(fileData);
+                    const mimeType = getOpenXmlMimeTypeFromContentTypesXml(xmlContent);
+                    if (mimeType) {
+                      fileType = getFileTypeFromMimeType(mimeType);
+                    }
+                    openXmlState.hasParsedContentTypesEntry = true;
+                    openXmlState.isParsingContentTypes = false;
+                  },
+                  stop: true
+                };
+              }
+              default:
+                if (/classes\d*\.dex/.test(zipHeader.filename)) {
+                  fileType = {
+                    ext: "apk",
+                    mime: "application/vnd.android.package-archive"
+                  };
+                  return { stop: true };
+                }
+                return {};
+            }
+          });
+        } catch (error) {
+          if (!isRecoverableZipError(error)) {
+            throw error;
+          }
+          if (openXmlState.isParsingContentTypes) {
+            openXmlState.isParsingContentTypes = false;
+            openXmlState.hasUnparseableContentTypes = true;
+          }
+        }
+        return fileType ?? getOpenXmlFileTypeFromZipEntries(openXmlState) ?? {
+          ext: "zip",
+          mime: "application/zip"
+        };
+      }
+      if (this.checkString("OggS")) {
+        await tokenizer.ignore(28);
+        const type = new Uint8Array(8);
+        await tokenizer.readBuffer(type);
+        if (_check(type, [79, 112, 117, 115, 72, 101, 97, 100])) {
+          return {
+            ext: "opus",
+            mime: "audio/ogg; codecs=opus"
+          };
+        }
+        if (_check(type, [128, 116, 104, 101, 111, 114, 97])) {
+          return {
+            ext: "ogv",
+            mime: "video/ogg"
+          };
+        }
+        if (_check(type, [1, 118, 105, 100, 101, 111, 0])) {
+          return {
+            ext: "ogm",
+            mime: "video/ogg"
+          };
+        }
+        if (_check(type, [127, 70, 76, 65, 67])) {
+          return {
+            ext: "oga",
+            mime: "audio/ogg"
+          };
+        }
+        if (_check(type, [83, 112, 101, 101, 120, 32, 32])) {
+          return {
+            ext: "spx",
+            mime: "audio/ogg"
+          };
+        }
+        if (_check(type, [1, 118, 111, 114, 98, 105, 115])) {
+          return {
+            ext: "ogg",
+            mime: "audio/ogg"
+          };
+        }
+        return {
+          ext: "ogx",
+          mime: "application/ogg"
+        };
+      }
+      if (this.check([80, 75]) && (this.buffer[2] === 3 || this.buffer[2] === 5 || this.buffer[2] === 7) && (this.buffer[3] === 4 || this.buffer[3] === 6 || this.buffer[3] === 8)) {
+        return {
+          ext: "zip",
+          mime: "application/zip"
+        };
+      }
+      if (this.checkString("MThd")) {
+        return {
+          ext: "mid",
+          mime: "audio/midi"
+        };
+      }
+      if (this.checkString("wOFF") && (this.check([0, 1, 0, 0], { offset: 4 }) || this.checkString("OTTO", { offset: 4 }))) {
+        return {
+          ext: "woff",
+          mime: "font/woff"
+        };
+      }
+      if (this.checkString("wOF2") && (this.check([0, 1, 0, 0], { offset: 4 }) || this.checkString("OTTO", { offset: 4 }))) {
+        return {
+          ext: "woff2",
+          mime: "font/woff2"
+        };
+      }
+      if (this.check([212, 195, 178, 161]) || this.check([161, 178, 195, 212])) {
+        return {
+          ext: "pcap",
+          mime: "application/vnd.tcpdump.pcap"
+        };
+      }
+      if (this.checkString("DSD ")) {
+        return {
+          ext: "dsf",
+          mime: "audio/x-dsf"
+          // Non-standard
+        };
+      }
+      if (this.checkString("LZIP")) {
+        return {
+          ext: "lz",
+          mime: "application/x-lzip"
+        };
+      }
+      if (this.checkString("fLaC")) {
+        return {
+          ext: "flac",
+          mime: "audio/flac"
+        };
+      }
+      if (this.check([66, 80, 71, 251])) {
+        return {
+          ext: "bpg",
+          mime: "image/bpg"
+        };
+      }
+      if (this.checkString("wvpk")) {
+        return {
+          ext: "wv",
+          mime: "audio/wavpack"
+        };
+      }
+      if (this.checkString("%PDF")) {
+        return {
+          ext: "pdf",
+          mime: "application/pdf"
+        };
+      }
+      if (this.check([0, 97, 115, 109])) {
+        return {
+          ext: "wasm",
+          mime: "application/wasm"
+        };
+      }
+      if (this.check([73, 73])) {
+        const fileType = await this.readTiffHeader(false);
+        if (fileType) {
+          return fileType;
+        }
+      }
+      if (this.check([77, 77])) {
+        const fileType = await this.readTiffHeader(true);
+        if (fileType) {
+          return fileType;
+        }
+      }
+      if (this.checkString("MAC ")) {
+        return {
+          ext: "ape",
+          mime: "audio/ape"
+        };
+      }
+      if (this.check([26, 69, 223, 163])) {
+        async function readField() {
+          const msb = await tokenizer.peekNumber(UINT8);
+          let mask = 128;
+          let ic = 0;
+          while ((msb & mask) === 0 && mask !== 0) {
+            ++ic;
+            mask >>= 1;
+          }
+          const id = new Uint8Array(ic + 1);
+          await safeReadBuffer(tokenizer, id, void 0, {
+            maximumLength: id.length,
+            reason: "EBML field"
+          });
+          return id;
+        }
+        async function readElement() {
+          const idField = await readField();
+          const lengthField = await readField();
+          lengthField[0] ^= 128 >> lengthField.length - 1;
+          const nrLength = Math.min(6, lengthField.length);
+          const idView = new DataView(idField.buffer);
+          const lengthView = new DataView(lengthField.buffer, lengthField.length - nrLength, nrLength);
+          return {
+            id: getUintBE(idView),
+            len: getUintBE(lengthView)
+          };
+        }
+        async function readChildren(children) {
+          let ebmlElementCount = 0;
+          while (children > 0) {
+            ebmlElementCount++;
+            if (ebmlElementCount > maximumEbmlElementCount) {
+              return;
+            }
+            if (hasExceededUnknownSizeScanBudget(tokenizer, ebmlScanStart, maximumUntrustedSkipSizeInBytes)) {
+              return;
+            }
+            const previousPosition = tokenizer.position;
+            const element = await readElement();
+            if (element.id === 17026) {
+              if (element.len > maximumEbmlDocumentTypeSizeInBytes) {
+                return;
+              }
+              const documentTypeLength = getSafeBound(element.len, maximumEbmlDocumentTypeSizeInBytes, "EBML DocType");
+              const rawValue = await tokenizer.readToken(new StringType(documentTypeLength));
+              return rawValue.replaceAll(/\00.*$/g, "");
+            }
+            if (hasUnknownFileSize(tokenizer) && (!Number.isFinite(element.len) || element.len < 0 || element.len > maximumEbmlElementPayloadSizeInBytes)) {
+              return;
+            }
+            await safeIgnore(tokenizer, element.len, {
+              maximumLength: hasUnknownFileSize(tokenizer) ? maximumEbmlElementPayloadSizeInBytes : tokenizer.fileInfo.size,
+              reason: "EBML payload"
+            });
+            --children;
+            if (tokenizer.position <= previousPosition) {
+              return;
+            }
+          }
+        }
+        const rootElement = await readElement();
+        const ebmlScanStart = tokenizer.position;
+        const documentType = await readChildren(rootElement.len);
+        switch (documentType) {
+          case "webm":
+            return {
+              ext: "webm",
+              mime: "video/webm"
+            };
+          case "matroska":
+            return {
+              ext: "mkv",
+              mime: "video/matroska"
+            };
+          default:
+            return;
+        }
+      }
+      if (this.checkString("SQLi")) {
+        return {
+          ext: "sqlite",
+          mime: "application/x-sqlite3"
+        };
+      }
+      if (this.check([78, 69, 83, 26])) {
+        return {
+          ext: "nes",
+          mime: "application/x-nintendo-nes-rom"
+        };
+      }
+      if (this.checkString("Cr24")) {
+        return {
+          ext: "crx",
+          mime: "application/x-google-chrome-extension"
+        };
+      }
+      if (this.checkString("MSCF") || this.checkString("ISc(")) {
+        return {
+          ext: "cab",
+          mime: "application/vnd.ms-cab-compressed"
+        };
+      }
+      if (this.check([237, 171, 238, 219])) {
+        return {
+          ext: "rpm",
+          mime: "application/x-rpm"
+        };
+      }
+      if (this.check([197, 208, 211, 198])) {
+        return {
+          ext: "eps",
+          mime: "application/eps"
+        };
+      }
+      if (this.check([40, 181, 47, 253])) {
+        return {
+          ext: "zst",
+          mime: "application/zstd"
+        };
+      }
+      if (this.check([127, 69, 76, 70])) {
+        return {
+          ext: "elf",
+          mime: "application/x-elf"
+        };
+      }
+      if (this.check([33, 66, 68, 78])) {
+        return {
+          ext: "pst",
+          mime: "application/vnd.ms-outlook"
+        };
+      }
+      if (this.checkString("PAR1") || this.checkString("PARE")) {
+        return {
+          ext: "parquet",
+          mime: "application/vnd.apache.parquet"
+        };
+      }
+      if (this.checkString("ttcf")) {
+        return {
+          ext: "ttc",
+          mime: "font/collection"
+        };
+      }
+      if (this.check([254, 237, 250, 206]) || this.check([254, 237, 250, 207]) || this.check([206, 250, 237, 254]) || this.check([207, 250, 237, 254])) {
+        return {
+          ext: "macho",
+          mime: "application/x-mach-binary"
+        };
+      }
+      if (this.check([4, 34, 77, 24])) {
+        return {
+          ext: "lz4",
+          mime: "application/x-lz4"
+          // Invented by us
+        };
+      }
+      if (this.checkString("regf")) {
+        return {
+          ext: "dat",
+          mime: "application/x-ft-windows-registry-hive"
+        };
+      }
+      if (this.checkString("$FL2") || this.checkString("$FL3")) {
+        return {
+          ext: "sav",
+          mime: "application/x-spss-sav"
+        };
+      }
+      if (this.check([79, 84, 84, 79, 0])) {
+        return {
+          ext: "otf",
+          mime: "font/otf"
+        };
+      }
+      if (this.checkString("#!AMR")) {
+        return {
+          ext: "amr",
+          mime: "audio/amr"
+        };
+      }
+      if (this.checkString("{\\rtf")) {
+        return {
+          ext: "rtf",
+          mime: "application/rtf"
+        };
+      }
+      if (this.check([70, 76, 86, 1])) {
+        return {
+          ext: "flv",
+          mime: "video/x-flv"
+        };
+      }
+      if (this.checkString("IMPM")) {
+        return {
+          ext: "it",
+          mime: "audio/x-it"
+        };
+      }
+      if (this.checkString("-lh0-", { offset: 2 }) || this.checkString("-lh1-", { offset: 2 }) || this.checkString("-lh2-", { offset: 2 }) || this.checkString("-lh3-", { offset: 2 }) || this.checkString("-lh4-", { offset: 2 }) || this.checkString("-lh5-", { offset: 2 }) || this.checkString("-lh6-", { offset: 2 }) || this.checkString("-lh7-", { offset: 2 }) || this.checkString("-lzs-", { offset: 2 }) || this.checkString("-lz4-", { offset: 2 }) || this.checkString("-lz5-", { offset: 2 }) || this.checkString("-lhd-", { offset: 2 })) {
+        return {
+          ext: "lzh",
+          mime: "application/x-lzh-compressed"
+        };
+      }
+      if (this.check([0, 0, 1, 186])) {
+        if (this.check([33], { offset: 4, mask: [241] })) {
+          return {
+            ext: "mpg",
+            // May also be .ps, .mpeg
+            mime: "video/MP1S"
+          };
+        }
+        if (this.check([68], { offset: 4, mask: [196] })) {
+          return {
+            ext: "mpg",
+            // May also be .mpg, .m2p, .vob or .sub
+            mime: "video/MP2P"
+          };
+        }
+      }
+      if (this.checkString("ITSF")) {
+        return {
+          ext: "chm",
+          mime: "application/vnd.ms-htmlhelp"
+        };
+      }
+      if (this.check([202, 254, 186, 190])) {
+        const machOArchitectureCount = UINT32_BE.get(this.buffer, 4);
+        const javaClassFileMajorVersion = UINT16_BE.get(this.buffer, 6);
+        if (machOArchitectureCount > 0 && machOArchitectureCount <= 30) {
+          return {
+            ext: "macho",
+            mime: "application/x-mach-binary"
+          };
+        }
+        if (javaClassFileMajorVersion > 30) {
+          return {
+            ext: "class",
+            mime: "application/java-vm"
+          };
+        }
+      }
+      if (this.checkString(".RMF")) {
+        return {
+          ext: "rm",
+          mime: "application/vnd.rn-realmedia"
+        };
+      }
+      if (this.checkString("DRACO")) {
+        return {
+          ext: "drc",
+          mime: "application/vnd.google.draco"
+          // Invented by us
+        };
+      }
+      if (this.check([253, 55, 122, 88, 90, 0])) {
+        return {
+          ext: "xz",
+          mime: "application/x-xz"
+        };
+      }
+      if (this.checkString("<?xml ")) {
+        return {
+          ext: "xml",
+          mime: "application/xml"
+        };
+      }
+      if (this.check([55, 122, 188, 175, 39, 28])) {
+        return {
+          ext: "7z",
+          mime: "application/x-7z-compressed"
+        };
+      }
+      if (this.check([82, 97, 114, 33, 26, 7]) && (this.buffer[6] === 0 || this.buffer[6] === 1)) {
+        return {
+          ext: "rar",
+          mime: "application/x-rar-compressed"
+        };
+      }
+      if (this.checkString("solid ")) {
+        return {
+          ext: "stl",
+          mime: "model/stl"
+        };
+      }
+      if (this.checkString("AC")) {
+        const version = new StringType(4, "latin1").get(this.buffer, 2);
+        if (version.match("^d*") && version >= 1e3 && version <= 1050) {
+          return {
+            ext: "dwg",
+            mime: "image/vnd.dwg"
+          };
+        }
+      }
+      if (this.checkString("070707")) {
+        return {
+          ext: "cpio",
+          mime: "application/x-cpio"
+        };
+      }
+      if (this.checkString("BLENDER")) {
+        return {
+          ext: "blend",
+          mime: "application/x-blender"
+        };
+      }
+      if (this.checkString("!<arch>")) {
+        await tokenizer.ignore(8);
+        const string = await tokenizer.readToken(new StringType(13, "ascii"));
+        if (string === "debian-binary") {
+          return {
+            ext: "deb",
+            mime: "application/x-deb"
+          };
+        }
+        return {
+          ext: "ar",
+          mime: "application/x-unix-archive"
+        };
+      }
+      if (this.checkString("WEBVTT") && // One of LF, CR, tab, space, or end of file must follow "WEBVTT" per the spec (see `fixture/fixture-vtt-*.vtt` for examples). Note that `\0` is technically the null character (there is no such thing as an EOF character). However, checking for `\0` gives us the same result as checking for the end of the stream.
+      ["\n", "\r", "	", " ", "\0"].some((char7) => this.checkString(char7, { offset: 6 }))) {
+        return {
+          ext: "vtt",
+          mime: "text/vtt"
+        };
+      }
+      if (this.check([137, 80, 78, 71, 13, 10, 26, 10])) {
+        const pngFileType = {
+          ext: "png",
+          mime: "image/png"
+        };
+        const apngFileType = {
+          ext: "apng",
+          mime: "image/apng"
+        };
+        await tokenizer.ignore(8);
+        async function readChunkHeader() {
+          return {
+            length: await tokenizer.readToken(INT32_BE),
+            type: await tokenizer.readToken(new StringType(4, "latin1"))
+          };
+        }
+        const isUnknownPngStream = hasUnknownFileSize(tokenizer);
+        const pngScanStart = tokenizer.position;
+        let pngChunkCount = 0;
+        let hasSeenImageHeader = false;
+        do {
+          pngChunkCount++;
+          if (pngChunkCount > maximumPngChunkCount) {
+            break;
+          }
+          if (hasExceededUnknownSizeScanBudget(tokenizer, pngScanStart, maximumPngStreamScanBudgetInBytes)) {
+            break;
+          }
+          const previousPosition = tokenizer.position;
+          const chunk = await readChunkHeader();
+          if (chunk.length < 0) {
+            return;
+          }
+          if (chunk.type === "IHDR") {
+            if (chunk.length !== 13) {
+              return;
+            }
+            hasSeenImageHeader = true;
+          }
+          switch (chunk.type) {
+            case "IDAT":
+              return pngFileType;
+            case "acTL":
+              return apngFileType;
+            default:
+              if (!hasSeenImageHeader && chunk.type !== "CgBI") {
+                return;
+              }
+              if (isUnknownPngStream && chunk.length > maximumPngChunkSizeInBytes) {
+                return hasSeenImageHeader && isPngAncillaryChunk(chunk.type) ? pngFileType : void 0;
+              }
+              try {
+                await safeIgnore(tokenizer, chunk.length + 4, {
+                  maximumLength: isUnknownPngStream ? maximumPngChunkSizeInBytes + 4 : tokenizer.fileInfo.size,
+                  reason: "PNG chunk payload"
+                });
+              } catch (error) {
+                if (!isUnknownPngStream && (error instanceof ParserHardLimitError || error instanceof EndOfStreamError)) {
+                  return pngFileType;
+                }
+                throw error;
+              }
+          }
+          if (tokenizer.position <= previousPosition) {
+            break;
+          }
+        } while (tokenizer.position + 8 < tokenizer.fileInfo.size);
+        return pngFileType;
+      }
+      if (this.check([65, 82, 82, 79, 87, 49, 0, 0])) {
+        return {
+          ext: "arrow",
+          mime: "application/vnd.apache.arrow.file"
+        };
+      }
+      if (this.check([103, 108, 84, 70, 2, 0, 0, 0])) {
+        return {
+          ext: "glb",
+          mime: "model/gltf-binary"
+        };
+      }
+      if (this.check([102, 114, 101, 101], { offset: 4 }) || this.check([109, 100, 97, 116], { offset: 4 }) || this.check([109, 111, 111, 118], { offset: 4 }) || this.check([119, 105, 100, 101], { offset: 4 })) {
+        return {
+          ext: "mov",
+          mime: "video/quicktime"
+        };
+      }
+      if (this.check([73, 73, 82, 79, 8, 0, 0, 0, 24])) {
+        return {
+          ext: "orf",
+          mime: "image/x-olympus-orf"
+        };
+      }
+      if (this.checkString("gimp xcf ")) {
+        return {
+          ext: "xcf",
+          mime: "image/x-xcf"
+        };
+      }
+      if (this.checkString("ftyp", { offset: 4 }) && (this.buffer[8] & 96) !== 0) {
+        const brandMajor = new StringType(4, "latin1").get(this.buffer, 8).replace("\0", " ").trim();
+        switch (brandMajor) {
+          case "avif":
+          case "avis":
+            return { ext: "avif", mime: "image/avif" };
+          case "mif1":
+            return { ext: "heic", mime: "image/heif" };
+          case "msf1":
+            return { ext: "heic", mime: "image/heif-sequence" };
+          case "heic":
+          case "heix":
+            return { ext: "heic", mime: "image/heic" };
+          case "hevc":
+          case "hevx":
+            return { ext: "heic", mime: "image/heic-sequence" };
+          case "qt":
+            return { ext: "mov", mime: "video/quicktime" };
+          case "M4V":
+          case "M4VH":
+          case "M4VP":
+            return { ext: "m4v", mime: "video/x-m4v" };
+          case "M4P":
+            return { ext: "m4p", mime: "video/mp4" };
+          case "M4B":
+            return { ext: "m4b", mime: "audio/mp4" };
+          case "M4A":
+            return { ext: "m4a", mime: "audio/x-m4a" };
+          case "F4V":
+            return { ext: "f4v", mime: "video/mp4" };
+          case "F4P":
+            return { ext: "f4p", mime: "video/mp4" };
+          case "F4A":
+            return { ext: "f4a", mime: "audio/mp4" };
+          case "F4B":
+            return { ext: "f4b", mime: "audio/mp4" };
+          case "crx":
+            return { ext: "cr3", mime: "image/x-canon-cr3" };
+          default:
+            if (brandMajor.startsWith("3g")) {
+              if (brandMajor.startsWith("3g2")) {
+                return { ext: "3g2", mime: "video/3gpp2" };
+              }
+              return { ext: "3gp", mime: "video/3gpp" };
+            }
+            return { ext: "mp4", mime: "video/mp4" };
+        }
+      }
+      if (this.checkString("REGEDIT4\r\n")) {
+        return {
+          ext: "reg",
+          mime: "application/x-ms-regedit"
+        };
+      }
+      if (this.check([82, 73, 70, 70])) {
+        if (this.checkString("WEBP", { offset: 8 })) {
+          return {
+            ext: "webp",
+            mime: "image/webp"
+          };
+        }
+        if (this.check([65, 86, 73], { offset: 8 })) {
+          return {
+            ext: "avi",
+            mime: "video/vnd.avi"
+          };
+        }
+        if (this.check([87, 65, 86, 69], { offset: 8 })) {
+          return {
+            ext: "wav",
+            mime: "audio/wav"
+          };
+        }
+        if (this.check([81, 76, 67, 77], { offset: 8 })) {
+          return {
+            ext: "qcp",
+            mime: "audio/qcelp"
+          };
+        }
+      }
+      if (this.check([73, 73, 85, 0, 24, 0, 0, 0, 136, 231, 116, 216])) {
+        return {
+          ext: "rw2",
+          mime: "image/x-panasonic-rw2"
+        };
+      }
+      if (this.check([48, 38, 178, 117, 142, 102, 207, 17, 166, 217])) {
+        let isMalformedAsf = false;
+        try {
+          async function readHeader() {
+            const guid = new Uint8Array(16);
+            await safeReadBuffer(tokenizer, guid, void 0, {
+              maximumLength: guid.length,
+              reason: "ASF header GUID"
+            });
+            return {
+              id: guid,
+              size: Number(await tokenizer.readToken(UINT64_LE))
+            };
+          }
+          await safeIgnore(tokenizer, 30, {
+            maximumLength: 30,
+            reason: "ASF header prelude"
+          });
+          const isUnknownFileSize = hasUnknownFileSize(tokenizer);
+          const asfHeaderScanStart = tokenizer.position;
+          let asfHeaderObjectCount = 0;
+          while (tokenizer.position + 24 < tokenizer.fileInfo.size) {
+            asfHeaderObjectCount++;
+            if (asfHeaderObjectCount > maximumAsfHeaderObjectCount) {
+              break;
+            }
+            if (hasExceededUnknownSizeScanBudget(tokenizer, asfHeaderScanStart, maximumUntrustedSkipSizeInBytes)) {
+              break;
+            }
+            const previousPosition = tokenizer.position;
+            const header = await readHeader();
+            let payload = header.size - 24;
+            if (!Number.isFinite(payload) || payload < 0) {
+              isMalformedAsf = true;
+              break;
+            }
+            if (_check(header.id, [145, 7, 220, 183, 183, 169, 207, 17, 142, 230, 0, 192, 12, 32, 83, 101])) {
+              const typeId = new Uint8Array(16);
+              payload -= await safeReadBuffer(tokenizer, typeId, void 0, {
+                maximumLength: typeId.length,
+                reason: "ASF stream type GUID"
+              });
+              if (_check(typeId, [64, 158, 105, 248, 77, 91, 207, 17, 168, 253, 0, 128, 95, 92, 68, 43])) {
+                return {
+                  ext: "asf",
+                  mime: "audio/x-ms-asf"
+                };
+              }
+              if (_check(typeId, [192, 239, 25, 188, 77, 91, 207, 17, 168, 253, 0, 128, 95, 92, 68, 43])) {
+                return {
+                  ext: "asf",
+                  mime: "video/x-ms-asf"
+                };
+              }
+              break;
+            }
+            if (isUnknownFileSize && payload > maximumAsfHeaderPayloadSizeInBytes) {
+              isMalformedAsf = true;
+              break;
+            }
+            await safeIgnore(tokenizer, payload, {
+              maximumLength: isUnknownFileSize ? maximumAsfHeaderPayloadSizeInBytes : tokenizer.fileInfo.size,
+              reason: "ASF header payload"
+            });
+            if (tokenizer.position <= previousPosition) {
+              isMalformedAsf = true;
+              break;
+            }
+          }
+        } catch (error) {
+          if (error instanceof EndOfStreamError || error instanceof ParserHardLimitError) {
+            if (hasUnknownFileSize(tokenizer)) {
+              isMalformedAsf = true;
+            }
+          } else {
+            throw error;
+          }
+        }
+        if (isMalformedAsf) {
+          return;
+        }
+        return {
+          ext: "asf",
+          mime: "application/vnd.ms-asf"
+        };
+      }
+      if (this.check([171, 75, 84, 88, 32, 49, 49, 187, 13, 10, 26, 10])) {
+        return {
+          ext: "ktx",
+          mime: "image/ktx"
+        };
+      }
+      if ((this.check([126, 16, 4]) || this.check([126, 24, 4])) && this.check([48, 77, 73, 69], { offset: 4 })) {
+        return {
+          ext: "mie",
+          mime: "application/x-mie"
+        };
+      }
+      if (this.check([39, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], { offset: 2 })) {
+        return {
+          ext: "shp",
+          mime: "application/x-esri-shape"
+        };
+      }
+      if (this.check([255, 79, 255, 81])) {
+        return {
+          ext: "j2c",
+          mime: "image/j2c"
+        };
+      }
+      if (this.check([0, 0, 0, 12, 106, 80, 32, 32, 13, 10, 135, 10])) {
+        await tokenizer.ignore(20);
+        const type = await tokenizer.readToken(new StringType(4, "ascii"));
+        switch (type) {
+          case "jp2 ":
+            return {
+              ext: "jp2",
+              mime: "image/jp2"
+            };
+          case "jpx ":
+            return {
+              ext: "jpx",
+              mime: "image/jpx"
+            };
+          case "jpm ":
+            return {
+              ext: "jpm",
+              mime: "image/jpm"
+            };
+          case "mjp2":
+            return {
+              ext: "mj2",
+              mime: "image/mj2"
+            };
+          default:
+            return;
+        }
+      }
+      if (this.check([255, 10]) || this.check([0, 0, 0, 12, 74, 88, 76, 32, 13, 10, 135, 10])) {
+        return {
+          ext: "jxl",
+          mime: "image/jxl"
+        };
+      }
+      if (this.check([254, 255])) {
+        if (this.checkString("<?xml ", { offset: 2, encoding: "utf-16be" })) {
+          return {
+            ext: "xml",
+            mime: "application/xml"
+          };
+        }
+        return void 0;
+      }
+      if (this.check([208, 207, 17, 224, 161, 177, 26, 225])) {
+        return {
+          ext: "cfb",
+          mime: "application/x-cfb"
+        };
+      }
+      await tokenizer.peekBuffer(this.buffer, { length: Math.min(256, tokenizer.fileInfo.size), mayBeLess: true });
+      if (this.check([97, 99, 115, 112], { offset: 36 })) {
+        return {
+          ext: "icc",
+          mime: "application/vnd.iccprofile"
+        };
+      }
+      if (this.checkString("**ACE", { offset: 7 }) && this.checkString("**", { offset: 12 })) {
+        return {
+          ext: "ace",
+          mime: "application/x-ace-compressed"
+        };
+      }
+      if (this.checkString("BEGIN:")) {
+        if (this.checkString("VCARD", { offset: 6 })) {
+          return {
+            ext: "vcf",
+            mime: "text/vcard"
+          };
+        }
+        if (this.checkString("VCALENDAR", { offset: 6 })) {
+          return {
+            ext: "ics",
+            mime: "text/calendar"
+          };
+        }
+      }
+      if (this.checkString("FUJIFILMCCD-RAW")) {
+        return {
+          ext: "raf",
+          mime: "image/x-fujifilm-raf"
+        };
+      }
+      if (this.checkString("Extended Module:")) {
+        return {
+          ext: "xm",
+          mime: "audio/x-xm"
+        };
+      }
+      if (this.checkString("Creative Voice File")) {
+        return {
+          ext: "voc",
+          mime: "audio/x-voc"
+        };
+      }
+      if (this.check([4, 0, 0, 0]) && this.buffer.length >= 16) {
+        const jsonSize = new DataView(this.buffer.buffer).getUint32(12, true);
+        if (jsonSize > 12 && this.buffer.length >= jsonSize + 16) {
+          try {
+            const header = new TextDecoder().decode(this.buffer.subarray(16, jsonSize + 16));
+            const json = JSON.parse(header);
+            if (json.files) {
+              return {
+                ext: "asar",
+                mime: "application/x-asar"
+              };
+            }
+          } catch {
+          }
+        }
+      }
+      if (this.check([6, 14, 43, 52, 2, 5, 1, 1, 13, 1, 2, 1, 1, 2])) {
+        return {
+          ext: "mxf",
+          mime: "application/mxf"
+        };
+      }
+      if (this.checkString("SCRM", { offset: 44 })) {
+        return {
+          ext: "s3m",
+          mime: "audio/x-s3m"
+        };
+      }
+      if (this.check([71]) && this.check([71], { offset: 188 })) {
+        return {
+          ext: "mts",
+          mime: "video/mp2t"
+        };
+      }
+      if (this.check([71], { offset: 4 }) && this.check([71], { offset: 196 })) {
+        return {
+          ext: "mts",
+          mime: "video/mp2t"
+        };
+      }
+      if (this.check([66, 79, 79, 75, 77, 79, 66, 73], { offset: 60 })) {
+        return {
+          ext: "mobi",
+          mime: "application/x-mobipocket-ebook"
+        };
+      }
+      if (this.check([68, 73, 67, 77], { offset: 128 })) {
+        return {
+          ext: "dcm",
+          mime: "application/dicom"
+        };
+      }
+      if (this.check([76, 0, 0, 0, 1, 20, 2, 0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 70])) {
+        return {
+          ext: "lnk",
+          mime: "application/x.ms.shortcut"
+          // Invented by us
+        };
+      }
+      if (this.check([98, 111, 111, 107, 0, 0, 0, 0, 109, 97, 114, 107, 0, 0, 0, 0])) {
+        return {
+          ext: "alias",
+          mime: "application/x.apple.alias"
+          // Invented by us
+        };
+      }
+      if (this.checkString("Kaydara FBX Binary  \0")) {
+        return {
+          ext: "fbx",
+          mime: "application/x.autodesk.fbx"
+          // Invented by us
+        };
+      }
+      if (this.check([76, 80], { offset: 34 }) && (this.check([0, 0, 1], { offset: 8 }) || this.check([1, 0, 2], { offset: 8 }) || this.check([2, 0, 2], { offset: 8 }))) {
+        return {
+          ext: "eot",
+          mime: "application/vnd.ms-fontobject"
+        };
+      }
+      if (this.check([6, 6, 237, 245, 216, 29, 70, 229, 189, 49, 239, 231, 254, 116, 183, 29])) {
+        return {
+          ext: "indd",
+          mime: "application/x-indesign"
+        };
+      }
+      if (this.check([255, 255, 0, 0, 7, 0, 0, 0, 4, 0, 0, 0, 1, 0, 1, 0]) || this.check([0, 0, 255, 255, 0, 0, 0, 7, 0, 0, 0, 4, 0, 1, 0, 1])) {
+        return {
+          ext: "jmp",
+          mime: "application/x-jmp-data"
+        };
+      }
+      await tokenizer.peekBuffer(this.buffer, { length: Math.min(512, tokenizer.fileInfo.size), mayBeLess: true });
+      if (this.checkString("ustar", { offset: 257 }) && (this.checkString("\0", { offset: 262 }) || this.checkString(" ", { offset: 262 })) || this.check([0, 0, 0, 0, 0, 0], { offset: 257 }) && tarHeaderChecksumMatches(this.buffer)) {
+        return {
+          ext: "tar",
+          mime: "application/x-tar"
+        };
+      }
+      if (this.check([255, 254])) {
+        const encoding = "utf-16le";
+        if (this.checkString("<?xml ", { offset: 2, encoding })) {
+          return {
+            ext: "xml",
+            mime: "application/xml"
+          };
+        }
+        if (this.check([255, 14], { offset: 2 }) && this.checkString("SketchUp Model", { offset: 4, encoding })) {
+          return {
+            ext: "skp",
+            mime: "application/vnd.sketchup.skp"
+          };
+        }
+        if (this.checkString("Windows Registry Editor Version 5.00\r\n", { offset: 2, encoding })) {
+          return {
+            ext: "reg",
+            mime: "application/x-ms-regedit"
+          };
+        }
+        return void 0;
+      }
+      if (this.checkString("-----BEGIN PGP MESSAGE-----")) {
+        return {
+          ext: "pgp",
+          mime: "application/pgp-encrypted"
+        };
+      }
+    });
+    // Detections with limited supporting data, resulting in a higher likelihood of false positives
+    __publicField(this, "detectImprecise", async (tokenizer) => {
+      this.buffer = new Uint8Array(reasonableDetectionSizeInBytes);
+      const fileSize = getKnownFileSizeOrMaximum(tokenizer.fileInfo.size);
+      await tokenizer.peekBuffer(this.buffer, { length: Math.min(8, fileSize), mayBeLess: true });
+      if (this.check([0, 0, 1, 186]) || this.check([0, 0, 1, 179])) {
+        return {
+          ext: "mpg",
+          mime: "video/mpeg"
+        };
+      }
+      if (this.check([0, 1, 0, 0, 0])) {
+        return {
+          ext: "ttf",
+          mime: "font/ttf"
+        };
+      }
+      if (this.check([0, 0, 1, 0])) {
+        return {
+          ext: "ico",
+          mime: "image/x-icon"
+        };
+      }
+      if (this.check([0, 0, 2, 0])) {
+        return {
+          ext: "cur",
+          mime: "image/x-icon"
+        };
+      }
+      await tokenizer.peekBuffer(this.buffer, { length: Math.min(2 + this.options.mpegOffsetTolerance, fileSize), mayBeLess: true });
+      if (this.buffer.length >= 2 + this.options.mpegOffsetTolerance) {
+        for (let depth = 0; depth <= this.options.mpegOffsetTolerance; ++depth) {
+          const type = this.scanMpeg(depth);
+          if (type) {
+            return type;
+          }
+        }
+      }
+    });
+    const normalizedMpegOffsetTolerance = normalizeMpegOffsetTolerance(options == null ? void 0 : options.mpegOffsetTolerance);
+    this.options = {
+      ...options,
+      mpegOffsetTolerance: normalizedMpegOffsetTolerance
+    };
+    this.detectors = [
+      ...this.options.customDetectors ?? [],
+      { id: "core", detect: this.detectConfident },
+      { id: "core.imprecise", detect: this.detectImprecise }
+    ];
+    this.tokenizerOptions = {
+      abortSignal: this.options.signal
+    };
+    this.gzipProbeDepth = 0;
+  }
+  getTokenizerOptions() {
+    return {
+      ...this.tokenizerOptions
+    };
+  }
+  createTokenizerFromWebStream(stream) {
+    return patchWebByobTokenizerClose(fromWebStream(stream, this.getTokenizerOptions()));
+  }
+  async parseTokenizer(tokenizer, detectionReentryCount = 0) {
+    this.detectionReentryCount = detectionReentryCount;
+    const initialPosition = tokenizer.position;
+    for (const detector of this.detectors) {
+      let fileType;
+      try {
+        fileType = await detector.detect(tokenizer);
+      } catch (error) {
+        if (error instanceof EndOfStreamError) {
+          return;
+        }
+        if (error instanceof ParserHardLimitError) {
+          return;
+        }
+        throw error;
+      }
+      if (fileType) {
+        return fileType;
+      }
+      if (initialPosition !== tokenizer.position) {
+        return void 0;
+      }
+    }
+  }
+  async fromTokenizer(tokenizer) {
+    try {
+      return await this.parseTokenizer(tokenizer);
+    } finally {
+      await tokenizer.close();
+    }
+  }
+  async fromBuffer(input) {
+    if (!(input instanceof Uint8Array || input instanceof ArrayBuffer)) {
+      throw new TypeError(`Expected the \`input\` argument to be of type \`Uint8Array\` or \`ArrayBuffer\`, got \`${typeof input}\``);
+    }
+    const buffer = input instanceof Uint8Array ? input : new Uint8Array(input);
+    if (!((buffer == null ? void 0 : buffer.length) > 1)) {
+      return;
+    }
+    return this.fromTokenizer(fromBuffer(buffer, this.getTokenizerOptions()));
+  }
+  async fromBlob(blob) {
+    var _a2;
+    (_a2 = this.options.signal) == null ? void 0 : _a2.throwIfAborted();
+    const tokenizer = fromBlob(blob, this.getTokenizerOptions());
+    return this.fromTokenizer(tokenizer);
+  }
+  async fromStream(stream) {
+    var _a2;
+    (_a2 = this.options.signal) == null ? void 0 : _a2.throwIfAborted();
+    const tokenizer = this.createTokenizerFromWebStream(stream);
+    return this.fromTokenizer(tokenizer);
+  }
+  async toDetectionStream(stream, options) {
+    const sampleSize = normalizeSampleSize((options == null ? void 0 : options.sampleSize) ?? reasonableDetectionSizeInBytes);
+    let detectedFileType;
+    let firstChunk;
+    const reader = stream.getReader({ mode: "byob" });
+    try {
+      const { value: chunk, done } = await readByobReaderWithSignal(reader, new Uint8Array(sampleSize), this.options.signal);
+      firstChunk = chunk;
+      if (!done && chunk) {
+        try {
+          detectedFileType = await this.fromBuffer(chunk.subarray(0, sampleSize));
+        } catch (error) {
+          if (!(error instanceof EndOfStreamError)) {
+            throw error;
+          }
+          detectedFileType = void 0;
+        }
+      }
+      firstChunk = chunk;
+    } finally {
+      reader.releaseLock();
+    }
+    const transformStream = new TransformStream({
+      async start(controller) {
+        controller.enqueue(firstChunk);
+      },
+      transform(chunk, controller) {
+        controller.enqueue(chunk);
+      }
+    });
+    const newStream = stream.pipeThrough(transformStream);
+    newStream.fileType = detectedFileType;
+    return newStream;
+  }
+  async detectGzip(tokenizer) {
+    var _a2;
+    if (this.gzipProbeDepth >= maximumNestedGzipProbeDepth) {
+      return {
+        ext: "gz",
+        mime: "application/gzip"
+      };
+    }
+    const gzipHandler = new GzipHandler(tokenizer);
+    const limitedInflatedStream = createByteLimitedReadableStream(gzipHandler.inflate(), maximumNestedGzipDetectionSizeInBytes);
+    const hasUnknownSize = hasUnknownFileSize(tokenizer);
+    let timeout2;
+    let probeSignal;
+    let probeParser;
+    let compressedFileType;
+    if (hasUnknownSize) {
+      const timeoutController = new AbortController();
+      timeout2 = setTimeout(() => {
+        timeoutController.abort(new DOMException(`Operation timed out after ${unknownSizeGzipProbeTimeoutInMilliseconds} ms`, "TimeoutError"));
+      }, unknownSizeGzipProbeTimeoutInMilliseconds);
+      probeSignal = this.options.signal === void 0 ? timeoutController.signal : AbortSignal.any([this.options.signal, timeoutController.signal]);
+      probeParser = new FileTypeParser({
+        ...this.options,
+        signal: probeSignal
+      });
+      probeParser.gzipProbeDepth = this.gzipProbeDepth + 1;
+    } else {
+      this.gzipProbeDepth++;
+    }
+    try {
+      compressedFileType = await (probeParser ?? this).fromStream(limitedInflatedStream);
+    } catch (error) {
+      if ((error == null ? void 0 : error.name) === "AbortError" && ((_a2 = probeSignal == null ? void 0 : probeSignal.reason) == null ? void 0 : _a2.name) !== "TimeoutError") {
+        throw error;
+      }
+    } finally {
+      clearTimeout(timeout2);
+      if (!hasUnknownSize) {
+        this.gzipProbeDepth--;
+      }
+    }
+    if ((compressedFileType == null ? void 0 : compressedFileType.ext) === "tar") {
+      return {
+        ext: "tar.gz",
+        mime: "application/gzip"
+      };
+    }
+    return {
+      ext: "gz",
+      mime: "application/gzip"
+    };
+  }
+  check(header, options) {
+    return _check(this.buffer, header, options);
+  }
+  checkString(header, options) {
+    return this.check(stringToBytes(header, options == null ? void 0 : options.encoding), options);
+  }
+  async readTiffTag(bigEndian) {
+    const tagId = await this.tokenizer.readToken(bigEndian ? UINT16_BE : UINT16_LE);
+    await this.tokenizer.ignore(10);
+    switch (tagId) {
+      case 50341:
+        return {
+          ext: "arw",
+          mime: "image/x-sony-arw"
+        };
+      case 50706:
+        return {
+          ext: "dng",
+          mime: "image/x-adobe-dng"
+        };
+    }
+  }
+  async readTiffIFD(bigEndian) {
+    const numberOfTags = await this.tokenizer.readToken(bigEndian ? UINT16_BE : UINT16_LE);
+    if (numberOfTags > maximumTiffTagCount) {
+      return;
+    }
+    if (hasUnknownFileSize(this.tokenizer) && 2 + numberOfTags * 12 > maximumTiffIfdOffsetInBytes) {
+      return;
+    }
+    for (let n = 0; n < numberOfTags; ++n) {
+      const fileType = await this.readTiffTag(bigEndian);
+      if (fileType) {
+        return fileType;
+      }
+    }
+  }
+  async readTiffHeader(bigEndian) {
+    const tiffFileType = {
+      ext: "tif",
+      mime: "image/tiff"
+    };
+    const version = (bigEndian ? UINT16_BE : UINT16_LE).get(this.buffer, 2);
+    const ifdOffset = (bigEndian ? UINT32_BE : UINT32_LE).get(this.buffer, 4);
+    if (version === 42) {
+      if (ifdOffset >= 6) {
+        if (this.checkString("CR", { offset: 8 })) {
+          return {
+            ext: "cr2",
+            mime: "image/x-canon-cr2"
+          };
+        }
+        if (ifdOffset >= 8) {
+          const someId1 = (bigEndian ? UINT16_BE : UINT16_LE).get(this.buffer, 8);
+          const someId2 = (bigEndian ? UINT16_BE : UINT16_LE).get(this.buffer, 10);
+          if (someId1 === 28 && someId2 === 254 || someId1 === 31 && someId2 === 11) {
+            return {
+              ext: "nef",
+              mime: "image/x-nikon-nef"
+            };
+          }
+        }
+      }
+      if (hasUnknownFileSize(this.tokenizer) && ifdOffset > maximumTiffStreamIfdOffsetInBytes) {
+        return tiffFileType;
+      }
+      const maximumTiffOffset = hasUnknownFileSize(this.tokenizer) ? maximumTiffIfdOffsetInBytes : this.tokenizer.fileInfo.size;
+      try {
+        await safeIgnore(this.tokenizer, ifdOffset, {
+          maximumLength: maximumTiffOffset,
+          reason: "TIFF IFD offset"
+        });
+      } catch (error) {
+        if (error instanceof EndOfStreamError) {
+          return;
+        }
+        throw error;
+      }
+      let fileType;
+      try {
+        fileType = await this.readTiffIFD(bigEndian);
+      } catch (error) {
+        if (error instanceof EndOfStreamError) {
+          return;
+        }
+        throw error;
+      }
+      return fileType ?? tiffFileType;
+    }
+    if (version === 43) {
+      return tiffFileType;
+    }
+  }
+  /**
+  	Scan check MPEG 1 or 2 Layer 3 header, or 'layer 0' for ADTS (MPEG sync-word 0xFFE).
+  
+  	@param offset - Offset to scan for sync-preamble.
+  	@returns {{ext: string, mime: string}}
+  	*/
+  scanMpeg(offset) {
+    if (this.check([255, 224], { offset, mask: [255, 224] })) {
+      if (this.check([16], { offset: offset + 1, mask: [22] })) {
+        if (this.check([8], { offset: offset + 1, mask: [8] })) {
+          return {
+            ext: "aac",
+            mime: "audio/aac"
+          };
+        }
+        return {
+          ext: "aac",
+          mime: "audio/aac"
+        };
+      }
+      if (this.check([2], { offset: offset + 1, mask: [6] })) {
+        return {
+          ext: "mp3",
+          mime: "audio/mpeg"
+        };
+      }
+      if (this.check([4], { offset: offset + 1, mask: [6] })) {
+        return {
+          ext: "mp2",
+          mime: "audio/mpeg"
+        };
+      }
+      if (this.check([6], { offset: offset + 1, mask: [6] })) {
+        return {
+          ext: "mp1",
+          mime: "audio/mpeg"
+        };
+      }
+    }
+  }
+}
+new Set(extensions);
+new Set(mimeTypes);
+const DEFAULT_CONTENT_TYPE = "application/octet-stream";
+function isUsableContentType(contentType) {
+  if (!contentType) {
+    return false;
+  }
+  const trimmed = contentType.trim();
+  return trimmed.length > 0 && trimmed !== DEFAULT_CONTENT_TYPE;
+}
+async function resolveBlobContentType(bytes, hint) {
+  if (isUsableContentType(hint)) {
+    return hint.trim();
+  }
+  const detected = await fileTypeFromBuffer(bytes);
+  return (detected == null ? void 0 : detected.mime) ?? DEFAULT_CONTENT_TYPE;
+}
+const MAXIMUM_CONCURRENT_UPLOADS = 10;
+const MAX_RETRIES = 3;
+const BASE_DELAY_MS = 1e3;
+const MAX_DELAY_MS = 3e4;
+const GATEWAY_VERSION = "v1";
+const HASH_ALGORITHM = "SHA-256";
+const SHA256_PREFIX = "sha256:";
+const DOMAIN_SEPARATOR_FOR_CHUNKS = new TextEncoder().encode("icfs-chunk/");
+const DOMAIN_SEPARATOR_FOR_METADATA = new TextEncoder().encode("icfs-metadata/");
+const DOMAIN_SEPARATOR_FOR_NODES = new TextEncoder().encode("ynode/");
+async function withRetry(operation) {
+  let lastError;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      const shouldRetry = isRetriableError(error);
+      if (attempt === MAX_RETRIES || !shouldRetry) {
+        if (!shouldRetry && attempt < MAX_RETRIES) {
+          console.warn(`Non-retriable error encountered: ${lastError.message}. Not retrying.`);
+        }
+        throw error;
+      }
+      const delay = Math.min(BASE_DELAY_MS * 2 ** attempt + Math.random() * 1e3, MAX_DELAY_MS);
+      console.warn(`Request failed (attempt ${attempt + 1}/${MAX_RETRIES + 1}): ${lastError.message}. Retrying in ${Math.round(delay)}ms...`);
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+  throw lastError || new Error("Unknown error occurred during retry attempts");
+}
+function isRetriableError(error) {
+  var _a2, _b2;
+  const errorMessage = ((_a2 = error == null ? void 0 : error.message) == null ? void 0 : _a2.toLowerCase()) || "";
+  if ((_b2 = error == null ? void 0 : error.response) == null ? void 0 : _b2.status) {
+    const status = error.response.status;
+    if (status === 408 || status === 429)
+      return true;
+    if (status >= 400 && status < 500)
+      return false;
+    if (status >= 500)
+      return true;
+  }
+  if (errorMessage.includes("ssl") || errorMessage.includes("tls") || errorMessage.includes("network error") || errorMessage.includes("connection") || errorMessage.includes("timeout") || errorMessage.includes("fetch")) {
+    return true;
+  }
+  if (errorMessage.includes("validation") || errorMessage.includes("invalid") || errorMessage.includes("malformed") || errorMessage.includes("unauthorized") || errorMessage.includes("forbidden") || errorMessage.includes("not found")) {
+    return false;
+  }
+  return true;
+}
+function validateHashFormat(hash, context) {
+  if (!hash) {
+    throw new Error(`${context}: Hash cannot be empty`);
+  }
+  if (!hash.startsWith(SHA256_PREFIX)) {
+    throw new Error(`${context}: Invalid hash format. Expected format: ${SHA256_PREFIX}<64-char-hex>, got: ${hash}`);
+  }
+  const hexPart = hash.substring(SHA256_PREFIX.length);
+  if (hexPart.length !== 64) {
+    throw new Error(`${context}: Invalid hash format. Expected 64 hex characters after ${SHA256_PREFIX}, got ${hexPart.length} characters: ${hash}`);
+  }
+  if (!/^[0-9a-f]{64}$/i.test(hexPart)) {
+    throw new Error(`${context}: Invalid hash format. Hash must contain only hex characters (0-9, a-f), got: ${hash}`);
+  }
+}
+class YHash {
+  constructor(bytes) {
+    __publicField(this, "bytes");
+    if (bytes.length !== 32) {
+      throw new Error(`YHash must be exactly 32 bytes, got ${bytes.length}`);
+    }
+    this.bytes = new Uint8Array(bytes);
+  }
+  static async fromNodes(left, right) {
+    const leftBytes = left instanceof YHash ? left.bytes : new TextEncoder().encode("UNBALANCED");
+    const rightBytes = right instanceof YHash ? right.bytes : new TextEncoder().encode("UNBALANCED");
+    const combined = new Uint8Array(DOMAIN_SEPARATOR_FOR_NODES.length + leftBytes.length + rightBytes.length);
+    const arrays = [DOMAIN_SEPARATOR_FOR_NODES, leftBytes, rightBytes];
+    let offset = 0;
+    for (const data of arrays) {
+      combined.set(data, offset);
+      offset += data.length;
+    }
+    const hashBuffer = await crypto.subtle.digest(HASH_ALGORITHM, combined);
+    return new YHash(new Uint8Array(hashBuffer));
+  }
+  static async fromChunk(data) {
+    return YHash.fromBytes(DOMAIN_SEPARATOR_FOR_CHUNKS, data);
+  }
+  static async fromHeaders(headers) {
+    const headerLines = [];
+    for (const [key, value] of Object.entries(headers)) {
+      headerLines.push(`${key.trim()}: ${value.trim()}
+`);
+    }
+    headerLines.sort();
+    const hash = await YHash.fromBytes(DOMAIN_SEPARATOR_FOR_METADATA, new TextEncoder().encode(headerLines.join("")));
+    return hash;
+  }
+  static async fromBytes(domainSeparator, data) {
+    const combined = new Uint8Array(domainSeparator.length + data.length);
+    combined.set(domainSeparator);
+    combined.set(data, domainSeparator.length);
+    const hashBuffer = await crypto.subtle.digest(HASH_ALGORITHM, combined);
+    return new YHash(new Uint8Array(hashBuffer));
+  }
+  static fromHex(hexString) {
+    const bytes = new Uint8Array(hexString.match(/.{1,2}/g).map((byte) => Number.parseInt(byte, 16)));
+    return new YHash(bytes);
+  }
+  toShaString() {
+    return `${SHA256_PREFIX}${this.toHex()}`;
+  }
+  toString() {
+    throw new Error("toString is not supported for YHash");
+  }
+  toHex() {
+    return Array.from(this.bytes).map((b2) => b2.toString(16).padStart(2, "0")).join("");
+  }
+}
+function nodeToJSON(node) {
+  return {
+    hash: node.hash.toShaString(),
+    left: node.left ? nodeToJSON(node.left) : null,
+    right: node.right ? nodeToJSON(node.right) : null
+  };
+}
+class BlobHashTree {
+  constructor(chunk_hashes, tree, headers = null) {
+    __publicField(this, "tree_type");
+    __publicField(this, "chunk_hashes");
+    __publicField(this, "tree");
+    __publicField(this, "headers");
+    this.tree_type = "DSBMTWH";
+    this.chunk_hashes = chunk_hashes;
+    this.tree = tree;
+    if (headers == null) {
+      this.headers = [];
+    } else if (Array.isArray(headers)) {
+      this.headers = headers;
+    } else {
+      this.headers = Object.entries(headers).map(([key, value]) => `${key.trim()}: ${value.trim()}`);
+    }
+    this.headers.sort();
+  }
+  static async build(chunkHashes, headers = {}) {
+    if (chunkHashes.length === 0) {
+      const hex = "8b8e620f084e48da0be2287fd12c5aaa4dbe14b468fd2e360f48d741fe7628a0";
+      const bytes = new TextEncoder().encode(hex);
+      chunkHashes.push(new YHash(bytes));
+    }
+    let level = chunkHashes.map((hash) => ({
+      hash,
+      left: null,
+      right: null
+    }));
+    while (level.length > 1) {
+      const nextLevel = [];
+      for (let i = 0; i < level.length; i += 2) {
+        const left = level[i];
+        const right = level[i + 1] || null;
+        const parentHash = await YHash.fromNodes(left.hash, right ? right.hash : null);
+        nextLevel.push({
+          hash: parentHash,
+          left,
+          right
+        });
+      }
+      level = nextLevel;
+    }
+    const chunksRoot = level[0];
+    if (headers && Object.keys(headers).length > 0) {
+      const metadataRootHash = await YHash.fromHeaders(headers);
+      const metadataRoot = {
+        hash: metadataRootHash,
+        left: null,
+        right: null
+      };
+      const combinedRootHash = await YHash.fromNodes(chunksRoot.hash, metadataRoot.hash);
+      const combinedRoot = {
+        hash: combinedRootHash,
+        left: chunksRoot,
+        right: metadataRoot
+      };
+      return new BlobHashTree(chunkHashes, combinedRoot, headers);
+    }
+    return new BlobHashTree(chunkHashes, chunksRoot, headers);
+  }
+  toJSON() {
+    return {
+      tree_type: this.tree_type,
+      chunk_hashes: this.chunk_hashes.map((h2) => h2.toShaString()),
+      tree: nodeToJSON(this.tree),
+      headers: this.headers
+    };
+  }
+}
+class StorageGatewayClient {
+  constructor(storageGatewayUrl) {
+    __publicField(this, "storageGatewayUrl");
+    this.storageGatewayUrl = storageGatewayUrl;
+  }
+  getStorageGatewayUrl() {
+    return this.storageGatewayUrl;
+  }
+  async uploadChunk(params) {
+    const blobHashString = params.blobRootHash.toShaString();
+    const chunkHashString = params.chunkHash.toShaString();
+    validateHashFormat(blobHashString, `uploadChunk[${params.chunkIndex}] blob_hash`);
+    validateHashFormat(chunkHashString, `uploadChunk[${params.chunkIndex}] chunk_hash`);
+    return await withRetry(async () => {
+      const queryParams = new URLSearchParams({
+        owner_id: params.owner,
+        blob_hash: blobHashString,
+        chunk_hash: chunkHashString,
+        chunk_index: params.chunkIndex.toString(),
+        bucket_name: params.bucketName,
+        project_id: params.projectId
+      });
+      const url = `${this.storageGatewayUrl}/${GATEWAY_VERSION}/chunk/?${queryParams.toString()}`;
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/octet-stream",
+          "X-Caffeine-Project-ID": params.projectId
+        },
+        body: params.chunkData
+      });
+      if (!response.ok) {
+        const errorText = await response.text();
+        const error = new Error(`Failed to upload chunk ${params.chunkIndex}: ${response.status} ${response.statusText} - ${errorText}`);
+        error.response = { status: response.status };
+        throw error;
+      }
+      const result = await response.json();
+      return {
+        isComplete: result.status === "blob_complete"
+      };
+    });
+  }
+  async uploadBlobTree(blobHashTree, bucketName, numBlobBytes, owner, projectId, certificateBytes) {
+    const treeJSON = blobHashTree.toJSON();
+    validateHashFormat(treeJSON.tree.hash, "uploadBlobTree root hash");
+    treeJSON.chunk_hashes.forEach((hash, index2) => {
+      validateHashFormat(hash, `uploadBlobTree chunk_hash[${index2}]`);
+    });
+    return await withRetry(async () => {
+      const url = `${this.storageGatewayUrl}/${GATEWAY_VERSION}/blob-tree/`;
+      const requestBody = {
+        blob_tree: treeJSON,
+        bucket_name: bucketName,
+        num_blob_bytes: numBlobBytes,
+        owner,
+        project_id: projectId,
+        headers: blobHashTree.headers,
+        auth: {
+          OwnerEgressSignature: Array.from(certificateBytes)
+        }
+      };
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Caffeine-Project-ID": projectId
+        },
+        body: JSON.stringify(requestBody)
+      });
+      if (!response.ok) {
+        const errorText = await response.text();
+        const error = new Error(`Failed to upload blob tree: ${response.status} ${response.statusText} - ${errorText}`);
+        error.response = { status: response.status };
+        throw error;
+      }
+    });
+  }
+}
+class StorageClient {
+  constructor(bucket, storageGatewayUrl, backendCanisterId, projectId, agent) {
+    __publicField(this, "bucket");
+    __publicField(this, "backendCanisterId");
+    __publicField(this, "projectId");
+    __publicField(this, "agent");
+    __publicField(this, "storageGatewayClient");
+    this.bucket = bucket;
+    this.backendCanisterId = backendCanisterId;
+    this.projectId = projectId;
+    this.agent = agent;
+    this.storageGatewayClient = new StorageGatewayClient(storageGatewayUrl);
+  }
+  async getCertificate(hash) {
+    const args = encode$1([Text], [hash]);
+    const result = await this.agent.call(this.backendCanisterId, {
+      methodName: "_immutableObjectStorageCreateCertificate",
+      arg: args,
+      effectiveCanisterId: this.backendCanisterId
+    });
+    const respone = result.response.body;
+    if (isV4ResponseBody(respone)) {
+      const certBytes = respone.certificate;
+      const decoded = Cbor.decode(certBytes);
+      if (decoded.tree) {
+        const requestStatusPath = [
+          new TextEncoder().encode("request_status"),
+          result.requestId
+        ];
+        const statusLookup = lookup_path([...requestStatusPath, new TextEncoder().encode("status")], decoded.tree);
+        if (statusLookup.status === LookupPathStatus.Found && new TextDecoder().decode(statusLookup.value) === "rejected") {
+          const rejectCodeBytes = lookupResultToBuffer(lookup_path([...requestStatusPath, new TextEncoder().encode("reject_code")], decoded.tree));
+          const rejectMessageBytes = lookupResultToBuffer(lookup_path([
+            ...requestStatusPath,
+            new TextEncoder().encode("reject_message")
+          ], decoded.tree));
+          const errorCodeBytes = lookupResultToBuffer(lookup_path([...requestStatusPath, new TextEncoder().encode("error_code")], decoded.tree));
+          throw formatCertificateRejectionError({
+            rejectCode: rejectCodeBytes == null ? void 0 : rejectCodeBytes[0],
+            rejectMessage: rejectMessageBytes ? new TextDecoder().decode(rejectMessageBytes) : void 0,
+            errorCode: errorCodeBytes ? new TextDecoder().decode(errorCodeBytes) : void 0
+          });
+        }
+      }
+      return certBytes;
+    }
+    throw new Error("Expected v4 response body");
+  }
+  async putFile(blobBytes, onProgress, contentTypeHint, filenameHint) {
+    const httpHeaders = {
+      "Content-Type": "application/json"
+    };
+    const contentType = await resolveBlobContentType(blobBytes, contentTypeHint);
+    const file = new Blob([new Uint8Array(blobBytes)], {
+      type: contentType
+    });
+    const fileHeaders = {
+      "Content-Type": contentType,
+      "Content-Length": file.size.toString()
+    };
+    const contentDisposition = formatBlobContentDisposition(filenameHint);
+    if (contentDisposition) {
+      fileHeaders["Content-Disposition"] = contentDisposition;
+    }
+    const { chunks, chunkHashes, blobHashTree } = await this.processFileForUpload(file, fileHeaders);
+    const blobRootHash = blobHashTree.tree.hash;
+    const hashString2 = blobRootHash.toShaString();
+    const certificateBytes = await this.getCertificate(hashString2);
+    await this.storageGatewayClient.uploadBlobTree(blobHashTree, this.bucket, file.size, this.backendCanisterId, this.projectId, certificateBytes);
+    await this.parallelUpload(chunks, chunkHashes, blobRootHash, httpHeaders, onProgress);
+    return { hash: hashString2 };
+  }
+  async getDirectURL(hash) {
+    if (!hash) {
+      throw new Error("Hash must not be empty");
+    }
+    validateHashFormat(hash, `getDirectURL for path '${hash}'`);
+    return `${this.storageGatewayClient.getStorageGatewayUrl()}/${GATEWAY_VERSION}/blob/?blob_hash=${encodeURIComponent(hash)}&owner_id=${encodeURIComponent(this.backendCanisterId)}&project_id=${encodeURIComponent(this.projectId)}`;
+  }
+  async processFileForUpload(file, headers) {
+    const chunks = this.createFileChunks(file);
+    const chunkHashes = [];
+    for (let i = 0; i < chunks.length; i++) {
+      const chunkData = new Uint8Array(await chunks[i].arrayBuffer());
+      const hash = await YHash.fromChunk(chunkData);
+      chunkHashes.push(hash);
+    }
+    const blobHashTree = await BlobHashTree.build(chunkHashes, headers);
+    return { chunks, chunkHashes, blobHashTree };
+  }
+  async parallelUpload(chunks, chunkHashes, blobRootHash, httpHeaders, onProgress) {
+    let completedChunks = 0;
+    const uploadSingleChunk = async (index2) => {
+      const chunkData = new Uint8Array(await chunks[index2].arrayBuffer());
+      const chunkHash = chunkHashes[index2];
+      await this.storageGatewayClient.uploadChunk({
+        blobRootHash,
+        chunkHash,
+        chunkIndex: index2,
+        chunkData,
+        bucketName: this.bucket,
+        owner: this.backendCanisterId,
+        projectId: this.projectId,
+        httpHeaders
+      });
+      const currentCompleted = ++completedChunks;
+      if (onProgress != null) {
+        const percentage = chunks.length === 0 ? 100 : Math.round(currentCompleted / chunks.length * 100);
+        onProgress(percentage);
+      }
+    };
+    await Promise.all(Array.from({ length: MAXIMUM_CONCURRENT_UPLOADS }, async (_2, workerId) => {
+      for (let i = workerId; i < chunks.length; i += MAXIMUM_CONCURRENT_UPLOADS) {
+        await uploadSingleChunk(i);
+      }
+    }));
+  }
+  createFileChunks(file, chunkSize = 1024 * 1024) {
+    const chunks = [];
+    const totalChunks = Math.ceil(file.size / chunkSize);
+    for (let index2 = 0; index2 < totalChunks; index2++) {
+      const start = index2 * chunkSize;
+      const end = Math.min(start + chunkSize, file.size);
+      const chunk = file.slice(start, end);
+      chunks.push(chunk);
+    }
+    return chunks;
+  }
+}
 var define_process_env_default$1 = {};
 const DEFAULT_STORAGE_GATEWAY_URL = "https://blob.caffeine.ai";
 const DEFAULT_BUCKET_NAME = "default-bucket";
@@ -11293,6 +16000,59 @@ async function loadConfig() {
     };
     return fallbackConfig;
   }
+}
+function extractAgentErrorMessage(error) {
+  const errorString = String(error);
+  const match = errorString.match(/with message:\s*'([^']+)'/s);
+  return match ? match[1] : errorString;
+}
+function processError(e) {
+  if (e && typeof e === "object" && "message" in e) {
+    throw new Error(extractAgentErrorMessage(`${e.message}`));
+  }
+  throw e;
+}
+async function maybeLoadMockBackend() {
+  {
+    return null;
+  }
+}
+async function createActorWithConfig(createActor2, options) {
+  var _a2;
+  const mock = await maybeLoadMockBackend();
+  if (mock) {
+    return mock;
+  }
+  const config = await loadConfig();
+  const resolvedOptions = options ?? {};
+  const agent = new HttpAgent({
+    ...resolvedOptions.agentOptions,
+    host: config.backend_host
+  });
+  if ((_a2 = config.backend_host) == null ? void 0 : _a2.includes("localhost")) {
+    await agent.fetchRootKey().catch((err) => {
+      console.warn("Unable to fetch root key. Check to ensure that your local replica is running");
+      console.error(err);
+    });
+  }
+  const actorOptions = {
+    ...resolvedOptions,
+    agent,
+    processError
+  };
+  const storageClient = new StorageClient(config.bucket_name, config.storage_gateway_url, config.backend_canister_id, config.project_id, agent);
+  const MOTOKO_DEDUPLICATION_SENTINEL = "!caf!";
+  const uploadFile = async (file) => {
+    const { hash } = await storageClient.putFile(await file.getBytes(), file.onProgress, file.contentType, file.filename);
+    return new TextEncoder().encode(MOTOKO_DEDUPLICATION_SENTINEL + hash);
+  };
+  const downloadFile = async (bytes) => {
+    const hashWithPrefix = new TextDecoder().decode(new Uint8Array(bytes));
+    const hash = hashWithPrefix.substring(MOTOKO_DEDUPLICATION_SENTINEL.length);
+    const url = await storageClient.getDirectURL(hash);
+    return ExternalBlob$1.fromURL(url);
+  };
+  return createActor2(config.backend_canister_id, uploadFile, downloadFile, actorOptions);
 }
 var Subscribable = class {
   constructor() {
@@ -11344,11 +16104,11 @@ var FocusManager = (_b = class extends Subscribable {
       __privateSet(this, _cleanup, void 0);
     }
   }
-  setEventListener(setup) {
+  setEventListener(setup2) {
     var _a2;
-    __privateSet(this, _setup, setup);
+    __privateSet(this, _setup, setup2);
     (_a2 = __privateGet(this, _cleanup)) == null ? void 0 : _a2.call(this);
-    __privateSet(this, _cleanup, setup((focused) => {
+    __privateSet(this, _cleanup, setup2((focused) => {
       if (typeof focused === "boolean") {
         this.setFocused(focused);
       } else {
@@ -11562,6 +16322,17 @@ function replaceEqualDeep(a2, b2, depth = 0) {
   }
   return aSize === bSize && equalItems === aSize ? a2 : copy;
 }
+function shallowEqualObjects(a2, b2) {
+  if (!b2 || Object.keys(a2).length !== Object.keys(b2).length) {
+    return false;
+  }
+  for (const key in a2) {
+    if (a2[key] !== b2[key]) {
+      return false;
+    }
+  }
+  return true;
+}
 function isPlainArray(value) {
   return Array.isArray(value) && value.length === Object.keys(value).length;
 }
@@ -11601,12 +16372,12 @@ function replaceData(prevData, data, options) {
   }
   return data;
 }
-function addToEnd(items2, item, max = 0) {
-  const newItems = [...items2, item];
+function addToEnd(items, item, max = 0) {
+  const newItems = [...items, item];
   return max && newItems.length > max ? newItems.slice(1) : newItems;
 }
-function addToStart(items2, item, max = 0) {
-  const newItems = [item, ...items2];
+function addToStart(items, item, max = 0) {
+  const newItems = [item, ...items];
   return max && newItems.length > max ? newItems.slice(0, -1) : newItems;
 }
 var skipToken = /* @__PURE__ */ Symbol();
@@ -11618,6 +16389,12 @@ function ensureQueryFn(options, fetchOptions) {
     return () => Promise.reject(new Error(`Missing queryFn: '${options.queryHash}'`));
   }
   return options.queryFn;
+}
+function shouldThrowError(throwOnError, params) {
+  if (typeof throwOnError === "function") {
+    return throwOnError(...params);
+  }
+  return !!throwOnError;
 }
 function addConsumeAwareSignal(object, getSignal, onCancelled) {
   let consumed = false;
@@ -11798,11 +16575,11 @@ var OnlineManager = (_d = class extends Subscribable {
       __privateSet(this, _cleanup2, void 0);
     }
   }
-  setEventListener(setup) {
+  setEventListener(setup2) {
     var _a2;
-    __privateSet(this, _setup2, setup);
+    __privateSet(this, _setup2, setup2);
     (_a2 = __privateGet(this, _cleanup2)) == null ? void 0 : _a2.call(this);
-    __privateSet(this, _cleanup2, setup(this.setOnline.bind(this)));
+    __privateSet(this, _cleanup2, setup2(this.setOnline.bind(this)));
   }
   setOnline(online) {
     const changed = __privateGet(this, _online) !== online;
@@ -12132,7 +16909,7 @@ var Query = (_f = class extends Removable {
     }
   }
   async fetch(options, fetchOptions) {
-    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j2, _k, _l;
+    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j2, _k2, _l2;
     if (this.state.fetchStatus !== "idle" && // If the promise in the retryer is already rejected, we have to definitely
     // re-start the fetch; there is a chance that the query is still in a
     // pending state when that happens
@@ -12264,8 +17041,8 @@ var Query = (_f = class extends Removable {
         error,
         this
       );
-      (_l = (_k = __privateGet(this, _cache).config).onSettled) == null ? void 0 : _l.call(
-        _k,
+      (_l2 = (_k2 = __privateGet(this, _cache).config).onSettled) == null ? void 0 : _l2.call(
+        _k2,
         this.state.data,
         error,
         this
@@ -12389,6 +17166,450 @@ function getDefaultState$1(options) {
     fetchStatus: "idle"
   };
 }
+var QueryObserver = (_g = class extends Subscribable {
+  constructor(client2, options) {
+    super();
+    __privateAdd(this, _QueryObserver_instances);
+    __privateAdd(this, _client2);
+    __privateAdd(this, _currentQuery);
+    __privateAdd(this, _currentQueryInitialState);
+    __privateAdd(this, _currentResult);
+    __privateAdd(this, _currentResultState);
+    __privateAdd(this, _currentResultOptions);
+    __privateAdd(this, _currentThenable);
+    __privateAdd(this, _selectError);
+    __privateAdd(this, _selectFn);
+    __privateAdd(this, _selectResult);
+    // This property keeps track of the last query with defined data.
+    // It will be used to pass the previous data and query to the placeholder function between renders.
+    __privateAdd(this, _lastQueryWithDefinedData);
+    __privateAdd(this, _staleTimeoutId);
+    __privateAdd(this, _refetchIntervalId);
+    __privateAdd(this, _currentRefetchInterval);
+    __privateAdd(this, _trackedProps, /* @__PURE__ */ new Set());
+    this.options = options;
+    __privateSet(this, _client2, client2);
+    __privateSet(this, _selectError, null);
+    __privateSet(this, _currentThenable, pendingThenable());
+    this.bindMethods();
+    this.setOptions(options);
+  }
+  bindMethods() {
+    this.refetch = this.refetch.bind(this);
+  }
+  onSubscribe() {
+    if (this.listeners.size === 1) {
+      __privateGet(this, _currentQuery).addObserver(this);
+      if (shouldFetchOnMount(__privateGet(this, _currentQuery), this.options)) {
+        __privateMethod(this, _QueryObserver_instances, executeFetch_fn).call(this);
+      } else {
+        this.updateResult();
+      }
+      __privateMethod(this, _QueryObserver_instances, updateTimers_fn).call(this);
+    }
+  }
+  onUnsubscribe() {
+    if (!this.hasListeners()) {
+      this.destroy();
+    }
+  }
+  shouldFetchOnReconnect() {
+    return shouldFetchOn(
+      __privateGet(this, _currentQuery),
+      this.options,
+      this.options.refetchOnReconnect
+    );
+  }
+  shouldFetchOnWindowFocus() {
+    return shouldFetchOn(
+      __privateGet(this, _currentQuery),
+      this.options,
+      this.options.refetchOnWindowFocus
+    );
+  }
+  destroy() {
+    this.listeners = /* @__PURE__ */ new Set();
+    __privateMethod(this, _QueryObserver_instances, clearStaleTimeout_fn).call(this);
+    __privateMethod(this, _QueryObserver_instances, clearRefetchInterval_fn).call(this);
+    __privateGet(this, _currentQuery).removeObserver(this);
+  }
+  setOptions(options) {
+    const prevOptions = this.options;
+    const prevQuery = __privateGet(this, _currentQuery);
+    this.options = __privateGet(this, _client2).defaultQueryOptions(options);
+    if (this.options.enabled !== void 0 && typeof this.options.enabled !== "boolean" && typeof this.options.enabled !== "function" && typeof resolveEnabled(this.options.enabled, __privateGet(this, _currentQuery)) !== "boolean") {
+      throw new Error(
+        "Expected enabled to be a boolean or a callback that returns a boolean"
+      );
+    }
+    __privateMethod(this, _QueryObserver_instances, updateQuery_fn).call(this);
+    __privateGet(this, _currentQuery).setOptions(this.options);
+    if (prevOptions._defaulted && !shallowEqualObjects(this.options, prevOptions)) {
+      __privateGet(this, _client2).getQueryCache().notify({
+        type: "observerOptionsUpdated",
+        query: __privateGet(this, _currentQuery),
+        observer: this
+      });
+    }
+    const mounted = this.hasListeners();
+    if (mounted && shouldFetchOptionally(
+      __privateGet(this, _currentQuery),
+      prevQuery,
+      this.options,
+      prevOptions
+    )) {
+      __privateMethod(this, _QueryObserver_instances, executeFetch_fn).call(this);
+    }
+    this.updateResult();
+    if (mounted && (__privateGet(this, _currentQuery) !== prevQuery || resolveEnabled(this.options.enabled, __privateGet(this, _currentQuery)) !== resolveEnabled(prevOptions.enabled, __privateGet(this, _currentQuery)) || resolveStaleTime(this.options.staleTime, __privateGet(this, _currentQuery)) !== resolveStaleTime(prevOptions.staleTime, __privateGet(this, _currentQuery)))) {
+      __privateMethod(this, _QueryObserver_instances, updateStaleTimeout_fn).call(this);
+    }
+    const nextRefetchInterval = __privateMethod(this, _QueryObserver_instances, computeRefetchInterval_fn).call(this);
+    if (mounted && (__privateGet(this, _currentQuery) !== prevQuery || resolveEnabled(this.options.enabled, __privateGet(this, _currentQuery)) !== resolveEnabled(prevOptions.enabled, __privateGet(this, _currentQuery)) || nextRefetchInterval !== __privateGet(this, _currentRefetchInterval))) {
+      __privateMethod(this, _QueryObserver_instances, updateRefetchInterval_fn).call(this, nextRefetchInterval);
+    }
+  }
+  getOptimisticResult(options) {
+    const query = __privateGet(this, _client2).getQueryCache().build(__privateGet(this, _client2), options);
+    const result = this.createResult(query, options);
+    if (shouldAssignObserverCurrentProperties(this, result)) {
+      __privateSet(this, _currentResult, result);
+      __privateSet(this, _currentResultOptions, this.options);
+      __privateSet(this, _currentResultState, __privateGet(this, _currentQuery).state);
+    }
+    return result;
+  }
+  getCurrentResult() {
+    return __privateGet(this, _currentResult);
+  }
+  trackResult(result, onPropTracked) {
+    return new Proxy(result, {
+      get: (target, key) => {
+        this.trackProp(key);
+        onPropTracked == null ? void 0 : onPropTracked(key);
+        if (key === "promise") {
+          this.trackProp("data");
+          if (!this.options.experimental_prefetchInRender && __privateGet(this, _currentThenable).status === "pending") {
+            __privateGet(this, _currentThenable).reject(
+              new Error(
+                "experimental_prefetchInRender feature flag is not enabled"
+              )
+            );
+          }
+        }
+        return Reflect.get(target, key);
+      }
+    });
+  }
+  trackProp(key) {
+    __privateGet(this, _trackedProps).add(key);
+  }
+  getCurrentQuery() {
+    return __privateGet(this, _currentQuery);
+  }
+  refetch({ ...options } = {}) {
+    return this.fetch({
+      ...options
+    });
+  }
+  fetchOptimistic(options) {
+    const defaultedOptions = __privateGet(this, _client2).defaultQueryOptions(options);
+    const query = __privateGet(this, _client2).getQueryCache().build(__privateGet(this, _client2), defaultedOptions);
+    return query.fetch().then(() => this.createResult(query, defaultedOptions));
+  }
+  fetch(fetchOptions) {
+    return __privateMethod(this, _QueryObserver_instances, executeFetch_fn).call(this, {
+      ...fetchOptions,
+      cancelRefetch: fetchOptions.cancelRefetch ?? true
+    }).then(() => {
+      this.updateResult();
+      return __privateGet(this, _currentResult);
+    });
+  }
+  createResult(query, options) {
+    var _a2;
+    const prevQuery = __privateGet(this, _currentQuery);
+    const prevOptions = this.options;
+    const prevResult = __privateGet(this, _currentResult);
+    const prevResultState = __privateGet(this, _currentResultState);
+    const prevResultOptions = __privateGet(this, _currentResultOptions);
+    const queryChange = query !== prevQuery;
+    const queryInitialState = queryChange ? query.state : __privateGet(this, _currentQueryInitialState);
+    const { state } = query;
+    let newState = { ...state };
+    let isPlaceholderData = false;
+    let data;
+    if (options._optimisticResults) {
+      const mounted = this.hasListeners();
+      const fetchOnMount = !mounted && shouldFetchOnMount(query, options);
+      const fetchOptionally = mounted && shouldFetchOptionally(query, prevQuery, options, prevOptions);
+      if (fetchOnMount || fetchOptionally) {
+        newState = {
+          ...newState,
+          ...fetchState(state.data, query.options)
+        };
+      }
+      if (options._optimisticResults === "isRestoring") {
+        newState.fetchStatus = "idle";
+      }
+    }
+    let { error, errorUpdatedAt, status } = newState;
+    data = newState.data;
+    let skipSelect = false;
+    if (options.placeholderData !== void 0 && data === void 0 && status === "pending") {
+      let placeholderData;
+      if ((prevResult == null ? void 0 : prevResult.isPlaceholderData) && options.placeholderData === (prevResultOptions == null ? void 0 : prevResultOptions.placeholderData)) {
+        placeholderData = prevResult.data;
+        skipSelect = true;
+      } else {
+        placeholderData = typeof options.placeholderData === "function" ? options.placeholderData(
+          (_a2 = __privateGet(this, _lastQueryWithDefinedData)) == null ? void 0 : _a2.state.data,
+          __privateGet(this, _lastQueryWithDefinedData)
+        ) : options.placeholderData;
+      }
+      if (placeholderData !== void 0) {
+        status = "success";
+        data = replaceData(
+          prevResult == null ? void 0 : prevResult.data,
+          placeholderData,
+          options
+        );
+        isPlaceholderData = true;
+      }
+    }
+    if (options.select && data !== void 0 && !skipSelect) {
+      if (prevResult && data === (prevResultState == null ? void 0 : prevResultState.data) && options.select === __privateGet(this, _selectFn)) {
+        data = __privateGet(this, _selectResult);
+      } else {
+        try {
+          __privateSet(this, _selectFn, options.select);
+          data = options.select(data);
+          data = replaceData(prevResult == null ? void 0 : prevResult.data, data, options);
+          __privateSet(this, _selectResult, data);
+          __privateSet(this, _selectError, null);
+        } catch (selectError) {
+          __privateSet(this, _selectError, selectError);
+        }
+      }
+    }
+    if (__privateGet(this, _selectError)) {
+      error = __privateGet(this, _selectError);
+      data = __privateGet(this, _selectResult);
+      errorUpdatedAt = Date.now();
+      status = "error";
+    }
+    const isFetching = newState.fetchStatus === "fetching";
+    const isPending = status === "pending";
+    const isError = status === "error";
+    const isLoading = isPending && isFetching;
+    const hasData = data !== void 0;
+    const result = {
+      status,
+      fetchStatus: newState.fetchStatus,
+      isPending,
+      isSuccess: status === "success",
+      isError,
+      isInitialLoading: isLoading,
+      isLoading,
+      data,
+      dataUpdatedAt: newState.dataUpdatedAt,
+      error,
+      errorUpdatedAt,
+      failureCount: newState.fetchFailureCount,
+      failureReason: newState.fetchFailureReason,
+      errorUpdateCount: newState.errorUpdateCount,
+      isFetched: query.isFetched(),
+      isFetchedAfterMount: newState.dataUpdateCount > queryInitialState.dataUpdateCount || newState.errorUpdateCount > queryInitialState.errorUpdateCount,
+      isFetching,
+      isRefetching: isFetching && !isPending,
+      isLoadingError: isError && !hasData,
+      isPaused: newState.fetchStatus === "paused",
+      isPlaceholderData,
+      isRefetchError: isError && hasData,
+      isStale: isStale(query, options),
+      refetch: this.refetch,
+      promise: __privateGet(this, _currentThenable),
+      isEnabled: resolveEnabled(options.enabled, query) !== false
+    };
+    const nextResult = result;
+    if (this.options.experimental_prefetchInRender) {
+      const hasResultData = nextResult.data !== void 0;
+      const isErrorWithoutData = nextResult.status === "error" && !hasResultData;
+      const finalizeThenableIfPossible = (thenable) => {
+        if (isErrorWithoutData) {
+          thenable.reject(nextResult.error);
+        } else if (hasResultData) {
+          thenable.resolve(nextResult.data);
+        }
+      };
+      const recreateThenable = () => {
+        const pending = __privateSet(this, _currentThenable, nextResult.promise = pendingThenable());
+        finalizeThenableIfPossible(pending);
+      };
+      const prevThenable = __privateGet(this, _currentThenable);
+      switch (prevThenable.status) {
+        case "pending":
+          if (query.queryHash === prevQuery.queryHash) {
+            finalizeThenableIfPossible(prevThenable);
+          }
+          break;
+        case "fulfilled":
+          if (isErrorWithoutData || nextResult.data !== prevThenable.value) {
+            recreateThenable();
+          }
+          break;
+        case "rejected":
+          if (!isErrorWithoutData || nextResult.error !== prevThenable.reason) {
+            recreateThenable();
+          }
+          break;
+      }
+    }
+    return nextResult;
+  }
+  updateResult() {
+    const prevResult = __privateGet(this, _currentResult);
+    const nextResult = this.createResult(__privateGet(this, _currentQuery), this.options);
+    __privateSet(this, _currentResultState, __privateGet(this, _currentQuery).state);
+    __privateSet(this, _currentResultOptions, this.options);
+    if (__privateGet(this, _currentResultState).data !== void 0) {
+      __privateSet(this, _lastQueryWithDefinedData, __privateGet(this, _currentQuery));
+    }
+    if (shallowEqualObjects(nextResult, prevResult)) {
+      return;
+    }
+    __privateSet(this, _currentResult, nextResult);
+    const shouldNotifyListeners = () => {
+      if (!prevResult) {
+        return true;
+      }
+      const { notifyOnChangeProps } = this.options;
+      const notifyOnChangePropsValue = typeof notifyOnChangeProps === "function" ? notifyOnChangeProps() : notifyOnChangeProps;
+      if (notifyOnChangePropsValue === "all" || !notifyOnChangePropsValue && !__privateGet(this, _trackedProps).size) {
+        return true;
+      }
+      const includedProps = new Set(
+        notifyOnChangePropsValue ?? __privateGet(this, _trackedProps)
+      );
+      if (this.options.throwOnError) {
+        includedProps.add("error");
+      }
+      return Object.keys(__privateGet(this, _currentResult)).some((key) => {
+        const typedKey = key;
+        const changed = __privateGet(this, _currentResult)[typedKey] !== prevResult[typedKey];
+        return changed && includedProps.has(typedKey);
+      });
+    };
+    __privateMethod(this, _QueryObserver_instances, notify_fn).call(this, { listeners: shouldNotifyListeners() });
+  }
+  onQueryUpdate() {
+    this.updateResult();
+    if (this.hasListeners()) {
+      __privateMethod(this, _QueryObserver_instances, updateTimers_fn).call(this);
+    }
+  }
+}, _client2 = new WeakMap(), _currentQuery = new WeakMap(), _currentQueryInitialState = new WeakMap(), _currentResult = new WeakMap(), _currentResultState = new WeakMap(), _currentResultOptions = new WeakMap(), _currentThenable = new WeakMap(), _selectError = new WeakMap(), _selectFn = new WeakMap(), _selectResult = new WeakMap(), _lastQueryWithDefinedData = new WeakMap(), _staleTimeoutId = new WeakMap(), _refetchIntervalId = new WeakMap(), _currentRefetchInterval = new WeakMap(), _trackedProps = new WeakMap(), _QueryObserver_instances = new WeakSet(), executeFetch_fn = function(fetchOptions) {
+  __privateMethod(this, _QueryObserver_instances, updateQuery_fn).call(this);
+  let promise = __privateGet(this, _currentQuery).fetch(
+    this.options,
+    fetchOptions
+  );
+  if (!(fetchOptions == null ? void 0 : fetchOptions.throwOnError)) {
+    promise = promise.catch(noop$6);
+  }
+  return promise;
+}, updateStaleTimeout_fn = function() {
+  __privateMethod(this, _QueryObserver_instances, clearStaleTimeout_fn).call(this);
+  const staleTime = resolveStaleTime(
+    this.options.staleTime,
+    __privateGet(this, _currentQuery)
+  );
+  if (environmentManager.isServer() || __privateGet(this, _currentResult).isStale || !isValidTimeout(staleTime)) {
+    return;
+  }
+  const time = timeUntilStale(__privateGet(this, _currentResult).dataUpdatedAt, staleTime);
+  const timeout2 = time + 1;
+  __privateSet(this, _staleTimeoutId, timeoutManager.setTimeout(() => {
+    if (!__privateGet(this, _currentResult).isStale) {
+      this.updateResult();
+    }
+  }, timeout2));
+}, computeRefetchInterval_fn = function() {
+  return (typeof this.options.refetchInterval === "function" ? this.options.refetchInterval(__privateGet(this, _currentQuery)) : this.options.refetchInterval) ?? false;
+}, updateRefetchInterval_fn = function(nextInterval) {
+  __privateMethod(this, _QueryObserver_instances, clearRefetchInterval_fn).call(this);
+  __privateSet(this, _currentRefetchInterval, nextInterval);
+  if (environmentManager.isServer() || resolveEnabled(this.options.enabled, __privateGet(this, _currentQuery)) === false || !isValidTimeout(__privateGet(this, _currentRefetchInterval)) || __privateGet(this, _currentRefetchInterval) === 0) {
+    return;
+  }
+  __privateSet(this, _refetchIntervalId, timeoutManager.setInterval(() => {
+    if (this.options.refetchIntervalInBackground || focusManager.isFocused()) {
+      __privateMethod(this, _QueryObserver_instances, executeFetch_fn).call(this);
+    }
+  }, __privateGet(this, _currentRefetchInterval)));
+}, updateTimers_fn = function() {
+  __privateMethod(this, _QueryObserver_instances, updateStaleTimeout_fn).call(this);
+  __privateMethod(this, _QueryObserver_instances, updateRefetchInterval_fn).call(this, __privateMethod(this, _QueryObserver_instances, computeRefetchInterval_fn).call(this));
+}, clearStaleTimeout_fn = function() {
+  if (__privateGet(this, _staleTimeoutId)) {
+    timeoutManager.clearTimeout(__privateGet(this, _staleTimeoutId));
+    __privateSet(this, _staleTimeoutId, void 0);
+  }
+}, clearRefetchInterval_fn = function() {
+  if (__privateGet(this, _refetchIntervalId)) {
+    timeoutManager.clearInterval(__privateGet(this, _refetchIntervalId));
+    __privateSet(this, _refetchIntervalId, void 0);
+  }
+}, updateQuery_fn = function() {
+  const query = __privateGet(this, _client2).getQueryCache().build(__privateGet(this, _client2), this.options);
+  if (query === __privateGet(this, _currentQuery)) {
+    return;
+  }
+  const prevQuery = __privateGet(this, _currentQuery);
+  __privateSet(this, _currentQuery, query);
+  __privateSet(this, _currentQueryInitialState, query.state);
+  if (this.hasListeners()) {
+    prevQuery == null ? void 0 : prevQuery.removeObserver(this);
+    query.addObserver(this);
+  }
+}, notify_fn = function(notifyOptions) {
+  notifyManager.batch(() => {
+    if (notifyOptions.listeners) {
+      this.listeners.forEach((listener) => {
+        listener(__privateGet(this, _currentResult));
+      });
+    }
+    __privateGet(this, _client2).getQueryCache().notify({
+      query: __privateGet(this, _currentQuery),
+      type: "observerResultsUpdated"
+    });
+  });
+}, _g);
+function shouldLoadOnMount(query, options) {
+  return resolveEnabled(options.enabled, query) !== false && query.state.data === void 0 && !(query.state.status === "error" && options.retryOnMount === false);
+}
+function shouldFetchOnMount(query, options) {
+  return shouldLoadOnMount(query, options) || query.state.data !== void 0 && shouldFetchOn(query, options, options.refetchOnMount);
+}
+function shouldFetchOn(query, options, field) {
+  if (resolveEnabled(options.enabled, query) !== false && resolveStaleTime(options.staleTime, query) !== "static") {
+    const value = typeof field === "function" ? field(query) : field;
+    return value === "always" || value !== false && isStale(query, options);
+  }
+  return false;
+}
+function shouldFetchOptionally(query, prevQuery, options, prevOptions) {
+  return (query !== prevQuery || resolveEnabled(prevOptions.enabled, query) === false) && (!options.suspense || query.state.status !== "error") && isStale(query, options);
+}
+function isStale(query, options) {
+  return resolveEnabled(options.enabled, query) !== false && query.isStaleByTime(resolveStaleTime(options.staleTime, query));
+}
+function shouldAssignObserverCurrentProperties(observer, optimisticResult) {
+  if (!shallowEqualObjects(observer.getCurrentResult(), optimisticResult)) {
+    return true;
+  }
+  return false;
+}
 function infiniteQueryBehavior(pages) {
   return {
     onFetch: (context, query) => {
@@ -12492,15 +17713,15 @@ function getPreviousPageParam(options, { pages, pageParams }) {
   var _a2;
   return pages.length > 0 ? (_a2 = options.getPreviousPageParam) == null ? void 0 : _a2.call(options, pages[0], pages, pageParams[0], pageParams) : void 0;
 }
-var Mutation = (_g = class extends Removable {
+var Mutation = (_h = class extends Removable {
   constructor(config) {
     super();
     __privateAdd(this, _Mutation_instances);
-    __privateAdd(this, _client2);
+    __privateAdd(this, _client3);
     __privateAdd(this, _observers);
     __privateAdd(this, _mutationCache);
     __privateAdd(this, _retryer2);
-    __privateSet(this, _client2, config.client);
+    __privateSet(this, _client3, config.client);
     this.mutationId = config.mutationId;
     __privateSet(this, _mutationCache, config.mutationCache);
     __privateSet(this, _observers, []);
@@ -12550,12 +17771,12 @@ var Mutation = (_g = class extends Removable {
     this.execute(this.state.variables);
   }
   async execute(variables) {
-    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j2, _k, _l, _m, _n, _o, _p, _q, _r;
+    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j2, _k2, _l2, _m, _n, _o, _p, _q, _r;
     const onContinue = () => {
       __privateMethod(this, _Mutation_instances, dispatch_fn2).call(this, { type: "continue" });
     };
     const mutationFnContext = {
-      client: __privateGet(this, _client2),
+      client: __privateGet(this, _client3),
       meta: this.options.meta,
       mutationKey: this.options.mutationKey
     };
@@ -12643,8 +17864,8 @@ var Mutation = (_g = class extends Removable {
       return data;
     } catch (error) {
       try {
-        await ((_l = (_k = __privateGet(this, _mutationCache).config).onError) == null ? void 0 : _l.call(
-          _k,
+        await ((_l2 = (_k2 = __privateGet(this, _mutationCache).config).onError) == null ? void 0 : _l2.call(
+          _k2,
           error,
           variables,
           this.state.context,
@@ -12696,7 +17917,7 @@ var Mutation = (_g = class extends Removable {
       __privateGet(this, _mutationCache).runNext(this);
     }
   }
-}, _client2 = new WeakMap(), _observers = new WeakMap(), _mutationCache = new WeakMap(), _retryer2 = new WeakMap(), _Mutation_instances = new WeakSet(), dispatch_fn2 = function(action) {
+}, _client3 = new WeakMap(), _observers = new WeakMap(), _mutationCache = new WeakMap(), _retryer2 = new WeakMap(), _Mutation_instances = new WeakSet(), dispatch_fn2 = function(action) {
   const reducer = (state) => {
     switch (action.type) {
       case "failed":
@@ -12761,7 +17982,7 @@ var Mutation = (_g = class extends Removable {
       action
     });
   });
-}, _g);
+}, _h);
 function getDefaultState() {
   return {
     context: void 0,
@@ -12775,7 +17996,7 @@ function getDefaultState() {
     submittedAt: 0
   };
 }
-var MutationCache = (_h = class extends Subscribable {
+var MutationCache = (_i = class extends Subscribable {
   constructor(config = {}) {
     super();
     __privateAdd(this, _mutations);
@@ -12887,12 +18108,152 @@ var MutationCache = (_h = class extends Subscribable {
       )
     );
   }
-}, _mutations = new WeakMap(), _scopes = new WeakMap(), _mutationId = new WeakMap(), _h);
+}, _mutations = new WeakMap(), _scopes = new WeakMap(), _mutationId = new WeakMap(), _i);
 function scopeFor(mutation) {
   var _a2;
   return (_a2 = mutation.options.scope) == null ? void 0 : _a2.id;
 }
-var QueryCache = (_i = class extends Subscribable {
+var MutationObserver$1 = (_j = class extends Subscribable {
+  constructor(client2, options) {
+    super();
+    __privateAdd(this, _MutationObserver_instances);
+    __privateAdd(this, _client4);
+    __privateAdd(this, _currentResult2);
+    __privateAdd(this, _currentMutation);
+    __privateAdd(this, _mutateOptions);
+    __privateSet(this, _client4, client2);
+    this.setOptions(options);
+    this.bindMethods();
+    __privateMethod(this, _MutationObserver_instances, updateResult_fn).call(this);
+  }
+  bindMethods() {
+    this.mutate = this.mutate.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+  setOptions(options) {
+    var _a2;
+    const prevOptions = this.options;
+    this.options = __privateGet(this, _client4).defaultMutationOptions(options);
+    if (!shallowEqualObjects(this.options, prevOptions)) {
+      __privateGet(this, _client4).getMutationCache().notify({
+        type: "observerOptionsUpdated",
+        mutation: __privateGet(this, _currentMutation),
+        observer: this
+      });
+    }
+    if ((prevOptions == null ? void 0 : prevOptions.mutationKey) && this.options.mutationKey && hashKey(prevOptions.mutationKey) !== hashKey(this.options.mutationKey)) {
+      this.reset();
+    } else if (((_a2 = __privateGet(this, _currentMutation)) == null ? void 0 : _a2.state.status) === "pending") {
+      __privateGet(this, _currentMutation).setOptions(this.options);
+    }
+  }
+  onUnsubscribe() {
+    var _a2;
+    if (!this.hasListeners()) {
+      (_a2 = __privateGet(this, _currentMutation)) == null ? void 0 : _a2.removeObserver(this);
+    }
+  }
+  onMutationUpdate(action) {
+    __privateMethod(this, _MutationObserver_instances, updateResult_fn).call(this);
+    __privateMethod(this, _MutationObserver_instances, notify_fn2).call(this, action);
+  }
+  getCurrentResult() {
+    return __privateGet(this, _currentResult2);
+  }
+  reset() {
+    var _a2;
+    (_a2 = __privateGet(this, _currentMutation)) == null ? void 0 : _a2.removeObserver(this);
+    __privateSet(this, _currentMutation, void 0);
+    __privateMethod(this, _MutationObserver_instances, updateResult_fn).call(this);
+    __privateMethod(this, _MutationObserver_instances, notify_fn2).call(this);
+  }
+  mutate(variables, options) {
+    var _a2;
+    __privateSet(this, _mutateOptions, options);
+    (_a2 = __privateGet(this, _currentMutation)) == null ? void 0 : _a2.removeObserver(this);
+    __privateSet(this, _currentMutation, __privateGet(this, _client4).getMutationCache().build(__privateGet(this, _client4), this.options));
+    __privateGet(this, _currentMutation).addObserver(this);
+    return __privateGet(this, _currentMutation).execute(variables);
+  }
+}, _client4 = new WeakMap(), _currentResult2 = new WeakMap(), _currentMutation = new WeakMap(), _mutateOptions = new WeakMap(), _MutationObserver_instances = new WeakSet(), updateResult_fn = function() {
+  var _a2;
+  const state = ((_a2 = __privateGet(this, _currentMutation)) == null ? void 0 : _a2.state) ?? getDefaultState();
+  __privateSet(this, _currentResult2, {
+    ...state,
+    isPending: state.status === "pending",
+    isSuccess: state.status === "success",
+    isError: state.status === "error",
+    isIdle: state.status === "idle",
+    mutate: this.mutate,
+    reset: this.reset
+  });
+}, notify_fn2 = function(action) {
+  notifyManager.batch(() => {
+    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2;
+    if (__privateGet(this, _mutateOptions) && this.hasListeners()) {
+      const variables = __privateGet(this, _currentResult2).variables;
+      const onMutateResult = __privateGet(this, _currentResult2).context;
+      const context = {
+        client: __privateGet(this, _client4),
+        meta: this.options.meta,
+        mutationKey: this.options.mutationKey
+      };
+      if ((action == null ? void 0 : action.type) === "success") {
+        try {
+          (_b2 = (_a2 = __privateGet(this, _mutateOptions)).onSuccess) == null ? void 0 : _b2.call(
+            _a2,
+            action.data,
+            variables,
+            onMutateResult,
+            context
+          );
+        } catch (e) {
+          void Promise.reject(e);
+        }
+        try {
+          (_d2 = (_c2 = __privateGet(this, _mutateOptions)).onSettled) == null ? void 0 : _d2.call(
+            _c2,
+            action.data,
+            null,
+            variables,
+            onMutateResult,
+            context
+          );
+        } catch (e) {
+          void Promise.reject(e);
+        }
+      } else if ((action == null ? void 0 : action.type) === "error") {
+        try {
+          (_f2 = (_e2 = __privateGet(this, _mutateOptions)).onError) == null ? void 0 : _f2.call(
+            _e2,
+            action.error,
+            variables,
+            onMutateResult,
+            context
+          );
+        } catch (e) {
+          void Promise.reject(e);
+        }
+        try {
+          (_h2 = (_g2 = __privateGet(this, _mutateOptions)).onSettled) == null ? void 0 : _h2.call(
+            _g2,
+            void 0,
+            action.error,
+            variables,
+            onMutateResult,
+            context
+          );
+        } catch (e) {
+          void Promise.reject(e);
+        }
+      }
+    }
+    this.listeners.forEach((listener) => {
+      listener(__privateGet(this, _currentResult2));
+    });
+  });
+}, _j);
+var QueryCache = (_k = class extends Subscribable {
   constructor(config = {}) {
     super();
     __privateAdd(this, _queries);
@@ -12979,8 +18340,8 @@ var QueryCache = (_i = class extends Subscribable {
       });
     });
   }
-}, _queries = new WeakMap(), _i);
-var QueryClient = (_j = class {
+}, _queries = new WeakMap(), _k);
+var QueryClient = (_l = class {
   constructor(config = {}) {
     __privateAdd(this, _queryCache);
     __privateAdd(this, _mutationCache2);
@@ -13267,7 +18628,7 @@ var QueryClient = (_j = class {
     __privateGet(this, _queryCache).clear();
     __privateGet(this, _mutationCache2).clear();
   }
-}, _queryCache = new WeakMap(), _mutationCache2 = new WeakMap(), _defaultOptions2 = new WeakMap(), _queryDefaults = new WeakMap(), _mutationDefaults = new WeakMap(), _mountCount = new WeakMap(), _unsubscribeFocus = new WeakMap(), _unsubscribeOnline = new WeakMap(), _j);
+}, _queryCache = new WeakMap(), _mutationCache2 = new WeakMap(), _defaultOptions2 = new WeakMap(), _queryDefaults = new WeakMap(), _mutationDefaults = new WeakMap(), _mountCount = new WeakMap(), _unsubscribeFocus = new WeakMap(), _unsubscribeOnline = new WeakMap(), _l);
 var react = { exports: {} };
 var react_production = {};
 /**
@@ -13710,6 +19071,13 @@ var reactExports = react.exports;
 var QueryClientContext = reactExports.createContext(
   void 0
 );
+var useQueryClient = (queryClient2) => {
+  const client2 = reactExports.useContext(QueryClientContext);
+  if (!client2) {
+    throw new Error("No QueryClient set, use QueryClientProvider to set one");
+  }
+  return client2;
+};
 var QueryClientProvider = ({
   client: client2,
   children
@@ -13722,6 +19090,169 @@ var QueryClientProvider = ({
   }, [client2]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientContext.Provider, { value: client2, children });
 };
+var IsRestoringContext = reactExports.createContext(false);
+var useIsRestoring = () => reactExports.useContext(IsRestoringContext);
+IsRestoringContext.Provider;
+function createValue() {
+  let isReset = false;
+  return {
+    clearReset: () => {
+      isReset = false;
+    },
+    reset: () => {
+      isReset = true;
+    },
+    isReset: () => {
+      return isReset;
+    }
+  };
+}
+var QueryErrorResetBoundaryContext = reactExports.createContext(createValue());
+var useQueryErrorResetBoundary = () => reactExports.useContext(QueryErrorResetBoundaryContext);
+var ensurePreventErrorBoundaryRetry = (options, errorResetBoundary, query) => {
+  const throwOnError = (query == null ? void 0 : query.state.error) && typeof options.throwOnError === "function" ? shouldThrowError(options.throwOnError, [query.state.error, query]) : options.throwOnError;
+  if (options.suspense || options.experimental_prefetchInRender || throwOnError) {
+    if (!errorResetBoundary.isReset()) {
+      options.retryOnMount = false;
+    }
+  }
+};
+var useClearResetErrorBoundary = (errorResetBoundary) => {
+  reactExports.useEffect(() => {
+    errorResetBoundary.clearReset();
+  }, [errorResetBoundary]);
+};
+var getHasError = ({
+  result,
+  errorResetBoundary,
+  throwOnError,
+  query,
+  suspense
+}) => {
+  return result.isError && !errorResetBoundary.isReset() && !result.isFetching && query && (suspense && result.data === void 0 || shouldThrowError(throwOnError, [result.error, query]));
+};
+var ensureSuspenseTimers = (defaultedOptions) => {
+  if (defaultedOptions.suspense) {
+    const MIN_SUSPENSE_TIME_MS = 1e3;
+    const clamp = (value) => value === "static" ? value : Math.max(value ?? MIN_SUSPENSE_TIME_MS, MIN_SUSPENSE_TIME_MS);
+    const originalStaleTime = defaultedOptions.staleTime;
+    defaultedOptions.staleTime = typeof originalStaleTime === "function" ? (...args) => clamp(originalStaleTime(...args)) : clamp(originalStaleTime);
+    if (typeof defaultedOptions.gcTime === "number") {
+      defaultedOptions.gcTime = Math.max(
+        defaultedOptions.gcTime,
+        MIN_SUSPENSE_TIME_MS
+      );
+    }
+  }
+};
+var willFetch = (result, isRestoring) => result.isLoading && result.isFetching && !isRestoring;
+var shouldSuspend = (defaultedOptions, result) => (defaultedOptions == null ? void 0 : defaultedOptions.suspense) && result.isPending;
+var fetchOptimistic = (defaultedOptions, observer, errorResetBoundary) => observer.fetchOptimistic(defaultedOptions).catch(() => {
+  errorResetBoundary.clearReset();
+});
+function useBaseQuery(options, Observer, queryClient2) {
+  var _a2, _b2, _c2, _d2;
+  const isRestoring = useIsRestoring();
+  const errorResetBoundary = useQueryErrorResetBoundary();
+  const client2 = useQueryClient();
+  const defaultedOptions = client2.defaultQueryOptions(options);
+  (_b2 = (_a2 = client2.getDefaultOptions().queries) == null ? void 0 : _a2._experimental_beforeQuery) == null ? void 0 : _b2.call(
+    _a2,
+    defaultedOptions
+  );
+  const query = client2.getQueryCache().get(defaultedOptions.queryHash);
+  defaultedOptions._optimisticResults = isRestoring ? "isRestoring" : "optimistic";
+  ensureSuspenseTimers(defaultedOptions);
+  ensurePreventErrorBoundaryRetry(defaultedOptions, errorResetBoundary, query);
+  useClearResetErrorBoundary(errorResetBoundary);
+  const isNewCacheEntry = !client2.getQueryCache().get(defaultedOptions.queryHash);
+  const [observer] = reactExports.useState(
+    () => new Observer(
+      client2,
+      defaultedOptions
+    )
+  );
+  const result = observer.getOptimisticResult(defaultedOptions);
+  const shouldSubscribe = !isRestoring && options.subscribed !== false;
+  reactExports.useSyncExternalStore(
+    reactExports.useCallback(
+      (onStoreChange) => {
+        const unsubscribe = shouldSubscribe ? observer.subscribe(notifyManager.batchCalls(onStoreChange)) : noop$6;
+        observer.updateResult();
+        return unsubscribe;
+      },
+      [observer, shouldSubscribe]
+    ),
+    () => observer.getCurrentResult(),
+    () => observer.getCurrentResult()
+  );
+  reactExports.useEffect(() => {
+    observer.setOptions(defaultedOptions);
+  }, [defaultedOptions, observer]);
+  if (shouldSuspend(defaultedOptions, result)) {
+    throw fetchOptimistic(defaultedOptions, observer, errorResetBoundary);
+  }
+  if (getHasError({
+    result,
+    errorResetBoundary,
+    throwOnError: defaultedOptions.throwOnError,
+    query,
+    suspense: defaultedOptions.suspense
+  })) {
+    throw result.error;
+  }
+  (_d2 = (_c2 = client2.getDefaultOptions().queries) == null ? void 0 : _c2._experimental_afterQuery) == null ? void 0 : _d2.call(
+    _c2,
+    defaultedOptions,
+    result
+  );
+  if (defaultedOptions.experimental_prefetchInRender && !environmentManager.isServer() && willFetch(result, isRestoring)) {
+    const promise = isNewCacheEntry ? (
+      // Fetch immediately on render in order to ensure `.promise` is resolved even if the component is unmounted
+      fetchOptimistic(defaultedOptions, observer, errorResetBoundary)
+    ) : (
+      // subscribe to the "cache promise" so that we can finalize the currentThenable once data comes in
+      query == null ? void 0 : query.promise
+    );
+    promise == null ? void 0 : promise.catch(noop$6).finally(() => {
+      observer.updateResult();
+    });
+  }
+  return !defaultedOptions.notifyOnChangeProps ? observer.trackResult(result) : result;
+}
+function useQuery(options, queryClient2) {
+  return useBaseQuery(options, QueryObserver);
+}
+function useMutation(options, queryClient2) {
+  const client2 = useQueryClient();
+  const [observer] = reactExports.useState(
+    () => new MutationObserver$1(
+      client2,
+      options
+    )
+  );
+  reactExports.useEffect(() => {
+    observer.setOptions(options);
+  }, [observer, options]);
+  const result = reactExports.useSyncExternalStore(
+    reactExports.useCallback(
+      (onStoreChange) => observer.subscribe(notifyManager.batchCalls(onStoreChange)),
+      [observer]
+    ),
+    () => observer.getCurrentResult(),
+    () => observer.getCurrentResult()
+  );
+  const mutate = reactExports.useCallback(
+    (variables, mutateOptions) => {
+      observer.mutate(variables, mutateOptions).catch(noop$6);
+    },
+    [observer]
+  );
+  if (result.error && shouldThrowError(observer.options.throwOnError, [result.error])) {
+    throw result.error;
+  }
+  return { ...result, mutate, mutateAsync: result.mutate };
+}
 function isObject(value) {
   return value !== null && typeof value === "object";
 }
@@ -15910,6 +21441,16 @@ async function createIIAttributesActor(identity) {
     canisterId: config.backend_canister_id
   });
 }
+function assertProviderPresent(context) {
+  if (!context) {
+    throw new Error("InternetIdentityProvider is not present. Wrap your component tree with it.");
+  }
+}
+const useInternetIdentity = () => {
+  const context = reactExports.useContext(InternetIdentityReactContext);
+  assertProviderPresent(context);
+  return context;
+};
 function InternetIdentityProvider({ children, createOptions, withAttributes = {} }) {
   const [authClient, setAuthClient] = reactExports.useState(void 0);
   const [identity, setIdentity] = reactExports.useState(void 0);
@@ -16077,6 +21618,45 @@ function InternetIdentityProvider({ children, createOptions, withAttributes = {}
     children
   });
 }
+const ACTOR_QUERY_KEY = "actor";
+function useActor(createActor2) {
+  const { identity, isAuthenticated } = useInternetIdentity();
+  const queryClient2 = useQueryClient();
+  const actorQuery = useQuery({
+    queryKey: [ACTOR_QUERY_KEY, identity == null ? void 0 : identity.getPrincipal().toString()],
+    queryFn: async () => {
+      if (!isAuthenticated) {
+        return await createActorWithConfig(createActor2);
+      }
+      const actor = await createActorWithConfig(createActor2, {
+        agentOptions: { identity }
+      });
+      return actor;
+    },
+    // Only refetch when identity changes
+    staleTime: Number.POSITIVE_INFINITY,
+    // This will cause the actor to be recreated when the identity changes
+    enabled: true
+  });
+  reactExports.useEffect(() => {
+    if (actorQuery.data) {
+      queryClient2.invalidateQueries({
+        predicate: (query) => {
+          return !query.queryKey.includes(ACTOR_QUERY_KEY);
+        }
+      });
+      queryClient2.refetchQueries({
+        predicate: (query) => {
+          return !query.queryKey.includes(ACTOR_QUERY_KEY);
+        }
+      });
+    }
+  }, [actorQuery.data, queryClient2]);
+  return {
+    actor: actorQuery.data || null,
+    isFetching: actorQuery.isFetching
+  };
+}
 var client = { exports: {} };
 var reactDomClient_production = {};
 var scheduler = { exports: {} };
@@ -16232,10 +21812,10 @@ var scheduler_production = {};
     schedulePerformWorkUntilDeadline = function() {
       localSetTimeout(performWorkUntilDeadline, 0);
     };
-  function requestHostTimeout(callback, ms) {
+  function requestHostTimeout(callback, ms2) {
     taskTimeoutID = localSetTimeout(function() {
       callback(exports$1.unstable_now());
-    }, ms);
+    }, ms2);
   }
   exports$1.unstable_IdlePriority = 5;
   exports$1.unstable_ImmediatePriority = 1;
@@ -25403,11 +30983,11 @@ function getParent(inst) {
   while (inst && 5 !== inst.tag && 27 !== inst.tag);
   return inst ? inst : null;
 }
-function accumulateEnterLeaveListenersForEvent(dispatchQueue, event, target, common, inCapturePhase) {
-  for (var registrationName = event._reactName, listeners = []; null !== target && target !== common; ) {
+function accumulateEnterLeaveListenersForEvent(dispatchQueue, event, target, common2, inCapturePhase) {
+  for (var registrationName = event._reactName, listeners = []; null !== target && target !== common2; ) {
     var _instance3 = target, alternate = _instance3.alternate, stateNode = _instance3.stateNode;
     _instance3 = _instance3.tag;
-    if (null !== alternate && alternate === common) break;
+    if (null !== alternate && alternate === common2) break;
     5 !== _instance3 && 26 !== _instance3 && 27 !== _instance3 || null === stateNode || (alternate = stateNode, inCapturePhase ? (stateNode = getListener(target, registrationName), null != stateNode && listeners.unshift(
       createDispatchListener(target, stateNode, alternate)
     )) : inCapturePhase || (stateNode = getListener(target, registrationName), null != stateNode && listeners.push(
@@ -27584,6 +33164,664 @@ function checkDCE() {
 }
 var clientExports = client.exports;
 const ReactDOM = /* @__PURE__ */ getDefaultExportFromCjs(clientExports);
+const _ImmutableObjectStorageCreateCertificateResult = Record({
+  "method": Text,
+  "blob_hash": Text
+});
+const _ImmutableObjectStorageRefillInformation = Record({
+  "proposed_top_up_amount": Opt(Nat)
+});
+const _ImmutableObjectStorageRefillResult = Record({
+  "success": Opt(Bool),
+  "topped_up_amount": Opt(Nat)
+});
+const Error$1 = Variant({
+  "FrontendOriginsNotConfigured": Null,
+  "MixedSsoSources": Record({
+    "otherKeys": Vec(Text),
+    "ssoKeys": Vec(Text)
+  }),
+  "Stale": Record({ "ageNs": Nat }),
+  "MalformedCandid": Null,
+  "AmbiguousAttribute": Record({
+    "field": Text,
+    "sources": Vec(Text)
+  }),
+  "NoAttributes": Null,
+  "UnknownNonce": Null,
+  "UntrustedSsoSource": Record({ "domain": Text }),
+  "MissingField": Text,
+  "FrontendOriginMismatch": Record({
+    "got": Text,
+    "expected": Vec(Text)
+  })
+});
+const Result__1 = Variant({ "ok": Null, "err": Error$1 });
+const ExternalBlob2 = Vec(Nat8);
+const Activity = Record({
+  "id": Nat,
+  "title": Text,
+  "hours": Nat,
+  "date": Text,
+  "createdAt": Int,
+  "filename": Text,
+  "image": ExternalBlob2
+});
+const UserRole = Variant({
+  "admin": Null,
+  "user": Null,
+  "guest": Null
+});
+const Value = Variant({
+  "int": Int,
+  "nat": Nat,
+  "float": Float64,
+  "bool": Bool,
+  "null": Null,
+  "text": Text
+});
+const Cell = Record({ "value": Value, "name": Text });
+const Result = Record({
+  "hasMore": Bool,
+  "rows": Vec(Vec(Cell))
+});
+Service({
+  "_immutableObjectStorageBlobsAreLive": Func(
+    [Vec(Vec(Nat8))],
+    [Vec(Bool)],
+    ["query"]
+  ),
+  "_immutableObjectStorageBlobsToDelete": Func(
+    [],
+    [Vec(Vec(Nat8))],
+    ["query"]
+  ),
+  "_immutableObjectStorageConfirmBlobDeletion": Func(
+    [Vec(Vec(Nat8))],
+    [],
+    []
+  ),
+  "_immutableObjectStorageCreateCertificate": Func(
+    [Text],
+    [_ImmutableObjectStorageCreateCertificateResult],
+    []
+  ),
+  "_immutableObjectStorageRefillCashier": Func(
+    [Opt(_ImmutableObjectStorageRefillInformation)],
+    [_ImmutableObjectStorageRefillResult],
+    []
+  ),
+  "_immutableObjectStorageUpdateGatewayPrincipals": Func([], [], []),
+  "_initialize_access_control": Func([], [], []),
+  "_internet_identity_sign_in_finish": Func([], [Result__1], []),
+  "_internet_identity_sign_in_start": Func([], [Vec(Nat8)], []),
+  "addActivity": Func(
+    [Text, Nat, Text, ExternalBlob2, Text],
+    [Activity],
+    []
+  ),
+  "assignCallerUserRole": Func([Principal2, UserRole], [], []),
+  "execute": Func([Text], [Result], ["query"]),
+  "getCallerUserRole": Func([], [UserRole], ["query"]),
+  "isCallerAdmin": Func([], [Bool], ["query"]),
+  "listActivities": Func([], [Vec(Activity)], ["query"]),
+  "schema": Func([], [Text], ["query"])
+});
+const idlFactory = ({ IDL: IDL2 }) => {
+  const _ImmutableObjectStorageCreateCertificateResult2 = IDL2.Record({
+    "method": IDL2.Text,
+    "blob_hash": IDL2.Text
+  });
+  const _ImmutableObjectStorageRefillInformation2 = IDL2.Record({
+    "proposed_top_up_amount": IDL2.Opt(IDL2.Nat)
+  });
+  const _ImmutableObjectStorageRefillResult2 = IDL2.Record({
+    "success": IDL2.Opt(IDL2.Bool),
+    "topped_up_amount": IDL2.Opt(IDL2.Nat)
+  });
+  const Error2 = IDL2.Variant({
+    "FrontendOriginsNotConfigured": IDL2.Null,
+    "MixedSsoSources": IDL2.Record({
+      "otherKeys": IDL2.Vec(IDL2.Text),
+      "ssoKeys": IDL2.Vec(IDL2.Text)
+    }),
+    "Stale": IDL2.Record({ "ageNs": IDL2.Nat }),
+    "MalformedCandid": IDL2.Null,
+    "AmbiguousAttribute": IDL2.Record({
+      "field": IDL2.Text,
+      "sources": IDL2.Vec(IDL2.Text)
+    }),
+    "NoAttributes": IDL2.Null,
+    "UnknownNonce": IDL2.Null,
+    "UntrustedSsoSource": IDL2.Record({ "domain": IDL2.Text }),
+    "MissingField": IDL2.Text,
+    "FrontendOriginMismatch": IDL2.Record({
+      "got": IDL2.Text,
+      "expected": IDL2.Vec(IDL2.Text)
+    })
+  });
+  const Result__12 = IDL2.Variant({ "ok": IDL2.Null, "err": Error2 });
+  const ExternalBlob3 = IDL2.Vec(IDL2.Nat8);
+  const Activity2 = IDL2.Record({
+    "id": IDL2.Nat,
+    "title": IDL2.Text,
+    "hours": IDL2.Nat,
+    "date": IDL2.Text,
+    "createdAt": IDL2.Int,
+    "filename": IDL2.Text,
+    "image": ExternalBlob3
+  });
+  const UserRole2 = IDL2.Variant({
+    "admin": IDL2.Null,
+    "user": IDL2.Null,
+    "guest": IDL2.Null
+  });
+  const Value2 = IDL2.Variant({
+    "int": IDL2.Int,
+    "nat": IDL2.Nat,
+    "float": IDL2.Float64,
+    "bool": IDL2.Bool,
+    "null": IDL2.Null,
+    "text": IDL2.Text
+  });
+  const Cell2 = IDL2.Record({ "value": Value2, "name": IDL2.Text });
+  const Result2 = IDL2.Record({
+    "hasMore": IDL2.Bool,
+    "rows": IDL2.Vec(IDL2.Vec(Cell2))
+  });
+  return IDL2.Service({
+    "_immutableObjectStorageBlobsAreLive": IDL2.Func(
+      [IDL2.Vec(IDL2.Vec(IDL2.Nat8))],
+      [IDL2.Vec(IDL2.Bool)],
+      ["query"]
+    ),
+    "_immutableObjectStorageBlobsToDelete": IDL2.Func(
+      [],
+      [IDL2.Vec(IDL2.Vec(IDL2.Nat8))],
+      ["query"]
+    ),
+    "_immutableObjectStorageConfirmBlobDeletion": IDL2.Func(
+      [IDL2.Vec(IDL2.Vec(IDL2.Nat8))],
+      [],
+      []
+    ),
+    "_immutableObjectStorageCreateCertificate": IDL2.Func(
+      [IDL2.Text],
+      [_ImmutableObjectStorageCreateCertificateResult2],
+      []
+    ),
+    "_immutableObjectStorageRefillCashier": IDL2.Func(
+      [IDL2.Opt(_ImmutableObjectStorageRefillInformation2)],
+      [_ImmutableObjectStorageRefillResult2],
+      []
+    ),
+    "_immutableObjectStorageUpdateGatewayPrincipals": IDL2.Func([], [], []),
+    "_initialize_access_control": IDL2.Func([], [], []),
+    "_internet_identity_sign_in_finish": IDL2.Func([], [Result__12], []),
+    "_internet_identity_sign_in_start": IDL2.Func([], [IDL2.Vec(IDL2.Nat8)], []),
+    "addActivity": IDL2.Func(
+      [IDL2.Text, IDL2.Nat, IDL2.Text, ExternalBlob3, IDL2.Text],
+      [Activity2],
+      []
+    ),
+    "assignCallerUserRole": IDL2.Func([IDL2.Principal, UserRole2], [], []),
+    "execute": IDL2.Func([IDL2.Text], [Result2], ["query"]),
+    "getCallerUserRole": IDL2.Func([], [UserRole2], ["query"]),
+    "isCallerAdmin": IDL2.Func([], [IDL2.Bool], ["query"]),
+    "listActivities": IDL2.Func([], [IDL2.Vec(Activity2)], ["query"]),
+    "schema": IDL2.Func([], [IDL2.Text], ["query"])
+  });
+};
+function candid_some(value) {
+  return [
+    value
+  ];
+}
+function candid_none() {
+  return [];
+}
+function record_opt_to_undefined(arg) {
+  return arg == null ? void 0 : arg;
+}
+class Backend {
+  constructor(actor, _uploadFile, _downloadFile, processError2) {
+    this.actor = actor;
+    this._uploadFile = _uploadFile;
+    this._downloadFile = _downloadFile;
+    this.processError = processError2;
+  }
+  async _immutableObjectStorageBlobsAreLive(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor._immutableObjectStorageBlobsAreLive(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._immutableObjectStorageBlobsAreLive(arg0);
+      return result;
+    }
+  }
+  async _immutableObjectStorageBlobsToDelete() {
+    if (this.processError) {
+      try {
+        const result = await this.actor._immutableObjectStorageBlobsToDelete();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._immutableObjectStorageBlobsToDelete();
+      return result;
+    }
+  }
+  async _immutableObjectStorageConfirmBlobDeletion(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor._immutableObjectStorageConfirmBlobDeletion(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._immutableObjectStorageConfirmBlobDeletion(arg0);
+      return result;
+    }
+  }
+  async _immutableObjectStorageCreateCertificate(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor._immutableObjectStorageCreateCertificate(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._immutableObjectStorageCreateCertificate(arg0);
+      return result;
+    }
+  }
+  async _immutableObjectStorageRefillCashier(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor._immutableObjectStorageRefillCashier(to_candid_opt_n1(this._uploadFile, this._downloadFile, arg0));
+        return from_candid__ImmutableObjectStorageRefillResult_n4(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._immutableObjectStorageRefillCashier(to_candid_opt_n1(this._uploadFile, this._downloadFile, arg0));
+      return from_candid__ImmutableObjectStorageRefillResult_n4(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async _immutableObjectStorageUpdateGatewayPrincipals() {
+    if (this.processError) {
+      try {
+        const result = await this.actor._immutableObjectStorageUpdateGatewayPrincipals();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._immutableObjectStorageUpdateGatewayPrincipals();
+      return result;
+    }
+  }
+  async _initialize_access_control() {
+    if (this.processError) {
+      try {
+        const result = await this.actor._initialize_access_control();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._initialize_access_control();
+      return result;
+    }
+  }
+  async _internet_identity_sign_in_finish() {
+    if (this.processError) {
+      try {
+        const result = await this.actor._internet_identity_sign_in_finish();
+        return from_candid_Result__1_n8(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._internet_identity_sign_in_finish();
+      return from_candid_Result__1_n8(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async _internet_identity_sign_in_start() {
+    if (this.processError) {
+      try {
+        const result = await this.actor._internet_identity_sign_in_start();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor._internet_identity_sign_in_start();
+      return result;
+    }
+  }
+  async addActivity(arg0, arg1, arg2, arg3, arg4) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.addActivity(arg0, arg1, arg2, await to_candid_ExternalBlob_n12(this._uploadFile, this._downloadFile, arg3), arg4);
+        return from_candid_Activity_n13(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.addActivity(arg0, arg1, arg2, await to_candid_ExternalBlob_n12(this._uploadFile, this._downloadFile, arg3), arg4);
+      return from_candid_Activity_n13(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async assignCallerUserRole(arg0, arg1) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.assignCallerUserRole(arg0, to_candid_UserRole_n16(this._uploadFile, this._downloadFile, arg1));
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.assignCallerUserRole(arg0, to_candid_UserRole_n16(this._uploadFile, this._downloadFile, arg1));
+      return result;
+    }
+  }
+  async execute(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.execute(arg0);
+        return from_candid_Result_n18(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.execute(arg0);
+      return from_candid_Result_n18(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async getCallerUserRole() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getCallerUserRole();
+        return from_candid_UserRole_n26(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getCallerUserRole();
+      return from_candid_UserRole_n26(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async isCallerAdmin() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.isCallerAdmin();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.isCallerAdmin();
+      return result;
+    }
+  }
+  async listActivities() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.listActivities();
+        return from_candid_vec_n28(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.listActivities();
+      return from_candid_vec_n28(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async schema() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.schema();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.schema();
+      return result;
+    }
+  }
+}
+async function from_candid_Activity_n13(_uploadFile, _downloadFile, value) {
+  return await from_candid_record_n14(_uploadFile, _downloadFile, value);
+}
+function from_candid_Cell_n22(_uploadFile, _downloadFile, value) {
+  return from_candid_record_n23(_uploadFile, _downloadFile, value);
+}
+function from_candid_Error_n10(_uploadFile, _downloadFile, value) {
+  return from_candid_variant_n11(_uploadFile, _downloadFile, value);
+}
+async function from_candid_ExternalBlob_n15(_uploadFile, _downloadFile, value) {
+  return await _downloadFile(value);
+}
+function from_candid_Result__1_n8(_uploadFile, _downloadFile, value) {
+  return from_candid_variant_n9(_uploadFile, _downloadFile, value);
+}
+function from_candid_Result_n18(_uploadFile, _downloadFile, value) {
+  return from_candid_record_n19(_uploadFile, _downloadFile, value);
+}
+function from_candid_UserRole_n26(_uploadFile, _downloadFile, value) {
+  return from_candid_variant_n27(_uploadFile, _downloadFile, value);
+}
+function from_candid_Value_n24(_uploadFile, _downloadFile, value) {
+  return from_candid_variant_n25(_uploadFile, _downloadFile, value);
+}
+function from_candid__ImmutableObjectStorageRefillResult_n4(_uploadFile, _downloadFile, value) {
+  return from_candid_record_n5(_uploadFile, _downloadFile, value);
+}
+function from_candid_opt_n6(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n7(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
+}
+async function from_candid_record_n14(_uploadFile, _downloadFile, value) {
+  return {
+    id: value.id,
+    title: value.title,
+    hours: value.hours,
+    date: value.date,
+    createdAt: value.createdAt,
+    filename: value.filename,
+    image: await from_candid_ExternalBlob_n15(_uploadFile, _downloadFile, value.image)
+  };
+}
+function from_candid_record_n19(_uploadFile, _downloadFile, value) {
+  return {
+    hasMore: value.hasMore,
+    rows: from_candid_vec_n20(_uploadFile, _downloadFile, value.rows)
+  };
+}
+function from_candid_record_n23(_uploadFile, _downloadFile, value) {
+  return {
+    value: from_candid_Value_n24(_uploadFile, _downloadFile, value.value),
+    name: value.name
+  };
+}
+function from_candid_record_n5(_uploadFile, _downloadFile, value) {
+  return {
+    success: record_opt_to_undefined(from_candid_opt_n6(_uploadFile, _downloadFile, value.success)),
+    topped_up_amount: record_opt_to_undefined(from_candid_opt_n7(_uploadFile, _downloadFile, value.topped_up_amount))
+  };
+}
+function from_candid_variant_n11(_uploadFile, _downloadFile, value) {
+  return "FrontendOriginsNotConfigured" in value ? {
+    __kind__: "FrontendOriginsNotConfigured",
+    FrontendOriginsNotConfigured: value.FrontendOriginsNotConfigured
+  } : "MixedSsoSources" in value ? {
+    __kind__: "MixedSsoSources",
+    MixedSsoSources: value.MixedSsoSources
+  } : "Stale" in value ? {
+    __kind__: "Stale",
+    Stale: value.Stale
+  } : "MalformedCandid" in value ? {
+    __kind__: "MalformedCandid",
+    MalformedCandid: value.MalformedCandid
+  } : "AmbiguousAttribute" in value ? {
+    __kind__: "AmbiguousAttribute",
+    AmbiguousAttribute: value.AmbiguousAttribute
+  } : "NoAttributes" in value ? {
+    __kind__: "NoAttributes",
+    NoAttributes: value.NoAttributes
+  } : "UnknownNonce" in value ? {
+    __kind__: "UnknownNonce",
+    UnknownNonce: value.UnknownNonce
+  } : "UntrustedSsoSource" in value ? {
+    __kind__: "UntrustedSsoSource",
+    UntrustedSsoSource: value.UntrustedSsoSource
+  } : "MissingField" in value ? {
+    __kind__: "MissingField",
+    MissingField: value.MissingField
+  } : "FrontendOriginMismatch" in value ? {
+    __kind__: "FrontendOriginMismatch",
+    FrontendOriginMismatch: value.FrontendOriginMismatch
+  } : value;
+}
+function from_candid_variant_n25(_uploadFile, _downloadFile, value) {
+  return "int" in value ? {
+    __kind__: "int",
+    int: value.int
+  } : "nat" in value ? {
+    __kind__: "nat",
+    nat: value.nat
+  } : "float" in value ? {
+    __kind__: "float",
+    float: value.float
+  } : "bool" in value ? {
+    __kind__: "bool",
+    bool: value.bool
+  } : "null" in value ? {
+    __kind__: "null",
+    null: value.null
+  } : "text" in value ? {
+    __kind__: "text",
+    text: value.text
+  } : value;
+}
+function from_candid_variant_n27(_uploadFile, _downloadFile, value) {
+  return "admin" in value ? "admin" : "user" in value ? "user" : "guest" in value ? "guest" : value;
+}
+function from_candid_variant_n9(_uploadFile, _downloadFile, value) {
+  return "ok" in value ? {
+    __kind__: "ok",
+    ok: value.ok
+  } : "err" in value ? {
+    __kind__: "err",
+    err: from_candid_Error_n10(_uploadFile, _downloadFile, value.err)
+  } : value;
+}
+function from_candid_vec_n20(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => from_candid_vec_n21(_uploadFile, _downloadFile, x2));
+}
+function from_candid_vec_n21(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => from_candid_Cell_n22(_uploadFile, _downloadFile, x2));
+}
+async function from_candid_vec_n28(_uploadFile, _downloadFile, value) {
+  return await Promise.all(value.map(async (x2) => await from_candid_Activity_n13(_uploadFile, _downloadFile, x2)));
+}
+async function to_candid_ExternalBlob_n12(_uploadFile, _downloadFile, value) {
+  return await _uploadFile(value);
+}
+function to_candid_UserRole_n16(_uploadFile, _downloadFile, value) {
+  return to_candid_variant_n17(_uploadFile, _downloadFile, value);
+}
+function to_candid__ImmutableObjectStorageRefillInformation_n2(_uploadFile, _downloadFile, value) {
+  return to_candid_record_n3(_uploadFile, _downloadFile, value);
+}
+function to_candid_opt_n1(_uploadFile, _downloadFile, value) {
+  return value === null ? candid_none() : candid_some(to_candid__ImmutableObjectStorageRefillInformation_n2(_uploadFile, _downloadFile, value));
+}
+function to_candid_record_n3(_uploadFile, _downloadFile, value) {
+  return {
+    proposed_top_up_amount: value.proposed_top_up_amount ? candid_some(value.proposed_top_up_amount) : candid_none()
+  };
+}
+function to_candid_variant_n17(_uploadFile, _downloadFile, value) {
+  return value == "admin" ? {
+    admin: null
+  } : value == "user" ? {
+    user: null
+  } : value == "guest" ? {
+    guest: null
+  } : value;
+}
+function createActor(canisterId, _uploadFile, _downloadFile, options = {}) {
+  const agent = options.agent || HttpAgent.createSync({
+    ...options.agentOptions
+  });
+  if (options.agent && options.agentOptions) {
+    console.warn("Detected both agent and agentOptions passed to createActor. Ignoring agentOptions and proceeding with the provided agent.");
+  }
+  const actor = Actor.createActor(idlFactory, {
+    agent,
+    canisterId,
+    ...options.actorOptions
+  });
+  return new Backend(actor, _uploadFile, _downloadFile, options.processError);
+}
+function useActivities() {
+  const { actor, isFetching } = useActor(createActor);
+  return useQuery({
+    queryKey: ["activities"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.listActivities();
+    },
+    enabled: !!actor && !isFetching
+  });
+}
+function useAddActivity() {
+  const queryClient2 = useQueryClient();
+  const { actor } = useActor(createActor);
+  return useMutation({
+    mutationFn: async (input) => {
+      if (!actor) throw new Error("Backend not ready");
+      return actor.addActivity(
+        input.title,
+        input.hours,
+        input.date,
+        input.image,
+        input.filename
+      );
+    },
+    onSuccess: () => {
+      queryClient2.invalidateQueries({ queryKey: ["activities"] });
+    }
+  });
+}
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -27689,21 +33927,21 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$c = [
+const __iconNode$n = [
   ["rect", { width: "16", height: "10", x: "2", y: "7", rx: "2", ry: "2", key: "1w10f2" }],
   ["line", { x1: "22", x2: "22", y1: "11", y2: "13", key: "4dh1rd" }],
   ["line", { x1: "6", x2: "6", y1: "11", y2: "13", key: "1wd6dw" }],
   ["line", { x1: "10", x2: "10", y1: "11", y2: "13", key: "haxvl5" }],
   ["line", { x1: "14", x2: "14", y1: "11", y2: "13", key: "c6fn6x" }]
 ];
-const BatteryFull = createLucideIcon("battery-full", __iconNode$c);
+const BatteryFull = createLucideIcon("battery-full", __iconNode$n);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$b = [
+const __iconNode$m = [
   ["path", { d: "M10.268 21a2 2 0 0 0 3.464 0", key: "vwvbt9" }],
   [
     "path",
@@ -27713,14 +33951,14 @@ const __iconNode$b = [
     }
   ]
 ];
-const Bell = createLucideIcon("bell", __iconNode$b);
+const Bell = createLucideIcon("bell", __iconNode$m);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$a = [
+const __iconNode$l = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -27730,50 +33968,90 @@ const __iconNode$a = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$a);
+const BookOpen = createLucideIcon("book-open", __iconNode$l);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$9 = [
+const __iconNode$k = [
+  [
+    "path",
+    {
+      d: "M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z",
+      key: "1tc9qg"
+    }
+  ],
+  ["circle", { cx: "12", cy: "13", r: "3", key: "1vg3eu" }]
+];
+const Camera = createLucideIcon("camera", __iconNode$k);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$j = [
   ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
   ["path", { d: "M18 17V9", key: "2bz60n" }],
   ["path", { d: "M13 17V5", key: "1frdt8" }],
   ["path", { d: "M8 17v-3", key: "17ska0" }]
 ];
-const ChartColumn = createLucideIcon("chart-column", __iconNode$9);
+const ChartColumn = createLucideIcon("chart-column", __iconNode$j);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$8 = [
+const __iconNode$i = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+];
+const CircleCheck = createLucideIcon("circle-check", __iconNode$i);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$h = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ];
-const Clock = createLucideIcon("clock", __iconNode$8);
+const Clock = createLucideIcon("clock", __iconNode$h);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$7 = [
+const __iconNode$g = [
+  ["path", { d: "M12 13v8", key: "1l5pq0" }],
+  ["path", { d: "M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242", key: "1pljnt" }],
+  ["path", { d: "m8 17 4-4 4 4", key: "1quai1" }]
+];
+const CloudUpload = createLucideIcon("cloud-upload", __iconNode$g);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$f = [
   ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
   ["circle", { cx: "19", cy: "12", r: "1", key: "1wjl8i" }],
   ["circle", { cx: "5", cy: "12", r: "1", key: "1pcz8c" }]
 ];
-const Ellipsis = createLucideIcon("ellipsis", __iconNode$7);
+const Ellipsis = createLucideIcon("ellipsis", __iconNode$f);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$6 = [
+const __iconNode$e = [
   [
     "path",
     {
@@ -27782,14 +34060,14 @@ const __iconNode$6 = [
     }
   ]
 ];
-const Heart = createLucideIcon("heart", __iconNode$6);
+const Heart = createLucideIcon("heart", __iconNode$e);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$5 = [
+const __iconNode$d = [
   ["path", { d: "M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8", key: "5wwlr5" }],
   [
     "path",
@@ -27799,25 +34077,75 @@ const __iconNode$5 = [
     }
   ]
 ];
-const House = createLucideIcon("house", __iconNode$5);
+const House = createLucideIcon("house", __iconNode$d);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$4 = [
+const __iconNode$c = [
+  ["path", { d: "M16 5h6", key: "1vod17" }],
+  ["path", { d: "M19 2v6", key: "4bpg5p" }],
+  ["path", { d: "M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5", key: "1ue2ih" }],
+  ["path", { d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21", key: "1xmnt7" }],
+  ["circle", { cx: "9", cy: "9", r: "2", key: "af1f0g" }]
+];
+const ImagePlus = createLucideIcon("image-plus", __iconNode$c);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$b = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M12 16v-4", key: "1dtifu" }],
+  ["path", { d: "M12 8h.01", key: "e9boi3" }]
+];
+const Info = createLucideIcon("info", __iconNode$b);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$a = [
+  ["path", { d: "m10 17 5-5-5-5", key: "1bsop3" }],
+  ["path", { d: "M15 12H3", key: "6jk70r" }],
+  ["path", { d: "M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4", key: "u53s6r" }]
+];
+const LogIn = createLucideIcon("log-in", __iconNode$a);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$9 = [
+  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
+  ["path", { d: "M21 12H9", key: "dn1m92" }],
+  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
+];
+const LogOut = createLucideIcon("log-out", __iconNode$9);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$8 = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
 ];
-const Plus = createLucideIcon("plus", __iconNode$4);
+const Plus = createLucideIcon("plus", __iconNode$8);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$3 = [
+const __iconNode$7 = [
   ["rect", { width: "5", height: "5", x: "3", y: "3", rx: "1", key: "1tu5fj" }],
   ["rect", { width: "5", height: "5", x: "16", y: "3", rx: "1", key: "1v8r4q" }],
   ["rect", { width: "5", height: "5", x: "3", y: "16", rx: "1", key: "1x03jg" }],
@@ -27831,7 +34159,62 @@ const __iconNode$3 = [
   ["path", { d: "M21 12v.01", key: "1lwtk9" }],
   ["path", { d: "M12 21v-1", key: "1880an" }]
 ];
-const QrCode = createLucideIcon("qr-code", __iconNode$3);
+const QrCode = createLucideIcon("qr-code", __iconNode$7);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$6 = [
+  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
+  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
+  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
+  ["path", { d: "M8 16H3v5", key: "1cv678" }]
+];
+const RefreshCw = createLucideIcon("refresh-cw", __iconNode$6);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$5 = [
+  ["path", { d: "M3 7V5a2 2 0 0 1 2-2h2", key: "aa7l1z" }],
+  ["path", { d: "M17 3h2a2 2 0 0 1 2 2v2", key: "4qcy5o" }],
+  ["path", { d: "M21 17v2a2 2 0 0 1-2 2h-2", key: "6vwrx8" }],
+  ["path", { d: "M7 21H5a2 2 0 0 1-2-2v-2", key: "ioqczr" }],
+  ["path", { d: "M7 12h10", key: "b7w52i" }]
+];
+const ScanLine = createLucideIcon("scan-line", __iconNode$5);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$4 = [
+  ["path", { d: "M2 20h.01", key: "4haj6o" }],
+  ["path", { d: "M7 20v-4", key: "j294jx" }],
+  ["path", { d: "M12 20v-8", key: "i3yub9" }],
+  ["path", { d: "M17 20V8", key: "1tkaf5" }],
+  ["path", { d: "M22 4v16", key: "sih9yq" }]
+];
+const Signal = createLucideIcon("signal", __iconNode$4);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$3 = [
+  ["path", { d: "M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5", key: "mtk2lu" }],
+  ["path", { d: "M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5", key: "120jsl" }],
+  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }],
+  ["path", { d: "m18 22-3-3 3-3", key: "kgdoj7" }],
+  ["path", { d: "m6 2 3 3-3 3", key: "1fnbkv" }]
+];
+const SwitchCamera = createLucideIcon("switch-camera", __iconNode$3);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -27839,13 +34222,10 @@ const QrCode = createLucideIcon("qr-code", __iconNode$3);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$2 = [
-  ["path", { d: "M2 20h.01", key: "4haj6o" }],
-  ["path", { d: "M7 20v-4", key: "j294jx" }],
-  ["path", { d: "M12 20v-8", key: "i3yub9" }],
-  ["path", { d: "M17 20V8", key: "1tkaf5" }],
-  ["path", { d: "M22 4v16", key: "sih9yq" }]
+  ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
+  ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
 ];
-const Signal = createLucideIcon("signal", __iconNode$2);
+const User = createLucideIcon("user", __iconNode$2);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -27853,10 +34233,12 @@ const Signal = createLucideIcon("signal", __iconNode$2);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$1 = [
-  ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
-  ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
+  ["path", { d: "M12 20h.01", key: "zekei9" }],
+  ["path", { d: "M2 8.82a15 15 0 0 1 20 0", key: "dnpr2z" }],
+  ["path", { d: "M5 12.859a10 10 0 0 1 14 0", key: "1x1e6c" }],
+  ["path", { d: "M8.5 16.429a5 5 0 0 1 7 0", key: "1bycff" }]
 ];
-const User = createLucideIcon("user", __iconNode$1);
+const Wifi = createLucideIcon("wifi", __iconNode$1);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -27864,26 +34246,25 @@ const User = createLucideIcon("user", __iconNode$1);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode = [
-  ["path", { d: "M12 20h.01", key: "zekei9" }],
-  ["path", { d: "M2 8.82a15 15 0 0 1 20 0", key: "dnpr2z" }],
-  ["path", { d: "M5 12.859a10 10 0 0 1 14 0", key: "1x1e6c" }],
-  ["path", { d: "M8.5 16.429a5 5 0 0 1 7 0", key: "1bycff" }]
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
-const Wifi = createLucideIcon("wifi", __iconNode);
+const X = createLucideIcon("x", __iconNode);
 const actions = [
-  { label: "Add Activity", icon: Plus },
-  { label: "My Logbook", icon: BookOpen },
-  { label: "Statistics", icon: ChartColumn },
-  { label: "Activities", icon: Heart },
-  { label: "Notifications", icon: Bell },
-  { label: "Profile", icon: User }
+  { label: "Add Activity", icon: Plus, view: "add-activity" },
+  { label: "My Logbook", icon: BookOpen, view: "logbook" },
+  { label: "Statistics", icon: ChartColumn, view: "statistics" },
+  { label: "Activities", icon: Heart, view: "activities" },
+  { label: "Notifications", icon: Bell, view: "notifications" },
+  { label: "Profile", icon: User, view: "profile" }
 ];
-function ActionGrid() {
+function ActionGrid({ onNavigate = () => {
+} }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "section",
     {
       "data-ocid": "action_grid",
-      className: "grid grid-cols-3 gap-3",
+      className: "action-grid",
       "aria-label": "Quick actions",
       children: actions.map((action, index2) => {
         const Icon2 = action.icon;
@@ -27892,6 +34273,7 @@ function ActionGrid() {
           {
             "data-ocid": `action.item.${index2 + 1}`,
             type: "button",
+            onClick: () => onNavigate(action.view),
             className: "flex flex-col items-center gap-3 rounded-[24px] bg-card p-4 shadow-subtle transition-smooth hover:-translate-y-0.5 hover:shadow-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-primary", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { className: "h-6 w-6", strokeWidth: 2, "aria-hidden": "true" }) }),
@@ -27904,41 +34286,59 @@ function ActionGrid() {
     }
   );
 }
-const items = [
-  { label: "Home", icon: House, active: true },
-  { label: "History", icon: Clock, active: false },
-  { label: "Scan", icon: QrCode, active: false },
-  { label: "More", icon: Ellipsis, active: false }
+const NAV_ITEMS = [
+  { label: "Home", view: "home" },
+  { label: "History", view: "history" },
+  { label: "Scan", view: "scan" },
+  { label: "More", view: "more" }
 ];
-function BottomNav() {
+const icons$1 = {
+  home: House,
+  history: Clock,
+  scan: QrCode,
+  more: Ellipsis,
+  "add-activity": Plus,
+  logbook: BookOpen,
+  statistics: ChartColumn,
+  activities: Heart,
+  notifications: Bell,
+  profile: User
+};
+function BottomNav({
+  activeView = "home",
+  onNavigate = () => {
+  }
+}) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "nav",
     {
       "data-ocid": "bottom_nav",
-      className: "flex items-center justify-around rounded-[28px] bg-card px-2 py-3 shadow-elevated",
+      className: "bottom-nav items-center justify-around rounded-[28px] bg-card px-2 py-3 shadow-elevated",
       "aria-label": "Primary navigation",
-      children: items.map((item) => {
-        const Icon2 = item.icon;
+      children: NAV_ITEMS.map((item) => {
+        const Icon2 = icons$1[item.view];
+        const active = item.view === activeView;
         return /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "button",
           {
             "data-ocid": `nav.${item.label.toLowerCase()}`,
             type: "button",
-            "aria-current": item.active ? "page" : void 0,
+            onClick: () => onNavigate(item.view),
+            "aria-current": active ? "page" : void 0,
             className: "flex flex-col items-center gap-1 rounded-2xl px-3 py-1 transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 Icon2,
                 {
-                  className: item.active ? "h-6 w-6 text-primary" : "h-6 w-6 text-muted-foreground",
-                  strokeWidth: item.active ? 2.4 : 2,
+                  className: active ? "h-6 w-6 text-primary" : "h-6 w-6 text-muted-foreground",
+                  strokeWidth: active ? 2.4 : 2,
                   "aria-hidden": "true"
                 }
               ),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "span",
                 {
-                  className: item.active ? "text-[11px] font-semibold text-primary" : "text-[11px] font-medium text-muted-foreground",
+                  className: active ? "text-[11px] font-semibold text-primary" : "text-[11px] font-medium text-muted-foreground",
                   children: item.label
                 }
               )
@@ -27951,7 +34351,7 @@ function BottomNav() {
   );
 }
 function StatusBar() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between px-1 py-1 text-foreground", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "status-bar items-center justify-between px-1 py-1 text-foreground", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-[15px] font-semibold tracking-tight", children: "8.31" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5 text-foreground", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Signal, { className: "h-4 w-4", strokeWidth: 2.2, "aria-hidden": "true" }),
@@ -27960,17 +34360,18 @@ function StatusBar() {
     ] })
   ] });
 }
-function StatusCard() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+function StatusCard({ totalHours = 0 }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "section",
     {
       "data-ocid": "status_card",
-      className: "relative overflow-hidden rounded-[28px] bg-primary p-6 text-primary-foreground shadow-elevated",
-      children: [
+      className: "stat-grid",
+      "aria-label": "Total hours",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden rounded-[28px] bg-primary p-6 text-primary-foreground shadow-elevated", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium tracking-wide text-primary-foreground/85", children: "Total Hours" }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-1 flex items-end gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-6xl font-bold leading-none tracking-tight", children: "24" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-6xl font-bold leading-none tracking-tight", children: totalHours }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mb-1 text-lg font-medium text-primary-foreground/90", children: "hrs" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               Heart,
@@ -28008,62 +34409,1689 @@ function StatusCard() {
             ]
           }
         )
+      ] })
+    }
+  );
+}
+function DashboardScreen({
+  activeView = "home",
+  onNavigate = () => {
+  }
+}) {
+  const { data: activities2 = [] } = useActivities();
+  const totalHours = activities2.reduce(
+    (sum, activity) => sum + Number(activity.hours),
+    0
+  );
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { "data-ocid": "dashboard_screen", className: "app-shell pb-6 pt-3", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(StatusBar, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-content flex flex-1 flex-col", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "Welcome back!" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-4 flex items-center gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "flex h-14 w-14 items-center justify-center rounded-full bg-primary shadow-subtle",
+              "aria-hidden": "true",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "svg",
+                {
+                  viewBox: "0 0 24 24",
+                  className: "h-8 w-8 text-primary-foreground",
+                  fill: "none",
+                  "aria-hidden": "true",
+                  stroke: "currentColor",
+                  strokeWidth: 2,
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "12", cy: "8", r: "4" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M4 21c0-4 3.5-6 8-6s8 2 8 6" })
+                  ]
+                }
+              )
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-lg font-semibold leading-tight text-foreground", children: "Student" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Let's make a difference!" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "mt-6 flex flex-1 flex-col gap-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(StatusCard, { totalHours }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ActionGrid, { onNavigate })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BottomNav, { activeView, onNavigate }) })
+  ] });
+}
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < breakpoint);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [breakpoint]);
+  return isMobile;
+}
+function AuthControl() {
+  const { isAuthenticated, isInitializing, isLoggingIn, login, clear } = useInternetIdentity();
+  if (isInitializing) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        "data-ocid": "auth.loading_state",
+        className: "flex items-center gap-2 text-sm text-muted-foreground",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "span",
+            {
+              className: "h-2 w-2 animate-pulse rounded-full bg-muted-foreground/40",
+              "aria-hidden": "true"
+            }
+          ),
+          "Checking session…"
+        ]
+      }
+    );
+  }
+  if (isAuthenticated) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "hidden items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 text-sm font-medium text-foreground sm:flex", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(User, { className: "h-4 w-4 text-primary", "aria-hidden": "true" }),
+        "Signed in"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          type: "button",
+          "data-ocid": "auth.sign_out_button",
+          onClick: clear,
+          className: "flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-sm font-semibold text-foreground transition-smooth hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(LogOut, { className: "h-4 w-4", "aria-hidden": "true" }),
+            "Sign out"
+          ]
+        }
+      )
+    ] });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "button",
+    {
+      type: "button",
+      "data-ocid": "auth.sign_in_button",
+      onClick: () => login(),
+      disabled: isLoggingIn,
+      className: "flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-subtle transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(LogIn, { className: "h-4 w-4", "aria-hidden": "true" }),
+        isLoggingIn ? "Signing in…" : "Sign in"
       ]
     }
   );
 }
-function DashboardScreen() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
+const icons = {
+  home: House,
+  history: Clock,
+  scan: QrCode,
+  more: Ellipsis,
+  "add-activity": Plus,
+  logbook: BookOpen,
+  statistics: ChartColumn,
+  activities: Heart,
+  notifications: Bell,
+  profile: User
+};
+function DesktopNav({
+  activeView = "home",
+  onNavigate = () => {
+  }
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "header",
     {
-      "data-ocid": "dashboard_screen",
-      className: "mx-auto flex min-h-screen w-full max-w-[420px] flex-col px-5 pb-6 pt-3",
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(StatusBar, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "Welcome back!" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-4 flex items-center gap-3", children: [
+      "data-ocid": "desktop_nav",
+      className: "desktop-nav sticky top-0 z-30 border-b border-border bg-card/90 shadow-nav backdrop-blur",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-content flex h-[var(--nav-h)] items-center justify-between", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            "data-ocid": "desktop_nav.brand",
+            onClick: () => onNavigate("home"),
+            className: "font-display text-lg font-bold tracking-tight text-foreground",
+            children: "Volunteer Hours"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "nav",
+          {
+            className: "flex items-center gap-1",
+            "aria-label": "Primary navigation",
+            children: NAV_ITEMS.map((item) => {
+              const Icon2 = icons[item.view];
+              const active = item.view === activeView;
+              return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  "data-ocid": `desktop_nav.${item.label.toLowerCase()}`,
+                  type: "button",
+                  onClick: () => onNavigate(item.view),
+                  "aria-current": active ? "page" : void 0,
+                  className: active ? "flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-subtle transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" : "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-smooth hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Icon2,
+                      {
+                        className: "h-4 w-4",
+                        strokeWidth: 2.2,
+                        "aria-hidden": "true"
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.label })
+                  ]
+                },
+                item.label
+              );
+            })
+          }
+        )
+      ] })
+    }
+  );
+}
+function Layout({
+  activeView = "home",
+  onNavigate = () => {
+  },
+  children
+}) {
+  const isMobile = useIsMobile();
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "texture-beige min-h-screen bg-background", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-b border-border bg-card/80 backdrop-blur", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "app-content flex h-12 items-center justify-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AuthControl, {}) }) }),
+    !isMobile && /* @__PURE__ */ jsxRuntimeExports.jsx(DesktopNav, { activeView, onNavigate }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "app-shell", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "app-content flex flex-1 flex-col py-4 md:py-8 lg:py-10", children }) })
+  ] });
+}
+function ScreenShell({
+  activeView,
+  onNavigate,
+  children
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { "data-ocid": "screen_shell", className: "app-shell pb-6 pt-3", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(StatusBar, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "app-content flex flex-1 flex-col", children }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BottomNav, { activeView, onNavigate }) })
+  ] });
+}
+const activities = [
+  {
+    title: "Community Garden Cleanup",
+    org: "Green City Initiative",
+    date: "Sat, Aug 30",
+    spots: "4 spots left"
+  },
+  {
+    title: "Food Bank Sorting",
+    org: "Hope Pantry",
+    date: "Sun, Aug 31",
+    spots: "12 spots left"
+  },
+  {
+    title: "River Trail Restoration",
+    org: "Parks & Rec",
+    date: "Sat, Sep 6",
+    spots: "2 spots left"
+  },
+  {
+    title: "Library Reading Buddy",
+    org: "City Library",
+    date: "Tue, Sep 9",
+    spots: "8 spots left"
+  }
+];
+function ActivitiesScreen({ activeView, onNavigate }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "Activities" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Upcoming volunteer opportunities" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "mt-6 flex flex-1 flex-col gap-4", children: activities.map((activity, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        "data-ocid": `activities.item.${index2 + 1}`,
+        className: "rounded-[24px] bg-card p-5 shadow-subtle",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "truncate font-display text-base font-semibold text-foreground", children: activity.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-0.5 text-sm text-muted-foreground", children: activity.org })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { className: "h-5 w-5", strokeWidth: 2, "aria-hidden": "true" }) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-3 flex items-center justify-between", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium text-foreground", children: activity.date }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: activity.spots })
+          ] })
+        ]
+      },
+      activity.title
+    )) })
+  ] });
+}
+const useCamera$1 = (config = {}) => {
+  const { facingMode = "environment", width = 1920, height = 1080, quality = 0.8, format = "image/jpeg" } = config;
+  const [isActive, setIsActive] = reactExports.useState(false);
+  const [isSupported, setIsSupported] = reactExports.useState(null);
+  const [error, setError] = reactExports.useState(null);
+  const [isLoading, setIsLoading] = reactExports.useState(false);
+  const [currentFacingMode, setCurrentFacingMode] = reactExports.useState(facingMode);
+  const videoRef = reactExports.useRef(null);
+  const canvasRef = reactExports.useRef(null);
+  const streamRef = reactExports.useRef(null);
+  const isMountedRef = reactExports.useRef(true);
+  reactExports.useEffect(() => {
+    var _a2;
+    const supported = !!((_a2 = navigator.mediaDevices) == null ? void 0 : _a2.getUserMedia);
+    setIsSupported(supported);
+  }, []);
+  const cleanup = reactExports.useCallback(() => {
+    if (streamRef.current) {
+      for (const track2 of streamRef.current.getTracks()) {
+        track2.stop();
+      }
+      streamRef.current = null;
+    }
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+    }
+    setIsActive(false);
+  }, []);
+  reactExports.useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+      cleanup();
+    };
+  }, [cleanup]);
+  const createMediaStream = reactExports.useCallback(async (facing) => {
+    try {
+      const constraints = {
+        video: {
+          facingMode: facing,
+          width: { ideal: width },
+          height: { ideal: height }
+        }
+      };
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      if (!isMountedRef.current) {
+        for (const track2 of stream.getTracks()) {
+          track2.stop();
+        }
+        return null;
+      }
+      return stream;
+    } catch (err) {
+      let errorType = "unknown";
+      let errorMessage = "Failed to access camera";
+      if (err.name === "NotAllowedError") {
+        errorType = "permission";
+        errorMessage = "Camera permission denied";
+      } else if (err.name === "NotFoundError") {
+        errorType = "not-found";
+        errorMessage = "No camera device found";
+      } else if (err.name === "NotSupportedError") {
+        errorType = "not-supported";
+        errorMessage = "Camera is not supported";
+      }
+      throw { type: errorType, message: errorMessage };
+    }
+  }, [width, height]);
+  const setupVideo = reactExports.useCallback(async (stream) => {
+    if (!videoRef.current)
+      return false;
+    const video = videoRef.current;
+    video.srcObject = stream;
+    return new Promise((resolve) => {
+      const onLoadedMetadata = () => {
+        video.removeEventListener("loadedmetadata", onLoadedMetadata);
+        video.removeEventListener("error", onError);
+        video.play().catch((err) => {
+          console.warn("Video autoplay failed:", err);
+        });
+        resolve(true);
+      };
+      const onError = () => {
+        video.removeEventListener("loadedmetadata", onLoadedMetadata);
+        video.removeEventListener("error", onError);
+        resolve(false);
+      };
+      video.addEventListener("loadedmetadata", onLoadedMetadata);
+      video.addEventListener("error", onError);
+      if (video.readyState >= 1) {
+        onLoadedMetadata();
+      }
+    });
+  }, []);
+  const startCamera = reactExports.useCallback(async () => {
+    if (isSupported === false || isLoading) {
+      return false;
+    }
+    setIsLoading(true);
+    setError(null);
+    try {
+      cleanup();
+      const stream = await createMediaStream(currentFacingMode);
+      if (!stream)
+        return false;
+      streamRef.current = stream;
+      const success = await setupVideo(stream);
+      if (success && isMountedRef.current) {
+        setIsActive(true);
+        return true;
+      }
+      cleanup();
+      return false;
+    } catch (err) {
+      if (isMountedRef.current) {
+        setError(err);
+      }
+      cleanup();
+      return false;
+    } finally {
+      if (isMountedRef.current) {
+        setIsLoading(false);
+      }
+    }
+  }, [
+    isSupported,
+    isLoading,
+    currentFacingMode,
+    cleanup,
+    createMediaStream,
+    setupVideo
+  ]);
+  const stopCamera = reactExports.useCallback(async () => {
+    if (isLoading)
+      return;
+    setIsLoading(true);
+    cleanup();
+    setError(null);
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    if (isMountedRef.current) {
+      setIsLoading(false);
+    }
+  }, [isLoading, cleanup]);
+  const switchCamera = reactExports.useCallback(async (newFacingMode) => {
+    if (isSupported === false || isLoading) {
+      return false;
+    }
+    const targetFacingMode = newFacingMode || (currentFacingMode === "user" ? "environment" : "user");
+    setIsLoading(true);
+    setError(null);
+    try {
+      cleanup();
+      setCurrentFacingMode(targetFacingMode);
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      const stream = await createMediaStream(targetFacingMode);
+      if (!stream)
+        return false;
+      streamRef.current = stream;
+      const success = await setupVideo(stream);
+      if (success && isMountedRef.current) {
+        setIsActive(true);
+        return true;
+      }
+      cleanup();
+      return false;
+    } catch (err) {
+      if (isMountedRef.current) {
+        setError(err);
+      }
+      cleanup();
+      return false;
+    } finally {
+      if (isMountedRef.current) {
+        setIsLoading(false);
+      }
+    }
+  }, [
+    isSupported,
+    isLoading,
+    currentFacingMode,
+    cleanup,
+    createMediaStream,
+    setupVideo
+  ]);
+  const retry = reactExports.useCallback(async () => {
+    if (isLoading)
+      return false;
+    setError(null);
+    await stopCamera();
+    await new Promise((resolve) => setTimeout(resolve, 200));
+    return startCamera();
+  }, [isLoading, stopCamera, startCamera]);
+  const capturePhoto = reactExports.useCallback(() => {
+    return new Promise((resolve) => {
+      if (!videoRef.current || !canvasRef.current || !isActive) {
+        resolve(null);
+        return;
+      }
+      const video = videoRef.current;
+      const canvas = canvasRef.current;
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        resolve(null);
+        return;
+      }
+      if (currentFacingMode === "user") {
+        ctx.scale(-1, 1);
+        ctx.drawImage(video, -canvas.width, 0);
+      } else {
+        ctx.drawImage(video, 0, 0);
+      }
+      canvas.toBlob((blob) => {
+        if (blob) {
+          const extension = format.split("/")[1];
+          const file = new File([blob], `photo_${Date.now()}.${extension}`, {
+            type: format
+          });
+          resolve(file);
+        } else {
+          resolve(null);
+        }
+      }, format, quality);
+    });
+  }, [isActive, format, quality, currentFacingMode]);
+  return {
+    // State
+    isActive,
+    isSupported,
+    error,
+    isLoading,
+    currentFacingMode,
+    // Actions
+    startCamera,
+    stopCamera,
+    capturePhoto,
+    switchCamera,
+    retry,
+    // Refs for components
+    videoRef,
+    canvasRef
+  };
+};
+function useCamera(config) {
+  return useCamera$1(config);
+}
+function useImageUpload() {
+  const [image, setImage] = reactExports.useState(null);
+  const [progress, setProgress] = reactExports.useState(null);
+  const [isUploading, setIsUploading] = reactExports.useState(false);
+  const [error, setError] = reactExports.useState(null);
+  const upload = reactExports.useCallback(
+    async (file) => {
+      if (!file) return null;
+      setIsUploading(true);
+      setError(null);
+      setProgress(0);
+      try {
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const blob = ExternalBlob$1.fromBytes(
+          bytes,
+          file.type,
+          file.name
+        ).withUploadProgress((pct) => setProgress(pct));
+        await blob.getBytes();
+        const uploaded = { blob, filename: file.name };
+        setImage(uploaded);
+        setProgress(100);
+        return uploaded;
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "อัปโหลดรูปไม่สำเร็จ";
+        setError(message);
+        return null;
+      } finally {
+        setIsUploading(false);
+      }
+    },
+    []
+  );
+  const reset = reactExports.useCallback(() => {
+    setImage(null);
+    setProgress(null);
+    setError(null);
+    setIsUploading(false);
+  }, []);
+  return { image, progress, isUploading, error, upload, reset };
+}
+function formatToday() {
+  return (/* @__PURE__ */ new Date()).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric"
+  });
+}
+function AddActivityScreen({
+  activeView,
+  onNavigate,
+  pendingPhoto,
+  onConsumePhoto
+}) {
+  const [title, setTitle] = reactExports.useState("");
+  const [hours, setHours] = reactExports.useState("");
+  const [imageError, setImageError] = reactExports.useState(null);
+  const [cameraOpen, setCameraOpen] = reactExports.useState(false);
+  const fileInputRef = reactExports.useRef(null);
+  const { mutate, isPending, isSuccess, reset } = useAddActivity();
+  const {
+    image,
+    progress,
+    isUploading,
+    error: uploadError,
+    upload,
+    reset: resetImage
+  } = useImageUpload();
+  const effectiveImage = image ?? pendingPhoto;
+  const {
+    isActive,
+    error: cameraError,
+    isLoading: cameraLoading,
+    startCamera,
+    stopCamera,
+    capturePhoto,
+    videoRef,
+    canvasRef
+  } = useCamera({ facingMode: "environment", format: "image/jpeg" });
+  reactExports.useEffect(() => {
+    return () => {
+      stopCamera();
+    };
+  }, [stopCamera]);
+  const handleOpenCamera = async () => {
+    setImageError(null);
+    setCameraOpen(true);
+    await startCamera();
+  };
+  const handleCloseCamera = () => {
+    stopCamera();
+    setCameraOpen(false);
+  };
+  const handleCapture = async () => {
+    const file = await capturePhoto();
+    if (file) {
+      const uploaded = await upload(file);
+      if (uploaded) {
+        setImageError(null);
+      }
+      handleCloseCamera();
+    }
+  };
+  const handlePickFromGallery = () => {
+    var _a2;
+    setImageError(null);
+    (_a2 = fileInputRef.current) == null ? void 0 : _a2.click();
+  };
+  const handleFileChange = async (event) => {
+    var _a2;
+    const file = (_a2 = event.target.files) == null ? void 0 : _a2[0];
+    if (file) {
+      const uploaded = await upload(file);
+      if (uploaded) {
+        setImageError(null);
+      }
+    }
+    event.target.value = "";
+  };
+  const handleRemoveImage = () => {
+    resetImage();
+    onConsumePhoto();
+    setImageError(null);
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!title.trim() || !hours.trim()) return;
+    if (!effectiveImage) {
+      setImageError("กรุณาเพิ่มรูปหลักฐานก่อนบันทึกกิจกรรม");
+      return;
+    }
+    mutate({
+      title: title.trim(),
+      hours: BigInt(Math.round(Number(hours))),
+      date: formatToday(),
+      image: effectiveImage.blob,
+      filename: effectiveImage.filename
+    });
+    onConsumePhoto();
+  };
+  const handleAddAnother = () => {
+    reset();
+    resetImage();
+    onConsumePhoto();
+    setTitle("");
+    setHours("");
+    setImageError(null);
+  };
+  const showImageError = imageError || uploadError;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "Add Activity" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Log a new volunteer session" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "mt-6 flex flex-1 flex-col", children: isSuccess ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        "data-ocid": "add_activity.success",
+        className: "flex flex-1 flex-col items-center justify-center gap-4 text-center",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            CircleCheck,
+            {
+              className: "h-16 w-16 text-success",
+              strokeWidth: 1.5,
+              "aria-hidden": "true"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl font-bold text-foreground", children: "Activity logged!" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "max-w-xs text-sm text-muted-foreground", children: "Your volunteer hours have been recorded. Keep up the great work!" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              "data-ocid": "add_activity.add_another_button",
+              onClick: handleAddAnother,
+              className: "mt-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-subtle transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              children: "Add another"
+            }
+          )
+        ]
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "form",
+      {
+        "data-ocid": "add_activity.form",
+        onSubmit: handleSubmit,
+        className: "flex flex-1 flex-col gap-5",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "flex flex-col gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-foreground", children: "Activity name" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                "data-ocid": "add_activity.input",
+                type: "text",
+                value: title,
+                onChange: (e) => setTitle(e.target.value),
+                placeholder: "e.g. Food Bank Sorting",
+                className: "rounded-2xl border border-input bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "flex flex-col gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-foreground", children: "Hours" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                "data-ocid": "add_activity.hours_input",
+                type: "number",
+                min: "0",
+                step: "1",
+                value: hours,
+                onChange: (e) => setHours(e.target.value),
+                placeholder: "e.g. 2",
+                className: "rounded-2xl border border-input bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-semibold text-foreground", children: [
+              "Photo evidence ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-destructive", children: "*" })
+            ] }),
+            effectiveImage ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "div",
               {
-                className: "flex h-14 w-14 items-center justify-center rounded-full bg-primary shadow-subtle",
-                "aria-hidden": "true",
-                children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                  "svg",
-                  {
-                    viewBox: "0 0 24 24",
-                    className: "h-8 w-8 text-primary-foreground",
-                    fill: "none",
-                    "aria-hidden": "true",
-                    stroke: "currentColor",
-                    strokeWidth: 2,
-                    strokeLinecap: "round",
-                    strokeLinejoin: "round",
-                    children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "12", cy: "8", r: "4" }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M4 21c0-4 3.5-6 8-6s8 2 8 6" })
-                    ]
-                  }
-                )
+                "data-ocid": "add_activity.photo_preview",
+                className: "photo-frame",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "img",
+                    {
+                      src: effectiveImage.blob.getDirectURL(),
+                      alt: "หลักฐานการทำกิจกรรม"
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "button",
+                    {
+                      type: "button",
+                      "data-ocid": "add_activity.remove_photo_button",
+                      onClick: handleRemoveImage,
+                      "aria-label": "ลบรูปหลักฐาน",
+                      className: "absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white shadow-subtle transition-smooth hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-4 w-4", "aria-hidden": "true" })
+                    }
+                  )
+                ]
+              }
+            ) : cameraOpen ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "div",
+              {
+                "data-ocid": "add_activity.camera",
+                className: "viewfinder flex flex-col",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "video",
+                    {
+                      ref: videoRef,
+                      playsInline: true,
+                      muted: true,
+                      className: "h-full w-full object-cover"
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("canvas", { ref: canvasRef, className: "hidden" }),
+                  cameraError && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/60 p-4 text-center", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white", children: cameraError.message }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                      "button",
+                      {
+                        type: "button",
+                        "data-ocid": "add_activity.camera_retry_button",
+                        onClick: startCamera,
+                        className: "flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                        children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(RefreshCw, { className: "h-4 w-4", "aria-hidden": "true" }),
+                          "ลองอีกครั้ง"
+                        ]
+                      }
+                    )
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-x-0 bottom-0 flex items-center justify-center gap-3 bg-gradient-to-t from-black/70 to-transparent p-4", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        type: "button",
+                        "data-ocid": "add_activity.capture_button",
+                        onClick: handleCapture,
+                        disabled: !isActive || cameraLoading,
+                        "aria-label": "ถ่ายรูป",
+                        className: "flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-white/20 transition-smooth hover:bg-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "h-10 w-10 rounded-full bg-white" })
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        type: "button",
+                        "data-ocid": "add_activity.camera_close_button",
+                        onClick: handleCloseCamera,
+                        "aria-label": "ปิดกล้อง",
+                        className: "absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white transition-smooth hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-4 w-4", "aria-hidden": "true" })
+                      }
+                    )
+                  ] })
+                ]
+              }
+            ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                type: "button",
+                "data-ocid": "add_activity.photo_drop",
+                onClick: handleOpenCamera,
+                className: "photo-drop w-full flex-col gap-3 text-center",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    ImagePlus,
+                    {
+                      className: "h-9 w-9 text-primary/60",
+                      strokeWidth: 1.5,
+                      "aria-hidden": "true"
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-foreground", children: "เพิ่มรูปหลักฐาน" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: "ถ่ายด้วยกล้องหรือเลือกจากคลังมือถือ" })
+                ]
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-lg font-semibold leading-tight text-foreground", children: "Student" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Let's make a difference!" })
+            !effectiveImage && !cameraOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  type: "button",
+                  "data-ocid": "add_activity.gallery_button",
+                  onClick: handlePickFromGallery,
+                  className: "flex flex-1 items-center justify-center gap-2 rounded-full border border-input bg-card px-4 py-2.5 text-sm font-semibold text-foreground transition-smooth hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(ImagePlus, { className: "h-4 w-4", "aria-hidden": "true" }),
+                    "เลือกจากคลัง"
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  type: "button",
+                  "data-ocid": "add_activity.camera_button",
+                  onClick: handleOpenCamera,
+                  className: "flex flex-1 items-center justify-center gap-2 rounded-full border border-input bg-card px-4 py-2.5 text-sm font-semibold text-foreground transition-smooth hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Camera, { className: "h-4 w-4", "aria-hidden": "true" }),
+                    "ถ่ายด้วยกล้อง"
+                  ]
+                }
+              )
+            ] }),
+            isUploading && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "div",
+              {
+                "data-ocid": "add_activity.upload_progress",
+                className: "flex items-center gap-3",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1.5 flex-1 overflow-hidden rounded-full bg-muted", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "div",
+                    {
+                      className: "h-full rounded-full bg-primary transition-all",
+                      style: { width: `${progress ?? 0}%` }
+                    }
+                  ) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs text-muted-foreground", children: [
+                    progress ?? 0,
+                    "%"
+                  ] })
+                ]
+              }
+            ),
+            showImageError && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "p",
+              {
+                "data-ocid": "add_activity.photo_error",
+                role: "alert",
+                className: "text-sm font-medium text-destructive",
+                children: showImageError
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              ref: fileInputRef,
+              type: "file",
+              accept: "image/*",
+              "data-ocid": "add_activity.gallery_input",
+              onChange: handleFileChange,
+              className: "hidden"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "submit",
+              "data-ocid": "add_activity.submit_button",
+              disabled: isPending || isUploading,
+              className: "mt-auto rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-subtle transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60",
+              children: isPending ? "Logging…" : "Log activity"
+            }
+          )
+        ]
+      }
+    ) })
+  ] });
+}
+function HistoryScreen({ activeView, onNavigate }) {
+  const { data: activities2 = [], isLoading } = useActivities();
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "History" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Your past volunteer sessions" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "mt-6 flex flex-1 flex-col gap-4", children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        "data-ocid": "history.loading_state",
+        className: "flex flex-col gap-4",
+        "aria-busy": "true",
+        "aria-label": "Loading history",
+        children: [0, 1, 2].map((i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "animate-pulse rounded-[24px] bg-card p-4 shadow-subtle",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-40 w-full rounded-[16px] bg-muted" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-3 h-4 w-2/3 rounded bg-muted" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 h-3 w-1/3 rounded bg-muted" })
+            ]
+          },
+          i
+        ))
+      }
+    ) : activities2.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        "data-ocid": "history.empty_state",
+        className: "flex flex-col items-center justify-center rounded-[24px] bg-card p-8 text-center shadow-subtle",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex h-14 w-14 items-center justify-center rounded-full bg-secondary", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "svg",
+            {
+              viewBox: "0 0 24 24",
+              className: "h-7 w-7 text-primary",
+              fill: "none",
+              "aria-hidden": "true",
+              stroke: "currentColor",
+              strokeWidth: 2,
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M3 3v18h18" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M7 15l4-4 3 3 5-6" })
+              ]
+            }
+          ) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-4 font-display text-lg font-semibold text-foreground", children: "No activities yet" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Your saved volunteer sessions with photos will appear here." })
+        ]
+      }
+    ) : activities2.map((activity, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        "data-ocid": `history.item.${index2 + 1}`,
+        className: "overflow-hidden rounded-[24px] bg-card shadow-subtle",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "photo-frame", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "img",
+            {
+              src: activity.image.getDirectURL(),
+              alt: activity.filename,
+              loading: "lazy"
+            }
+          ) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-3 p-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "truncate font-display text-base font-semibold text-foreground", children: activity.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-0.5 text-sm text-muted-foreground", children: activity.date })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "ml-3 shrink-0 rounded-full bg-secondary px-3 py-1 text-sm font-semibold text-primary", children: [
+              Number(activity.hours),
+              " hrs"
             ] })
           ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "mt-6 flex flex-1 flex-col gap-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(StatusCard, {}),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(ActionGrid, {})
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BottomNav, {}) })
-      ]
-    }
+        ]
+      },
+      activity.id.toString()
+    )) })
+  ] });
+}
+function LogbookScreen({ activeView, onNavigate }) {
+  const { data: activities2 = [], isLoading } = useActivities();
+  const totalHours = activities2.reduce(
+    (sum, activity) => sum + Number(activity.hours),
+    0
   );
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "My Logbook" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "All your recorded volunteer hours" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "mt-6 flex flex-1 flex-col gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between rounded-[24px] bg-primary p-5 text-primary-foreground shadow-elevated", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium text-primary-foreground/85", children: "Total logged" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-display text-4xl font-bold leading-none tracking-tight", children: [
+            totalHours,
+            " hrs"
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          BookOpen,
+          {
+            className: "h-10 w-10 text-primary-foreground/90",
+            strokeWidth: 1.8,
+            "aria-hidden": "true"
+          }
+        )
+      ] }),
+      isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          "data-ocid": "logbook.loading_state",
+          className: "flex flex-col gap-4",
+          children: [0, 1, 2].map((i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "h-[76px] animate-pulse rounded-[24px] bg-muted"
+            },
+            i
+          ))
+        }
+      ) : activities2.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          "data-ocid": "logbook.empty_state",
+          className: "flex flex-col items-center justify-center gap-3 rounded-[24px] bg-card p-8 text-center shadow-subtle",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              BookOpen,
+              {
+                className: "h-10 w-10 text-muted-foreground",
+                strokeWidth: 1.8,
+                "aria-hidden": "true"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-lg font-bold text-foreground", children: "No activities yet" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "max-w-xs text-sm text-muted-foreground", children: "Log your first volunteer session to start building your logbook." })
+          ]
+        }
+      ) : activities2.map((activity, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          "data-ocid": `logbook.item.${index2 + 1}`,
+          className: "flex items-center justify-between rounded-[24px] bg-card p-4 shadow-subtle",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "truncate font-display text-base font-semibold text-foreground", children: activity.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-0.5 text-sm text-muted-foreground", children: [
+                activity.date,
+                " · ",
+                Number(activity.hours),
+                " hrs"
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-3 shrink-0 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-success", children: "Logged" })
+          ]
+        },
+        activity.id.toString()
+      ))
+    ] })
+  ] });
+}
+const menu = [
+  { label: "Profile", icon: User, view: "profile" },
+  { label: "Notifications", icon: Bell, view: "notifications" }
+];
+function MoreScreen({ activeView, onNavigate }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "More" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Settings and account options" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "mt-6 flex flex-1 flex-col gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden rounded-[24px] bg-card shadow-subtle", children: menu.map((item, index2) => {
+        const Icon2 = item.icon;
+        return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
+          {
+            "data-ocid": `more.item.${index2 + 1}`,
+            type: "button",
+            onClick: () => onNavigate(item.view),
+            className: "flex w-full items-center gap-3 border-b border-border px-5 py-4 text-left transition-smooth last:border-b-0 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-primary", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                Icon2,
+                {
+                  className: "h-5 w-5",
+                  strokeWidth: 2,
+                  "aria-hidden": "true"
+                }
+              ) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-base font-semibold text-foreground", children: item.label })
+            ]
+          },
+          item.label
+        );
+      }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 rounded-[24px] bg-card p-5 shadow-subtle", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-primary", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Info, { className: "h-5 w-5", strokeWidth: 2, "aria-hidden": "true" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-base font-semibold text-foreground", children: "About" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Volunteer Hours v1.0 · Built with caffeine.ai" })
+        ] })
+      ] })
+    ] })
+  ] });
+}
+const notifications = [
+  {
+    title: "New activity available",
+    body: "River Trail Restoration is now open for sign-up.",
+    time: "2h ago"
+  },
+  {
+    title: "Hours approved",
+    body: "Your 3 hours for Community Garden Cleanup were approved.",
+    time: "1d ago"
+  },
+  {
+    title: "Reminder",
+    body: "You have a session at Hope Pantry this Sunday.",
+    time: "2d ago"
+  },
+  {
+    title: "Welcome!",
+    body: "Thanks for joining Volunteer Hours. Let's make a difference!",
+    time: "1w ago"
+  }
+];
+function NotificationsScreen({ activeView, onNavigate }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "Notifications" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Updates about your volunteer journey" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "mt-6 flex flex-1 flex-col gap-4", children: notifications.map((notification, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        "data-ocid": `notifications.item.${index2 + 1}`,
+        className: "flex items-start gap-3 rounded-[24px] bg-card p-4 shadow-subtle",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Bell, { className: "h-5 w-5", strokeWidth: 2, "aria-hidden": "true" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "truncate font-display text-base font-semibold text-foreground", children: notification.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "shrink-0 text-xs text-muted-foreground", children: notification.time })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-0.5 text-sm text-muted-foreground", children: notification.body })
+          ] })
+        ]
+      },
+      notification.title
+    )) })
+  ] });
+}
+const highlights = [
+  { label: "Total Hours", value: "24 hrs" },
+  { label: "Sessions", value: "12" },
+  { label: "Organizations", value: "6" }
+];
+function ProfileScreen({ activeView, onNavigate }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "Profile" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Your volunteer identity" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "mt-6 flex flex-1 flex-col gap-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center gap-3 rounded-[28px] bg-card p-6 shadow-subtle", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "flex h-20 w-20 items-center justify-center rounded-full bg-primary shadow-subtle",
+            "aria-hidden": "true",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "svg",
+              {
+                viewBox: "0 0 24 24",
+                className: "h-11 w-11 text-primary-foreground",
+                fill: "none",
+                "aria-hidden": "true",
+                stroke: "currentColor",
+                strokeWidth: 2,
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "12", cy: "8", r: "4" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M4 21c0-4 3.5-6 8-6s8 2 8 6" })
+                ]
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl font-bold text-foreground", children: "Student" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Making a difference since 2026" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-grid", children: highlights.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          "data-ocid": `profile.stat.${index2 + 1}`,
+          className: "rounded-[24px] bg-card p-5 text-center shadow-subtle",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-3xl font-bold leading-none tracking-tight text-primary", children: item.value }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm font-medium text-muted-foreground", children: item.label })
+          ]
+        },
+        item.label
+      )) })
+    ] })
+  ] });
+}
+function ScanScreen({ activeView, onNavigate, onPhotoReady }) {
+  const isMobile = useIsMobile();
+  const {
+    isActive,
+    isSupported,
+    error: cameraError,
+    isLoading,
+    startCamera,
+    stopCamera,
+    capturePhoto,
+    switchCamera,
+    retry,
+    videoRef,
+    canvasRef
+  } = useCamera({ facingMode: "environment" });
+  const { progress, error: uploadError, upload, reset } = useImageUpload();
+  const [stage, setStage] = reactExports.useState("idle");
+  const [previewUrl, setPreviewUrl] = reactExports.useState(null);
+  const fileInputRef = reactExports.useRef(null);
+  reactExports.useEffect(() => {
+    return () => {
+      stopCamera();
+    };
+  }, [stopCamera]);
+  const openCamera = async () => {
+    setStage("camera");
+    await startCamera();
+  };
+  const handleCapture = async () => {
+    const file = await capturePhoto();
+    if (file) {
+      setPreviewUrl(URL.createObjectURL(file));
+      setStage("preview");
+      await stopCamera();
+    }
+  };
+  const handlePickFromGallery = (event) => {
+    var _a2;
+    const file = (_a2 = event.target.files) == null ? void 0 : _a2[0];
+    if (file) {
+      setPreviewUrl(URL.createObjectURL(file));
+      setStage("preview");
+    }
+    event.target.value = "";
+  };
+  const handleSave = async () => {
+    if (!previewUrl) return;
+    const blob = await (await fetch(previewUrl)).blob();
+    const file = new File([blob], `evidence-${Date.now()}.jpg`, {
+      type: blob.type || "image/jpeg"
+    });
+    setStage("saving");
+    const uploaded = await upload(file);
+    if (uploaded) {
+      onPhotoReady(uploaded);
+      setStage("success");
+    } else {
+      setStage("preview");
+    }
+  };
+  const handleRetake = () => {
+    reset();
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    setPreviewUrl(null);
+    setStage("idle");
+  };
+  const handleProceedToActivity = () => {
+    onNavigate("add-activity");
+  };
+  const renderCameraError = () => {
+    if (!cameraError) return null;
+    const message = cameraError.type === "permission" ? "Camera permission was denied. Allow camera access to capture evidence." : cameraError.type === "not-supported" ? "Camera is not supported in this browser." : cameraError.message || "Could not start the camera.";
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        "data-ocid": "scan.camera_error",
+        className: "flex flex-col items-center gap-3 rounded-2xl border border-destructive/40 bg-destructive/5 p-5 text-center",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground", children: message }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              type: "button",
+              "data-ocid": "scan.retry_button",
+              onClick: retry,
+              className: "inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-subtle transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(RefreshCw, { className: "h-4 w-4", "aria-hidden": "true" }),
+                "Try again"
+              ]
+            }
+          )
+        ]
+      }
+    );
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "Scan" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Capture photo evidence of your volunteer session" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "mt-6 flex flex-1 flex-col", children: stage === "success" ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        "data-ocid": "scan.success",
+        className: "flex flex-1 flex-col items-center justify-center gap-4 text-center",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            CircleCheck,
+            {
+              className: "h-16 w-16 text-success",
+              strokeWidth: 1.5,
+              "aria-hidden": "true"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl font-bold text-foreground", children: "Photo saved!" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "max-w-xs text-sm text-muted-foreground", children: "Your evidence photo has been uploaded to your account cloud." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-2 flex w-full max-w-xs flex-col gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                "data-ocid": "scan.add_activity_button",
+                onClick: handleProceedToActivity,
+                className: "rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-subtle transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                children: "Add activity with this photo"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                "data-ocid": "scan.capture_another_button",
+                onClick: handleRetake,
+                className: "rounded-full border border-input bg-card px-6 py-3 text-sm font-semibold text-foreground transition-smooth hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                children: "Capture another"
+              }
+            )
+          ] })
+        ]
+      }
+    ) : stage === "camera" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-1 flex-col gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          "data-ocid": "scan.viewfinder",
+          className: "viewfinder w-full max-w-[340px] self-center",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "video",
+              {
+                ref: videoRef,
+                playsInline: true,
+                muted: true,
+                className: "absolute inset-0 h-full w-full object-cover"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "scan-grid pointer-events-none absolute inset-0" }),
+            isLoading && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white/80", children: "Starting camera…" }) })
+          ]
+        }
+      ),
+      renderCameraError(),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
+        isMobile && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            "data-ocid": "scan.switch_camera_button",
+            onClick: () => switchCamera(),
+            disabled: !isActive || isLoading,
+            "aria-label": "Switch camera",
+            className: "inline-flex h-12 w-12 items-center justify-center rounded-full border border-input bg-card text-foreground shadow-subtle transition-smooth hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(SwitchCamera, { className: "h-5 w-5", "aria-hidden": "true" })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            "data-ocid": "scan.capture_button",
+            onClick: handleCapture,
+            disabled: !isActive || isLoading,
+            "aria-label": "Take photo",
+            className: "inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-subtle transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Camera, { className: "h-7 w-7", "aria-hidden": "true" })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            "data-ocid": "scan.cancel_camera_button",
+            onClick: () => {
+              stopCamera();
+              setStage("idle");
+            },
+            "aria-label": "Close camera",
+            className: "inline-flex h-12 w-12 items-center justify-center rounded-full border border-input bg-card text-foreground shadow-subtle transition-smooth hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-5 w-5", "aria-hidden": "true" })
+          }
+        )
+      ] })
+    ] }) : stage === "preview" || stage === "saving" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-1 flex-col gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          "data-ocid": "scan.preview",
+          className: "photo-frame w-full max-w-[340px] self-center",
+          children: previewUrl && /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: previewUrl, alt: "Captured evidence preview" })
+        }
+      ),
+      uploadError && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          "data-ocid": "scan.upload_error",
+          className: "rounded-2xl border border-destructive/40 bg-destructive/5 p-4 text-center text-sm text-foreground",
+          children: uploadError
+        }
+      ),
+      stage === "saving" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-sm text-muted-foreground", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CloudUpload, { className: "h-4 w-4", "aria-hidden": "true" }),
+          "Uploading to your cloud…"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-2 w-full max-w-[340px] overflow-hidden rounded-full bg-muted", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "h-full rounded-full bg-primary transition-all",
+            style: { width: `${progress ?? 0}%` }
+          }
+        ) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-auto flex flex-col gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            "data-ocid": "scan.save_button",
+            onClick: handleSave,
+            disabled: stage === "saving",
+            className: "rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-subtle transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60",
+            children: stage === "saving" ? "Saving…" : "Save photo"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            "data-ocid": "scan.retake_button",
+            onClick: handleRetake,
+            disabled: stage === "saving",
+            className: "rounded-full border border-input bg-card px-6 py-3 text-sm font-semibold text-foreground transition-smooth hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60",
+            children: "Retake"
+          }
+        )
+      ] })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-1 flex-col items-center justify-center gap-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          "data-ocid": "scan.empty_state",
+          className: "photo-drop w-full max-w-[340px]",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center gap-2 text-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              ScanLine,
+              {
+                className: "h-12 w-12 text-primary/50",
+                strokeWidth: 1.5,
+                "aria-hidden": "true"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "px-6 text-sm text-muted-foreground", children: "Capture or upload a photo as evidence of your volunteer session." })
+          ] })
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex w-full max-w-[340px] flex-col gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
+          {
+            type: "button",
+            "data-ocid": "scan.open_camera_button",
+            onClick: openCamera,
+            disabled: isSupported === false,
+            className: "inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-subtle transition-smooth hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Camera, { className: "h-4 w-4", "aria-hidden": "true" }),
+              "Open camera"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
+          {
+            type: "button",
+            "data-ocid": "scan.gallery_button",
+            onClick: () => {
+              var _a2;
+              return (_a2 = fileInputRef.current) == null ? void 0 : _a2.click();
+            },
+            className: "inline-flex items-center justify-center gap-2 rounded-full border border-input bg-card px-6 py-3 text-sm font-semibold text-foreground transition-smooth hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ImagePlus, { className: "h-4 w-4", "aria-hidden": "true" }),
+              "Choose from gallery"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            ref: fileInputRef,
+            type: "file",
+            accept: "image/*",
+            "data-ocid": "scan.gallery_input",
+            onChange: handlePickFromGallery,
+            className: "hidden"
+          }
+        )
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("canvas", { ref: canvasRef, className: "hidden" })
+  ] });
+}
+const stats = [
+  { label: "Total Hours", value: "24", unit: "hrs" },
+  { label: "Sessions", value: "12", unit: "events" },
+  { label: "This Month", value: "9", unit: "hrs" },
+  { label: "Streak", value: "4", unit: "weeks" }
+];
+const weekly = [
+  { day: "M", hours: 2 },
+  { day: "T", hours: 0 },
+  { day: "W", hours: 3 },
+  { day: "T", hours: 1 },
+  { day: "F", hours: 2 },
+  { day: "S", hours: 4 },
+  { day: "S", hours: 0 }
+];
+function StatisticsScreen({ activeView, onNavigate }) {
+  const max = Math.max(...weekly.map((w2) => w2.hours), 1);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ScreenShell, { activeView, onNavigate, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[34px] font-bold leading-tight tracking-tight text-foreground", children: "Statistics" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm text-muted-foreground", children: "Your impact at a glance" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "mt-6 flex flex-1 flex-col gap-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "stat-grid", children: stats.map((stat, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          "data-ocid": `statistics.card.${index2 + 1}`,
+          className: "rounded-[24px] bg-card p-5 shadow-subtle",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium text-muted-foreground", children: stat.label }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-1 font-display text-3xl font-bold leading-none tracking-tight text-foreground", children: [
+              stat.value,
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-1 text-base font-medium text-muted-foreground", children: stat.unit })
+            ] })
+          ]
+        },
+        stat.label
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded-[24px] bg-card p-5 shadow-subtle", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-base font-semibold text-foreground", children: "This week" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 flex h-32 items-end justify-between gap-2", children: weekly.map((w2, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            "data-ocid": `statistics.bar.${index2 + 1}`,
+            className: "flex flex-1 flex-col items-center gap-2",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "w-full rounded-t-lg bg-primary/80",
+                  style: {
+                    height: `${w2.hours / max * 100}%`,
+                    minHeight: w2.hours > 0 ? "8px" : "4px",
+                    opacity: w2.hours > 0 ? 1 : 0.25
+                  }
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-medium text-muted-foreground", children: w2.day })
+            ]
+          },
+          `${w2.day}-${index2}`
+        )) })
+      ] })
+    ] })
+  ] });
 }
 function App() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "texture-beige min-h-screen bg-background", children: /* @__PURE__ */ jsxRuntimeExports.jsx(DashboardScreen, {}) });
+  const [view, setView] = reactExports.useState("home");
+  const [pendingPhoto, setPendingPhoto] = reactExports.useState(null);
+  const navigate = (next) => setView(next);
+  const screen = (() => {
+    switch (view) {
+      case "history":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(HistoryScreen, { activeView: view, onNavigate: navigate });
+      case "scan":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ScanScreen,
+          {
+            activeView: view,
+            onNavigate: navigate,
+            onPhotoReady: setPendingPhoto
+          }
+        );
+      case "more":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(MoreScreen, { activeView: view, onNavigate: navigate });
+      case "add-activity":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
+          AddActivityScreen,
+          {
+            activeView: view,
+            onNavigate: navigate,
+            pendingPhoto,
+            onConsumePhoto: () => setPendingPhoto(null)
+          }
+        );
+      case "logbook":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(LogbookScreen, { activeView: view, onNavigate: navigate });
+      case "statistics":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(StatisticsScreen, { activeView: view, onNavigate: navigate });
+      case "activities":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitiesScreen, { activeView: view, onNavigate: navigate });
+      case "notifications":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(NotificationsScreen, { activeView: view, onNavigate: navigate });
+      case "profile":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileScreen, { activeView: view, onNavigate: navigate });
+      default:
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(DashboardScreen, { activeView: view, onNavigate: navigate });
+    }
+  })();
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Layout, { activeView: view, onNavigate: navigate, children: screen });
 }
 BigInt.prototype.toJSON = function() {
   return this.toString();
